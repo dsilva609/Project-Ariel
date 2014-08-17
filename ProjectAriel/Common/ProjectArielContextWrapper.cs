@@ -8,7 +8,7 @@ using System.Web;
 
 namespace ProjectAriel.Common
 {
-	public class ProjectArielContextWrapper
+	public class ProjectArielContextWrapper : IDisposable
 	{
 		public ProjectArielContext Database { private get; set; }
 
