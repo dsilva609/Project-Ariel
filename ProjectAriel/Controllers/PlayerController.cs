@@ -11,18 +11,18 @@ using ProjectAriel.Models;
 
 namespace ProjectAriel.Controllers
 {
-    public class PlayerController : Controller
+	public partial class PlayerController : Controller
     {
         private ProjectArielContext db = new ProjectArielContext();
 
         // GET: Player
-        public ActionResult Index()
+		public virtual ActionResult Index()
         {
             return View(db.Players.ToList());
         }
 
         // GET: Player/Details/5
-        public ActionResult Details(int? id)
+		public virtual ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -37,7 +37,7 @@ namespace ProjectAriel.Controllers
         }
 
         // GET: Player/Create
-        public ActionResult Create()
+		public virtual ActionResult Create()
         {
             return View();
         }
@@ -47,7 +47,7 @@ namespace ProjectAriel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,IsActive")] Player player)
+		public virtual ActionResult Create([Bind(Include = "ID,Name,IsActive")] Player player)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace ProjectAriel.Controllers
         }
 
         // GET: Player/Edit/5
-        public ActionResult Edit(int? id)
+		public virtual ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -79,7 +79,7 @@ namespace ProjectAriel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,IsActive")] Player player)
+		public virtual ActionResult Edit([Bind(Include = "ID,Name,IsActive")] Player player)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace ProjectAriel.Controllers
         }
 
         // GET: Player/Delete/5
-        public ActionResult Delete(int? id)
+		public virtual ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -108,7 +108,7 @@ namespace ProjectAriel.Controllers
         // POST: Player/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+		public virtual ActionResult DeleteConfirmed(int id)
         {
             Player player = db.Players.Find(id);
             db.Players.Remove(player);
