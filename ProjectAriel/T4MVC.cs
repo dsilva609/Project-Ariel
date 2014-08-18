@@ -25,6 +25,7 @@ using T4MVC;
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static partial class MVC
 {
+    public static ProjectAriel.Controllers.ElmahController Elmah = new ProjectAriel.Controllers.T4MVC_ElmahController();
     public static ProjectAriel.Controllers.HomeController Home = new ProjectAriel.Controllers.T4MVC_HomeController();
     public static ProjectAriel.Controllers.PlayerController Player = new ProjectAriel.Controllers.T4MVC_PlayerController();
     public static T4MVC.AccountController Account = new T4MVC.AccountController();
