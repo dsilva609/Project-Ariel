@@ -26,9 +26,6 @@ namespace ProjectAriel.Controllers
     public partial class PlayerController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public PlayerController() { }
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected PlayerController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
