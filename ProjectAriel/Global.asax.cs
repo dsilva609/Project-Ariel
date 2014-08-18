@@ -9,17 +9,17 @@ using System.Web.Routing;
 
 namespace ProjectAriel
 {
-    public class MvcApplication : System.Web.HttpApplication
-    {
-        protected void Application_Start()
-        {
-            AreaRegistration.RegisterAllAreas();
-            RegisterGlobalFilters(GlobalFilters.Filters);
-            RegisterRoutes(RouteTable.Routes);
-            RegisterBundles(BundleTable.Bundles);
+	public class MvcApplication : System.Web.HttpApplication
+	{
+		protected void Application_Start()
+		{
+			AreaRegistration.RegisterAllAreas();
+			RegisterGlobalFilters(GlobalFilters.Filters);
+			RegisterRoutes(RouteTable.Routes);
+			RegisterBundles(BundleTable.Bundles);
 
 			AutofacConfiguration.Configure();
-        }
+		}
 
 		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
@@ -34,6 +34,12 @@ namespace ProjectAriel
 				name: "Default",
 				url: "{controller}/{action}/{id}",
 				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+			);
+
+			routes.MapRoute(
+				name: "Admin_elmah",
+				url: "Admin/elmah/{type}",
+				defaults: new { action = "Index", controller = "Elmah", type = UrlParameter.Optional }
 			);
 		}
 
@@ -63,5 +69,5 @@ namespace ProjectAriel
 			// visit http://go.microsoft.com/fwlink/?LinkId=301862
 			BundleTable.EnableOptimizations = true;
 		}
-    }
+	}
 }
