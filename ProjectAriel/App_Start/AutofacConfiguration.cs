@@ -23,10 +23,10 @@ namespace ProjectAriel.App_Start
 
 			container.RegisterType<ProjectArielContext>();
 			container.RegisterType<ProjectArielContextWrapper>().AsSelf().PropertiesAutowired();
-			container.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-				.InNamespaceOf<Repository>()
-				.AsSelf()
-				.PropertiesAutowired();
+			//container.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+			//	.InNamespaceOf<Repository>()
+			//	.AsSelf()
+			//	.PropertiesAutowired();
 
 			DependencyResolver.SetResolver(new AutofacDependencyResolver(container.Build()));
 		}

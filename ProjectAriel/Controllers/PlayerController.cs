@@ -8,17 +8,33 @@ using System.Web;
 using System.Web.Mvc;
 using ProjectAriel.DAL;
 using ProjectAriel.Models;
+using ProjectAriel.Repositories;
+using ProjectAriel.Services;
 
 namespace ProjectAriel.Controllers
 {
 	public partial class PlayerController : Controller
-    {
+    {//TODO delete this
         private ProjectArielContext db = new ProjectArielContext();
+
+		private IUnitOfWork _Uow;
+		private PlayerService _Service;
+
+		public PlayerController()
+		{
+			this._Uow = new UnitOfWork<ProjectArielContext>();
+			this._Service = new PlayerService(this._Uow);
+		}
+		//IUnitOfWork uow = new UnitOfWork<ProjectArielContext>();
+		//PlayerService service = new PlayerService(uow);
 
         // GET: Player
 		public virtual ActionResult Index()
         {
-            return View(db.Players.ToList());
+			
+			//return View(db.Players.ToList());
+
+			return View(this._Service.GetAll());
         }
 
         // GET: Player/Details/5
@@ -51,8 +67,11 @@ namespace ProjectAriel.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Players.Add(player);
-                db.SaveChanges();
+				this._Service.Add(player);
+				
+
+				//db.Players.Add(player);
+				//db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
