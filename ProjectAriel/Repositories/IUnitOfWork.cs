@@ -8,7 +8,7 @@ namespace ProjectAriel.Repositories
 {
 	public interface IUnitOfWork : IDisposable
 	{
-		IRepository<TEntity> GetRepository<TEntity>() where TEntity: class;
+		IRepository<TContext> GetRepository<TContext>() where TContext: class;
 		void SaveChanges();
 	}
 }

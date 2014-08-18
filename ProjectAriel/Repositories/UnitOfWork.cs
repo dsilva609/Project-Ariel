@@ -32,13 +32,13 @@ namespace ProjectAriel.Repositories
 			}
 		}
 
-		public IRepository<TEntity> GetRepository<TEntity>() where TEntity : class
+		public IRepository<TContext> GetRepository<TContext>() where TContext : class
 		{
-			if (this._Repositories.Keys.Contains(typeof(TEntity)))
-				return this._Repositories[typeof(TEntity)] as IRepository<TEntity>;
+			if (this._Repositories.Keys.Contains(typeof(TContext)))
+				return this._Repositories[typeof(TContext)] as IRepository<TContext>;
 
-			var repository = new Repository<TEntity>(this._Context);
-			this._Repositories.Add(typeof(TEntity), repository);
+			var repository = new Repository<TContext>(this._Context);
+			this._Repositories.Add(typeof(TContext), repository);
 			return repository;
 		}
 
