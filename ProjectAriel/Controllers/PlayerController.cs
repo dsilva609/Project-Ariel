@@ -15,7 +15,7 @@ namespace ProjectAriel.Controllers
 {
 	public partial class PlayerController : Controller
     {//TODO delete this
-        private ProjectArielContext db = new ProjectArielContext();
+        //private ProjectArielContext db = new ProjectArielContext();
 
 		private IUnitOfWork _Uow;
 		private PlayerService _Service;
@@ -38,13 +38,13 @@ namespace ProjectAriel.Controllers
         }
 
         // GET: Player/Details/5
-		public virtual ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Player player = db.Players.Find(id);
+		public virtual ActionResult Details(int id)
+        {//TODO does this have to be nullable?
+			//if (id == null)
+			//{
+			//	return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			//}
+			var player = this._Service.GetByID(id);
             if (player == null)
             {
                 return HttpNotFound();
@@ -79,13 +79,14 @@ namespace ProjectAriel.Controllers
         }
 
         // GET: Player/Edit/5
-		public virtual ActionResult Edit(int? id)
-        {
+		[HttpGet]
+		public virtual ActionResult Edit(int id)
+        {//TODO should this be nullable?
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Player player = db.Players.Find(id);
+			var player = this._Service.GetByID(id);
             if (player == null)
             {
                 return HttpNotFound();
@@ -98,25 +99,26 @@ namespace ProjectAriel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-		public virtual ActionResult Edit([Bind(Include = "ID,Name,IsActive")] Player player)
+		public virtual ActionResult Edit([Bind(Include = "ID,Name,IsActive")] Player player, int ID)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(player).State = EntityState.Modified;
-                db.SaveChanges();
+				this._Service.Edit(ID, player);
+                //db.Entry(player).State = EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(player);
         }
 
         // GET: Player/Delete/5
-		public virtual ActionResult Delete(int? id)
+		public virtual ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Player player = db.Players.Find(id);
+			var player = this._Service.GetByID(id);
             if (player == null)
             {
                 return HttpNotFound();
@@ -129,9 +131,10 @@ namespace ProjectAriel.Controllers
         [ValidateAntiForgeryToken]
 		public virtual ActionResult DeleteConfirmed(int id)
         {
-            Player player = db.Players.Find(id);
-            db.Players.Remove(player);
-            db.SaveChanges();
+			//Player player = db.Players.Find(id);
+			//db.Players.Remove(player);
+			//db.SaveChanges();
+			this._Service.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -139,7 +142,7 @@ namespace ProjectAriel.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+				this._Uow.Dispose();
             }
             base.Dispose(disposing);
         }

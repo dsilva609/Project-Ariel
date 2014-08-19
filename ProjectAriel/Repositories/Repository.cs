@@ -32,23 +32,15 @@ namespace ProjectAriel.Repositories
 			this._Context.SaveChanges();
 		}
 
-		public virtual void Delete(T entity)
+		public virtual void Delete(int ID)
 		{//TODO finish this
-			var entry = this._Context.Entry(entity);
+			//var entry = this._Context.Entry(entity);
+			//this._DBSet.Remove(entity);
+			var entry = this._DBSet.Find(ID);
+			this._DBSet.Remove(entry);
+			this._Context.SaveChanges();
 			//entry.State = System.Data.EntityState.Deleted;
 		}
-
-		public virtual void Update(T entity)
-		{//TODO finish this
-			var entry = this._Context.Entry(entity);
-			this._DBSet.Attach(entity);
-			//entry.State = System.Data.EntityState.Modified;
-		}
-
-		//public virtual T GetById(int ID)
-		//{
-		//	return _dbset.Find(ID);
-		//}
 
 		public virtual IEnumerable<T> All()
 		{//TODO what does this do?
@@ -71,9 +63,11 @@ namespace ProjectAriel.Repositories
 			return this._DBSet.Find(ID);
 		}
 
-		public void Edit(T entity)
+		public void Edit(int id, T entity)
 		{
-			throw new NotImplementedException();
+			this._Context.Entry(entity).State = EntityState.Modified;
+			this._Context.SaveChanges();
+
 		}
 	}
 }

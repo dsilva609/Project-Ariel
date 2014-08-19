@@ -25,5 +25,20 @@ namespace ProjectAriel.Services
 		{
 			return this._Repository.GetAll();
 		}
+
+		public Player GetByID(int ID)
+		{//TODO needs null check
+			return this._Repository.GetByID(ID);
+		}
+
+		public void Edit(int ID, Player player)
+		{
+			this._Repository.Edit(ID, player);
+		}
+
+		public void Delete(int ID)
+		{
+			this._Repository.Delete(ID);
+		}
 	}
 }
