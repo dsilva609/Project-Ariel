@@ -7,18 +7,19 @@ using System.Web;
 
 namespace ProjectAriel.Components.PlayerComponents
 {
-	public class GetPlayerListComponent
+	public class AddPlayerComponent
 	{
 		private IRepository<Player> _repo;
 
-		public GetPlayerListComponent(IRepository<Player> repo)
+		public AddPlayerComponent(IRepository<Player> repo)
 		{
 			this._repo = repo;
+
 		}
 
-		public List<Player> Execute()
+		public void Execute(Player player)
 		{
-			return this._repo.GetAll();
+			this._repo.Add(player);
 		}
 	}
 }

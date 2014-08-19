@@ -63,7 +63,7 @@ namespace ProjectAriel.Repositories
 			return this._DBSet.Find(ID);
 		}
 
-		public void Edit(int id, T entity)
+		public void Edit(T entity)
 		{
 			this._Context.Entry(entity).State = EntityState.Modified;
 			this._Context.SaveChanges();

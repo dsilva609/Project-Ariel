@@ -7,18 +7,18 @@ using System.Web;
 
 namespace ProjectAriel.Components.PlayerComponents
 {
-	public class GetPlayerListComponent
+	public class DeletePlayerComponent
 	{
 		private IRepository<Player> _repo;
 
-		public GetPlayerListComponent(IRepository<Player> repo)
+		public DeletePlayerComponent(IRepository<Player> repo)
 		{
 			this._repo = repo;
 		}
 
-		public List<Player> Execute()
+		public void Execute(int ID)
 		{
-			return this._repo.GetAll();
+			this._repo.Delete(ID);
 		}
 	}
 }
