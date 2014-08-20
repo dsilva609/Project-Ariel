@@ -9,16 +9,9 @@ namespace ProjectAriel.Components.PlayerComponents
 {
 	public class GetPlayerListComponent
 	{
-		private IRepository<Player> _repo;
-
-		public GetPlayerListComponent(IRepository<Player> repo)
+		public List<Player> Execute(IRepository<Player> repo)
 		{
-			this._repo = repo;
-		}
-
-		public List<Player> Execute()
-		{
-			return this._repo.GetAll();
+			return repo.GetAll();
 		}
 	}
 }

@@ -9,17 +9,9 @@ namespace ProjectAriel.Components.PlayerComponents
 {
 	public class AddPlayerComponent
 	{
-		private IRepository<Player> _repo;
-
-		public AddPlayerComponent(IRepository<Player> repo)
+		public void Execute(IRepository<Player> repo,Player player)
 		{
-			this._repo = repo;
-
-		}
-
-		public void Execute(Player player)
-		{
-			this._repo.Add(player);
+			repo.Add(player);
 		}
 	}
 }

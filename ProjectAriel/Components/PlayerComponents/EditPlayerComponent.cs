@@ -9,16 +9,9 @@ namespace ProjectAriel.Components.PlayerComponents
 {
 	public class EditPlayerComponent
 	{
-		private IRepository<Player> _repo;
-
-		public EditPlayerComponent(IRepository<Player> repo)
+		public void Execute(IRepository<Player> repo, Player player)
 		{
-			this._repo = repo;
-		}
-
-		public void Execute(Player player)
-		{
-			this._repo.Edit(player);
+			repo.Edit(player);
 		}
 	}
 }

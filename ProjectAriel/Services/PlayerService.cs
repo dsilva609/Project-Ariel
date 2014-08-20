@@ -20,41 +20,41 @@ namespace ProjectAriel.Services
 		public PlayerService(IUnitOfWork uow)
 		{
 			this._Repository = uow.GetRepository<Player>();
-			this._getPlayerListComponent = new GetPlayerListComponent(this._Repository);
-			this._addPlayerComponent = new AddPlayerComponent(this._Repository);
-			this._getPlayerByIDComponent = new GetPlayerByIDComponent(this._Repository);
-			this._editPlayerComponent = new EditPlayerComponent(this._Repository);
-			this._deletePlayerComponent = new DeletePlayerComponent(this._Repository);
+			this._getPlayerListComponent = new GetPlayerListComponent();
+			this._addPlayerComponent = new AddPlayerComponent();
+			this._getPlayerByIDComponent = new GetPlayerByIDComponent();
+			this._editPlayerComponent = new EditPlayerComponent();
+			this._deletePlayerComponent = new DeletePlayerComponent();
 		}
 
 		public void Add(Player player)
 		{
 			//this._Repository.Add(player);
-			this._addPlayerComponent.Execute(player);
+			this._addPlayerComponent.Execute(this._Repository, player);
 		}
 
 		public IEnumerable<Player> GetAll()
 		{
 			//return this._Repository.GetAll();
-			return this._getPlayerListComponent.Execute();
+			return this._getPlayerListComponent.Execute(this._Repository);
 		}
 
 		public Player GetByID(int ID)
 		{//TODO needs null check
 			//return this._Repository.GetByID(ID);
-			return this._getPlayerByIDComponent.Execute(ID);
+			return this._getPlayerByIDComponent.Execute(this._Repository, ID);
 		}
 
 		public void Edit(int ID, Player player)
 		{
 			//this._Repository.Edit(ID, player);
-			this._editPlayerComponent.Execute(player);
+			this._editPlayerComponent.Execute(this._Repository, player);
 		}
 
 		public void Delete(int ID)
 		{
 			//this._Repository.Delete(ID);
-			this._deletePlayerComponent.Execute(ID);
+			this._deletePlayerComponent.Execute(this._Repository, ID);
 		}
 	}
 }

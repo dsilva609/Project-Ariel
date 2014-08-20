@@ -9,16 +9,9 @@ namespace ProjectAriel.Components.PlayerComponents
 {
 	public class DeletePlayerComponent
 	{
-		private IRepository<Player> _repo;
-
-		public DeletePlayerComponent(IRepository<Player> repo)
+		public void Execute(IRepository<Player> repo, int ID)
 		{
-			this._repo = repo;
-		}
-
-		public void Execute(int ID)
-		{
-			this._repo.Delete(ID);
+			repo.Delete(ID);
 		}
 	}
 }
