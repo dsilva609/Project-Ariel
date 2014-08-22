@@ -261,6 +261,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\slabWide.jpg" />
+    <Content Include="Content\Responsive.css" />
     <Content Include="DAL\SQL\ELMAH-1.2-db-SQLServer.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
