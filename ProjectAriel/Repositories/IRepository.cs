@@ -12,6 +12,6 @@ namespace ProjectAriel.Repositories
 		List<T> GetAll();
 		T GetByID(int ID);
 		void Edit(T entity);
-		void Delete(T entity);
+		void Delete(int ID);
 	}
 }

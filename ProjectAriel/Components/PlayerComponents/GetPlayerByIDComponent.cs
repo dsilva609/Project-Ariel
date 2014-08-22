@@ -7,11 +7,12 @@ using System.Web;
 
 namespace ProjectAriel.Components.PlayerComponents
 {
-	public class GetPlayerListComponent
+	public class GetPlayerByIDComponent
 	{
-		public List<Player> Execute(IRepository<Player> repo)
-		{
-			return repo.GetAll();
+		public Player Execute(IRepository<Player> repo, int ID)
+		{//TODO do some null checking
+			return repo.GetByID(ID);
+
 		}
 	}
 }

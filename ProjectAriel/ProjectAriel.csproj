@@ -56,6 +56,9 @@
       <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1408.0717\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -200,6 +203,10 @@
     <Compile Include="App_Start\AutofacConfiguration.cs" />
     <Compile Include="Common\ElmahResult.cs" />
     <Compile Include="Common\ProjectArielContextWrapper.cs" />
+    <Compile Include="Components\PlayerComponents\AddPlayerComponent.cs" />
+    <Compile Include="Components\PlayerComponents\DeletePlayerComponent.cs" />
+    <Compile Include="Components\PlayerComponents\EditPlayerComponent.cs" />
+    <Compile Include="Components\PlayerComponents\GetPlayerByIDComponent.cs" />
     <Compile Include="Components\PlayerComponents\GetPlayerListComponent.cs" />
     <Compile Include="Controllers\ElmahController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -221,6 +228,10 @@
     <Compile Include="Migrations\201408170046109_modelupdate.cs" />
     <Compile Include="Migrations\201408170046109_modelupdate.Designer.cs">
       <DependentUpon>201408170046109_modelupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408190124254_updateplayermodel.cs" />
+    <Compile Include="Migrations\201408190124254_updateplayermodel.Designer.cs">
+      <DependentUpon>201408190124254_updateplayermodel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -333,12 +344,17 @@
     <Folder Include="Views\Elmah\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201408170046109_modelupdate.resx">
       <DependentUpon>201408170046109_modelupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408190124254_updateplayermodel.resx">
+      <DependentUpon>201408190124254_updateplayermodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
