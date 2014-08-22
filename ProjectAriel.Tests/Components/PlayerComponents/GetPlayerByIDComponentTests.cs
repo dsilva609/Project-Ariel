@@ -34,7 +34,7 @@ namespace ProjectAriel.Tests.Components.PlayerComponents
 			var result = this._getPlayerByIDComponent.Execute(this._repo, 1);
 
 			//--Assert
-			Assert.AreEqual(result.ID, 1);
+			Assert.AreEqual(1, result.ID);
 		}
 	}
 }

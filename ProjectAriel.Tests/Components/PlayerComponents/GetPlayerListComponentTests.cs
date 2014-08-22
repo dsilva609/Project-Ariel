@@ -36,7 +36,7 @@ namespace ProjectAriel.Tests.Components.PlayerComponents
 			var result = this._getPlayerListComponent.Execute(this._repo);
 
 			//--Assert
-			Assert.AreEqual(result.Count, 3);
+			Assert.AreEqual(3, result.Count);
 		}
 	}
 }
