@@ -32,10 +32,10 @@ namespace ProjectAriel.Tests.Components.PlayerComponents
 
 			//--Act
 			this._deletePlayerComponent.Execute(this._repo, this._player.ID);
+			var result = this._repo.GetByID(this._player.ID);
 
 			//--Assert
-			this._mock.Verify(m => m.Delete( this._player.ID));
-
+			Assert.IsNull(result);
 		}
 	}
 }

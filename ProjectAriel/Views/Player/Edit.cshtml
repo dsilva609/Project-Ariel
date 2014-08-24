@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm(MVC.Player.Edit(), FormMethod.Post))
+@using (Html.BeginForm(MVC.Player.Edit(Model.ID), FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
@@ -44,7 +44,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", MVC.Player.Index())
 </div>
 
 @section Scripts {
