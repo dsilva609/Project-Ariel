@@ -14,9 +14,7 @@ using ProjectAriel.Services;
 namespace ProjectAriel.Controllers
 {
 	public partial class PlayerController : Controller
-    {//TODO delete this
-        //private ProjectArielContext db = new ProjectArielContext();
-
+    {
 		private IUnitOfWork _Uow;
 		private PlayerService _Service;
 
@@ -25,25 +23,16 @@ namespace ProjectAriel.Controllers
 			this._Uow = new UnitOfWork<ProjectArielContext>();
 			this._Service = new PlayerService(this._Uow);
 		}
-		//IUnitOfWork uow = new UnitOfWork<ProjectArielContext>();
-		//PlayerService service = new PlayerService(uow);
-
-        // GET: Player
+		
+        [HttpGet]
 		public virtual ActionResult Index()
         {
-			
-			//return View(db.Players.ToList());
-
 			return View(this._Service.GetAll());
         }
 
-        // GET: Player/Details/5
+        [HttpGet]
 		public virtual ActionResult Details(int id)
-        {//TODO does this have to be nullable?
-			//if (id == null)
-			//{
-			//	return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			//}
+        {
 			var player = this._Service.GetByID(id);
             if (player == null)
             {
@@ -52,13 +41,12 @@ namespace ProjectAriel.Controllers
             return View(player);
         }
 
-        // GET: Player/Create
+        [HttpGet]
 		public virtual ActionResult Create()
         {
             return View();
         }
 
-        // POST: Player/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -68,17 +56,13 @@ namespace ProjectAriel.Controllers
             if (ModelState.IsValid)
             {
 				this._Service.Add(player);
-				
 
-				//db.Players.Add(player);
-				//db.SaveChanges();
-                return RedirectToAction("Index");
+				return RedirectToAction("Index");
             }
 
             return View(player);
         }
 
-        // GET: Player/Edit/5
 		[HttpGet]
 		public virtual ActionResult Edit(int id)
         {//TODO should this be nullable?
@@ -94,7 +78,6 @@ namespace ProjectAriel.Controllers
             return View(player);
         }
 
-        // POST: Player/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -104,14 +87,13 @@ namespace ProjectAriel.Controllers
             if (ModelState.IsValid)
             {
 				this._Service.Edit(ID, player);
-                //db.Entry(player).State = EntityState.Modified;
-                //db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             return View(player);
         }
 
-        // GET: Player/Delete/5
+		[HttpGet]
 		public virtual ActionResult Delete(int id)
         {
             if (id == null)
@@ -126,16 +108,13 @@ namespace ProjectAriel.Controllers
             return View(player);
         }
 
-        // POST: Player/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
 		public virtual ActionResult DeleteConfirmed(int id)
         {
-			//Player player = db.Players.Find(id);
-			//db.Players.Remove(player);
-			//db.SaveChanges();
 			this._Service.Delete(id);
-            return RedirectToAction("Index");
+
+			return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
