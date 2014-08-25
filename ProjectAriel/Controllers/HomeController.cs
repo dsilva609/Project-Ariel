@@ -4,17 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ProjectAriel.Controllers
-{
+namespace ProjectAriel.Controllers {
 	public partial class HomeController : Controller
 	{
-		[HttpGet]
 		public virtual ActionResult Index()
 		{
 			return View();
 		}
 
-		[HttpGet]
 		public virtual ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
@@ -22,7 +19,6 @@ namespace ProjectAriel.Controllers
 			return View();
 		}
 
-		[HttpGet]
 		public virtual ActionResult Contact()
 		{
 			ViewBag.Message = "Your contact page.";

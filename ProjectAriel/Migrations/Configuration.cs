@@ -5,14 +5,14 @@ namespace ProjectAriel.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ProjectAriel.DAL.ProjectArielContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ProjectAriel.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(ProjectAriel.DAL.ProjectArielContext context)
+        protected override void Seed(ProjectAriel.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
