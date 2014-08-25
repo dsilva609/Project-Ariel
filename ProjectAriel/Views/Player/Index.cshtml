@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProjectAriel.Models.Player>
+
+@{
+    ViewBag.Title = "Players";
+}
+
+<h2>Players</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+		@Html.HiddenFor(p => item.ID)
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", MVC.Player.Edit(item.ID), new { id=item.ID }) |
+            @Html.ActionLink("Details", MVC.Player.Details(item.ID), new { id=item.ID }) |
+            @Html.ActionLink("Delete", MVC.Player.Delete(item.ID), new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
