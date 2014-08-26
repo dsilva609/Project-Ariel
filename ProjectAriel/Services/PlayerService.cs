@@ -39,9 +39,8 @@ namespace ProjectAriel.Services
 			return this._getPlayerListComponent.Execute(this._Repository);
 		}
 
-		public Player GetByID(int ID)
+		public Player GetByID(int? ID)
 		{//TODO needs null check
-			//return this._Repository.GetByID(ID);
 			return this._getPlayerByIDComponent.Execute(this._Repository, ID);
 		}
 

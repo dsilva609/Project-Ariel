@@ -58,7 +58,7 @@ namespace ProjectAriel.Repositories
 			return this._DBSet.ToList();
 		}
 
-		public T GetByID(int ID)
+		public T GetByID(int? ID)
 		{
 			return this._DBSet.Find(ID);
 		}
