@@ -9,15 +9,15 @@ namespace ProjectAriel.Controllers
 {
 	public partial class PlayerController : Controller
 	{
-		private IUnitOfWork _Uow;
-		private PlayerService _Service;
+		private readonly IUnitOfWork _Uow;
+		private readonly PlayerService _Service;
 
 		public PlayerController()
 		{
 			this._Uow = new UnitOfWork<ProjectArielContext>();
 			this._Service = new PlayerService(this._Uow);
 		}
-
+		#region HttpGet
 		[HttpGet]
 		public virtual ActionResult Index()
 		{
@@ -42,23 +42,6 @@ namespace ProjectAriel.Controllers
 			return RedirectToAction(MVC.Player.Edit());
 		}
 
-		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public virtual ActionResult Create([Bind(Include = "ID,Name,IsActive")] Player player)
-		{
-			if (ModelState.IsValid)
-			{
-				player.IsActive = true;
-				this._Service.Add(player);
-
-				return RedirectToAction("Index");
-			}
-
-			return View(player);
-		}
-
 		[HttpGet]
 		public virtual ActionResult Edit(int? id)
 		{//TODO should this be nullable?
@@ -74,6 +57,42 @@ namespace ProjectAriel.Controllers
 			if (player == null)
 			{
 				return HttpNotFound();
+			}
+
+			return View(player);
+		}
+
+		[HttpGet]
+		public virtual ActionResult Delete(int id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			var player = this._Service.GetByID(id);
+			if (player == null)
+			{
+				return HttpNotFound();
+			}
+			return View(player);
+		}
+
+		#endregion
+
+		#region HttpPost
+
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public virtual ActionResult Create([Bind(Include = "ID,Name,IsActive")] Player player)
+		{
+			if (ModelState.IsValid)
+			{
+				player.IsActive = true;
+				this._Service.Add(player);
+
+				return RedirectToAction("Index");
 			}
 
 			return View(player);
@@ -100,21 +119,6 @@ namespace ProjectAriel.Controllers
 			return View(player);
 		}
 
-		[HttpGet]
-		public virtual ActionResult Delete(int id)
-		{
-			if (id == null)
-			{
-				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			}
-			var player = this._Service.GetByID(id);
-			if (player == null)
-			{
-				return HttpNotFound();
-			}
-			return View(player);
-		}
-
 		[HttpPost, ActionName("Delete")]
 		[ValidateAntiForgeryToken]
 		public virtual ActionResult DeleteConfirmed(int id)
@@ -123,6 +127,7 @@ namespace ProjectAriel.Controllers
 
 			return RedirectToAction("Index");
 		}
+		#endregion
 
 		protected override void Dispose(bool disposing)
 		{

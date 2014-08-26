@@ -1,14 +1,11 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ProjectAriel.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace ProjectAriel.Controllers
 {
@@ -16,10 +13,7 @@ namespace ProjectAriel.Controllers
 	public partial class AccountController : Controller
     {
         private ApplicationUserManager _userManager;
-
-        public AccountController()
-        {
-        }
+		private ApplicationSignInManager _signInManager;
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
@@ -31,37 +25,148 @@ namespace ProjectAriel.Controllers
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return this._userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
-                _userManager = value;
+                this._userManager = value;
             }
         }
 
-        //
-        // GET: /Account/Login
-        [AllowAnonymous]
+		public ApplicationSignInManager SignInManager
+		{
+			get
+			{
+				return this._signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+			}
+			private set { this._signInManager = value; }
+		}
+		#region HttpGet
+		[HttpGet]
+		[AllowAnonymous]
 		public virtual ActionResult Login(string returnUrl)
+		{
+			ViewBag.ReturnUrl = returnUrl;
+			return View();
+		}
+
+		[HttpGet]
+		[AllowAnonymous]
+		public virtual async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
+		{
+			// Require that the user has already logged in via username/password or external login
+			if (!await SignInManager.HasBeenVerifiedAsync())
+			{
+				return View("Error");
+			}
+			var user = await UserManager.FindByIdAsync(await SignInManager.GetVerifiedUserIdAsync());
+			if (user != null)
+			{
+				var code = await UserManager.GenerateTwoFactorTokenAsync(user.Id, provider);
+			}
+			return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
+		}
+
+		[HttpGet]
+		[AllowAnonymous]
+		public virtual ActionResult Register()
+		{
+			return View();
+		}
+
+		[HttpGet]
+		[AllowAnonymous]
+		public virtual async Task<ActionResult> ConfirmEmail(string userId, string code)
+		{
+			if (userId == null || code == null)
+			{
+				return View("Error");
+			}
+			var result = await UserManager.ConfirmEmailAsync(userId, code);
+			return View(result.Succeeded ? "ConfirmEmail" : "Error");
+		}
+
+		[HttpGet]
+		[AllowAnonymous]
+		public virtual ActionResult ForgotPassword()
+		{
+			return View();
+		}
+
+		[HttpGet]
+		[AllowAnonymous]
+		public virtual ActionResult ForgotPasswordConfirmation()
+		{
+			return View();
+		}
+
+		[HttpGet]
+		[AllowAnonymous]
+		public virtual ActionResult ResetPassword(string code)
+		{
+			return code == null ? View("Error") : View();
+		}
+
+		[HttpGet]
+		[AllowAnonymous]
+		public virtual ActionResult ResetPasswordConfirmation()
+		{
+			return View();
+		}
+
+		[HttpGet]
+		[AllowAnonymous]
+		public virtual async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
+		{
+			var userId = await SignInManager.GetVerifiedUserIdAsync();
+			if (userId == null)
+			{
+				return View("Error");
+			}
+			var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
+			var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
+			return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+		}
+
+		[HttpGet]
+		[AllowAnonymous]
+		public virtual async Task<ActionResult> ExternalLoginCallback(string returnUrl)
+		{
+			var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
+			if (loginInfo == null)
+			{
+				return RedirectToAction("Login");
+			}
+
+			// Sign in the user with this external login provider if the user already has a login
+			var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
+			switch (result)
+			{
+				case SignInStatus.Success:
+					return RedirectToLocal(returnUrl);
+				case SignInStatus.LockedOut:
+					return View("Lockout");
+				case SignInStatus.RequiresVerification:
+					return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
+				case SignInStatus.Failure:
+				default:
+					// If the user does not have an account, then prompt the user to create an account
+					ViewBag.ReturnUrl = returnUrl;
+					ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
+					return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+			}
+		}
+
+		[HttpGet]
+        [AllowAnonymous]
+		public virtual ActionResult ExternalLoginFailure()
         {
-            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+		#endregion
 
-        private ApplicationSignInManager _signInManager;
-
-        public ApplicationSignInManager SignInManager
-        {
-            get
-            {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-            }
-            private set { _signInManager = value; }
-        }
-
-        //
-        // POST: /Account/Login
-        [HttpPost]
+		#region HttpPost
+		[HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
 		public virtual async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
@@ -89,26 +194,6 @@ namespace ProjectAriel.Controllers
             }
         }
 
-        //
-        // GET: /Account/VerifyCode
-        [AllowAnonymous]
-		public virtual async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
-        {
-            // Require that the user has already logged in via username/password or external login
-            if (!await SignInManager.HasBeenVerifiedAsync())
-            {
-                return View("Error");
-            }
-            var user = await UserManager.FindByIdAsync(await SignInManager.GetVerifiedUserIdAsync());
-            if (user != null)
-            {
-                var code = await UserManager.GenerateTwoFactorTokenAsync(user.Id, provider);
-            }
-            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
-        }
-
-        //
-        // POST: /Account/VerifyCode
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -137,16 +222,6 @@ namespace ProjectAriel.Controllers
             }
         }
 
-        //
-        // GET: /Account/Register
-        [AllowAnonymous]
-		public virtual ActionResult Register()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -175,29 +250,6 @@ namespace ProjectAriel.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/ConfirmEmail
-        [AllowAnonymous]
-		public virtual async Task<ActionResult> ConfirmEmail(string userId, string code)
-        {
-            if (userId == null || code == null)
-            {
-                return View("Error");
-            }
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
-        }
-
-        //
-        // GET: /Account/ForgotPassword
-        [AllowAnonymous]
-		public virtual ActionResult ForgotPassword()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Account/ForgotPassword
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -224,24 +276,6 @@ namespace ProjectAriel.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/ForgotPasswordConfirmation
-        [AllowAnonymous]
-		public virtual ActionResult ForgotPasswordConfirmation()
-        {
-            return View();
-        }
-
-        //
-        // GET: /Account/ResetPassword
-        [AllowAnonymous]
-		public virtual ActionResult ResetPassword(string code)
-        {
-            return code == null ? View("Error") : View();
-        }
-
-        //
-        // POST: /Account/ResetPassword
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -266,16 +300,6 @@ namespace ProjectAriel.Controllers
             return View();
         }
 
-        //
-        // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
-		public virtual ActionResult ResetPasswordConfirmation()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -285,73 +309,24 @@ namespace ProjectAriel.Controllers
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
-        //
-        // GET: /Account/SendCode
-        [AllowAnonymous]
-		public virtual async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
-        {
-            var userId = await SignInManager.GetVerifiedUserIdAsync();
-            if (userId == null)
-            {
-                return View("Error");
-            }
-            var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
-            var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
-            return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
-        }
-
-        //
-        // POST: /Account/SendCode
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+		[HttpPost]
+		[AllowAnonymous]
+		[ValidateAntiForgeryToken]
 		public virtual async Task<ActionResult> SendCode(SendCodeViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+		{
+			if (!ModelState.IsValid)
+			{
+				return View();
+			}
 
-            // Generate the token and send it
-            if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
-            {
-                return View("Error");
-            }
-            return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
-        }
+			// Generate the token and send it
+			if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
+			{
+				return View("Error");
+			}
+			return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
+		}
 
-        //
-        // GET: /Account/ExternalLoginCallback
-        [AllowAnonymous]
-		public virtual async Task<ActionResult> ExternalLoginCallback(string returnUrl)
-        {
-            var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
-            if (loginInfo == null)
-            {
-                return RedirectToAction("Login");
-            }
-
-            // Sign in the user with this external login provider if the user already has a login
-            var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
-                case SignInStatus.Failure:
-                default:
-                    // If the user does not have an account, then prompt the user to create an account
-                    ViewBag.ReturnUrl = returnUrl;
-                    ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
-            }
-        }
-
-        //
-        // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -388,8 +363,6 @@ namespace ProjectAriel.Controllers
             return View(model);
         }
 
-        //
-        // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
 		public virtual ActionResult LogOff()
@@ -397,14 +370,7 @@ namespace ProjectAriel.Controllers
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
-
-        //
-        // GET: /Account/ExternalLoginFailure
-        [AllowAnonymous]
-		public virtual ActionResult ExternalLoginFailure()
-        {
-            return View();
-        }
+		#endregion
 
         #region Helpers
         // Used for XSRF protection when adding external logins

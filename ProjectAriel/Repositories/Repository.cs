@@ -10,13 +10,6 @@ namespace ProjectAriel.Repositories
 {
 	public class Repository<T> : IRepository<T> where T : class
 	{
-		//public ProjectArielContextWrapper Database { get; set; }
-
-		//~Repository()
-		//{
-		//	Database.Dispose();
-		//}
-
 		private readonly DbContext _Context;
 		private readonly DbSet<T> _DBSet;
 
@@ -34,12 +27,9 @@ namespace ProjectAriel.Repositories
 
 		public virtual void Delete(int ID)
 		{//TODO finish this
-			//var entry = this._Context.Entry(entity);
-			//this._DBSet.Remove(entity);
 			var entry = this._DBSet.Find(ID);
 			this._DBSet.Remove(entry);
 			this._Context.SaveChanges();
-			//entry.State = System.Data.EntityState.Deleted;
 		}
 
 		public virtual IEnumerable<T> All()
@@ -51,7 +41,6 @@ namespace ProjectAriel.Repositories
 		{//TODO should this be private?
 			return this._DBSet.Where(predicate);
 		}
-
 
 		public List<T> GetAll()
 		{

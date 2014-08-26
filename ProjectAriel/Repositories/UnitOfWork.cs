@@ -9,7 +9,7 @@ namespace ProjectAriel.Repositories
 	public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext, new()
 	{
 		private readonly DbContext _Context;
-		private Dictionary<Type, object> _Repositories;
+		private readonly Dictionary<Type, object> _Repositories;
 		private bool _IsDisposed;
 
 		public UnitOfWork()
