@@ -166,13 +166,11 @@ namespace ProjectAriel.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string Create = "Create";
                 public readonly string Delete = "Delete";
                 public readonly string Details = "Details";
                 public readonly string Edit = "Edit";
                 public readonly string Index = "Index";
             }
-            public readonly string Create = "~/Views/Player/Create.cshtml";
             public readonly string Delete = "~/Views/Player/Delete.cshtml";
             public readonly string Details = "~/Views/Player/Details.cshtml";
             public readonly string Edit = "~/Views/Player/Edit.cshtml";
@@ -232,10 +230,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int id);
+        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? id);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Edit(int id)
+        public override System.Web.Mvc.ActionResult Edit(int? id)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Edit);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
