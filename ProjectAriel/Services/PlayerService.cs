@@ -10,12 +10,12 @@ namespace ProjectAriel.Services
 {
 	public class PlayerService
 	{
-		private IRepository<Player> _Repository;
-		private GetPlayerListComponent _getPlayerListComponent;
-		private AddPlayerComponent _addPlayerComponent;
-		private GetPlayerByIDComponent _getPlayerByIDComponent;
-		private EditPlayerComponent _editPlayerComponent;
-		private DeletePlayerComponent _deletePlayerComponent;
+		private readonly IRepository<Player> _Repository;
+		private readonly GetPlayerListComponent _getPlayerListComponent;
+		private readonly AddPlayerComponent _addPlayerComponent;
+		private readonly GetPlayerByIDComponent _getPlayerByIDComponent;
+		private readonly EditPlayerComponent _editPlayerComponent;
+		private readonly DeletePlayerComponent _deletePlayerComponent;
 
 		public PlayerService(IUnitOfWork uow)
 		{
@@ -29,13 +29,11 @@ namespace ProjectAriel.Services
 
 		public void Add(Player player)
 		{
-			//this._Repository.Add(player);
 			this._addPlayerComponent.Execute(this._Repository, player);
 		}
 
 		public IEnumerable<Player> GetAll()
 		{
-			//return this._Repository.GetAll();
 			return this._getPlayerListComponent.Execute(this._Repository);
 		}
 
@@ -46,13 +44,11 @@ namespace ProjectAriel.Services
 
 		public void Edit(int ID, Player player)
 		{
-			//this._Repository.Edit(ID, player);
 			this._editPlayerComponent.Execute(this._Repository, player);
 		}
 
 		public void Delete(int ID)
 		{
-			//this._Repository.Delete(ID);
 			this._deletePlayerComponent.Execute(this._Repository, ID);
 		}
 	}
