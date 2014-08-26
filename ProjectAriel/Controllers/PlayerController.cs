@@ -55,6 +55,7 @@ namespace ProjectAriel.Controllers
         {
             if (ModelState.IsValid)
             {
+				player.IsActive = true;
 				this._Service.Add(player);
 
 				return RedirectToAction("Index");
