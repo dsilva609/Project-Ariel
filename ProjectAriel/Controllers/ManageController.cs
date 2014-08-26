@@ -13,10 +13,6 @@ namespace ProjectAriel.Controllers
     [Authorize]
 	public partial class ManageController : Controller
     {
-        public ManageController()
-        {
-        }
-
         public ManageController(ApplicationUserManager userManager)
         {
             UserManager = userManager;
@@ -27,16 +23,15 @@ namespace ProjectAriel.Controllers
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return this._userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
-                _userManager = value;
+                this._userManager = value;
             }
         }
 
-        //
-        // GET: /Manage/Index
+		[HttpGet]
 		public virtual async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -59,8 +54,7 @@ namespace ProjectAriel.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Manage/RemoveLogin
+        [HttpGet]
 		public virtual ActionResult RemoveLogin()
         {
             var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserId());
@@ -68,8 +62,6 @@ namespace ProjectAriel.Controllers
             return View(linkedAccounts);
         }
 
-        //
-        // POST: /Manage/RemoveLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
 		public virtual async Task<ActionResult> RemoveLogin(string loginProvider, string providerKey)
@@ -92,15 +84,13 @@ namespace ProjectAriel.Controllers
             return RedirectToAction("ManageLogins", new { Message = message });
         }
 
-        //
-        // GET: /Manage/AddPhoneNumber
+        [HttpGet]//TODO remove this
 		public virtual ActionResult AddPhoneNumber()
         {
             return View();
         }
 
-        //
-        // POST: /Manage/AddPhoneNumber
+        //TODO remove this
         [HttpPost]
         [ValidateAntiForgeryToken]
 		public virtual async Task<ActionResult> AddPhoneNumber(AddPhoneNumberViewModel model)
@@ -123,8 +113,6 @@ namespace ProjectAriel.Controllers
             return RedirectToAction("VerifyPhoneNumber", new { PhoneNumber = model.Number });
         }
 
-        //
-        // POST: /Manage/EnableTwoFactorAuthentication
         [HttpPost]
 		public virtual async Task<ActionResult> EnableTwoFactorAuthentication()
         {
@@ -137,8 +125,6 @@ namespace ProjectAriel.Controllers
             return RedirectToAction("Index", "Manage");
         }
 
-        //
-        // POST: /Manage/DisableTwoFactorAuthentication
         [HttpPost]
 		public virtual async Task<ActionResult> DisableTwoFactorAuthentication()
         {
@@ -151,8 +137,7 @@ namespace ProjectAriel.Controllers
             return RedirectToAction("Index", "Manage");
         }
 
-        //
-        // GET: /Manage/VerifyPhoneNumber
+		[HttpGet]//TODO remove this
 		public virtual async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
         {
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
@@ -160,8 +145,7 @@ namespace ProjectAriel.Controllers
             return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
 
-        //
-        // POST: /Manage/VerifyPhoneNumber
+        //TODO remove this
         [HttpPost]
         [ValidateAntiForgeryToken]
 		public virtual async Task<ActionResult> VerifyPhoneNumber(VerifyPhoneNumberViewModel model)
@@ -185,8 +169,7 @@ namespace ProjectAriel.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Manage/RemovePhoneNumber
+        [HttpGet]//TODO remove this
 		public virtual async Task<ActionResult> RemovePhoneNumber()
         {
             var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), null);
@@ -202,15 +185,12 @@ namespace ProjectAriel.Controllers
             return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
         }
 
-        //
-        // GET: /Manage/ChangePassword
+		[HttpGet]
 		public virtual ActionResult ChangePassword()
         {
             return View();
         }
 
-        //
-        // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
 		public virtual async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
@@ -233,15 +213,12 @@ namespace ProjectAriel.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Manage/SetPassword
+        [HttpGet]
 		public virtual ActionResult SetPassword()
         {
             return View();
         }
 
-        //
-        // POST: /Manage/SetPassword
         [HttpPost]
         [ValidateAntiForgeryToken]
 		public virtual async Task<ActionResult> SetPassword(SetPasswordViewModel model)
@@ -265,8 +242,7 @@ namespace ProjectAriel.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Manage/ManageLogins
+        [HttpGet]
 		public virtual async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -288,8 +264,6 @@ namespace ProjectAriel.Controllers
             });
         }
 
-        //
-        // POST: /Manage/LinkLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
 		public virtual ActionResult LinkLogin(string provider)
@@ -298,8 +272,7 @@ namespace ProjectAriel.Controllers
             return new AccountController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserId());
         }
 
-        //
-        // GET: /Manage/LinkLoginCallback
+        [HttpGet]
 		public virtual async Task<ActionResult> LinkLoginCallback()
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
@@ -347,7 +320,7 @@ namespace ProjectAriel.Controllers
             return false;
         }
 
-        private bool HasPhoneNumber()
+        private bool HasPhoneNumber()//TODO remove
         {
             var user = UserManager.FindById(User.Identity.GetUserId());
             if (user != null)
@@ -359,12 +332,12 @@ namespace ProjectAriel.Controllers
 
         public enum ManageMessageId
         {
-            AddPhoneSuccess,
+            AddPhoneSuccess,//TODO remove this
             ChangePasswordSuccess,
             SetTwoFactorSuccess,
             SetPasswordSuccess,
             RemoveLoginSuccess,
-            RemovePhoneSuccess,
+            RemovePhoneSuccess,//TODO remove this
             Error
         }
 

@@ -17,10 +17,6 @@ namespace ProjectAriel.Controllers
     {
         private ApplicationUserManager _userManager;
 
-        public AccountController()
-        {
-        }
-
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
@@ -31,16 +27,15 @@ namespace ProjectAriel.Controllers
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return this._userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
-                _userManager = value;
+                this._userManager = value;
             }
         }
 
-        //
-        // GET: /Account/Login
+        [HttpGet]
         [AllowAnonymous]
 		public virtual ActionResult Login(string returnUrl)
         {
@@ -54,13 +49,11 @@ namespace ProjectAriel.Controllers
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return this._signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set { _signInManager = value; }
+            private set { this._signInManager = value; }
         }
 
-        //
-        // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -89,8 +82,7 @@ namespace ProjectAriel.Controllers
             }
         }
 
-        //
-        // GET: /Account/VerifyCode
+        [HttpGet]
         [AllowAnonymous]
 		public virtual async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
@@ -107,8 +99,6 @@ namespace ProjectAriel.Controllers
             return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
-        //
-        // POST: /Account/VerifyCode
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -137,16 +127,13 @@ namespace ProjectAriel.Controllers
             }
         }
 
-        //
-        // GET: /Account/Register
+        [HttpGet]
         [AllowAnonymous]
 		public virtual ActionResult Register()
         {
             return View();
         }
 
-        //
-        // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -175,8 +162,7 @@ namespace ProjectAriel.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/ConfirmEmail
+        [HttpGet]
         [AllowAnonymous]
 		public virtual async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
@@ -188,16 +174,13 @@ namespace ProjectAriel.Controllers
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
-        //
-        // GET: /Account/ForgotPassword
+        [HttpGet]
         [AllowAnonymous]
 		public virtual ActionResult ForgotPassword()
         {
             return View();
         }
 
-        //
-        // POST: /Account/ForgotPassword
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -224,24 +207,20 @@ namespace ProjectAriel.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/ForgotPasswordConfirmation
+        [HttpGet]
         [AllowAnonymous]
 		public virtual ActionResult ForgotPasswordConfirmation()
         {
             return View();
         }
 
-        //
-        // GET: /Account/ResetPassword
+        [HttpGet]
         [AllowAnonymous]
 		public virtual ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
         }
 
-        //
-        // POST: /Account/ResetPassword
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -266,16 +245,13 @@ namespace ProjectAriel.Controllers
             return View();
         }
 
-        //
-        // GET: /Account/ResetPasswordConfirmation
+        [HttpGet]
         [AllowAnonymous]
 		public virtual ActionResult ResetPasswordConfirmation()
         {
             return View();
         }
 
-        //
-        // POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -285,8 +261,7 @@ namespace ProjectAriel.Controllers
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
-        //
-        // GET: /Account/SendCode
+        [HttpGet]
         [AllowAnonymous]
 		public virtual async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
@@ -300,8 +275,6 @@ namespace ProjectAriel.Controllers
             return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
-        //
-        // POST: /Account/SendCode
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -320,8 +293,7 @@ namespace ProjectAriel.Controllers
             return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }
 
-        //
-        // GET: /Account/ExternalLoginCallback
+        [HttpGet]
         [AllowAnonymous]
 		public virtual async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
@@ -350,8 +322,6 @@ namespace ProjectAriel.Controllers
             }
         }
 
-        //
-        // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -388,8 +358,6 @@ namespace ProjectAriel.Controllers
             return View(model);
         }
 
-        //
-        // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
 		public virtual ActionResult LogOff()
@@ -398,8 +366,7 @@ namespace ProjectAriel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
-        // GET: /Account/ExternalLoginFailure
+        [HttpGet]
         [AllowAnonymous]
 		public virtual ActionResult ExternalLoginFailure()
         {
