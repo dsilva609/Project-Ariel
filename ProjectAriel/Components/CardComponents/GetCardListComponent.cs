@@ -7,11 +7,11 @@ using System.Web;
 
 namespace ProjectAriel.Components.CardComponents
 {
-	public class AddCardComponent
+	public class GetCardListComponent
 	{
-		public void Execute(IRepository<Card> repo, Card card)
+		public List<Card> Execute(IRepository<Card> repo)
 		{
-			repo.Add(card);
+			return repo.GetAll();
 		}
 	}
 }

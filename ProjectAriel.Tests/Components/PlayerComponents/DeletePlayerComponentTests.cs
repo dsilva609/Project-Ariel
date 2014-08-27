@@ -24,7 +24,7 @@ namespace ProjectAriel.Tests.Components.PlayerComponents
 		}
 
 		[TestMethod]
-		public void TestThatPlayerBecomesInactive()
+		public void TestThatPlayerIsRemovedFromTheRepository()
 		{
 			//--Arrange
 			this._mock.Setup(m => m.Add(this._player));

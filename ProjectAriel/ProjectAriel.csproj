@@ -182,6 +182,10 @@
     <Compile Include="Common\ElmahResult.cs" />
     <Compile Include="Common\ProjectArielContextWrapper.cs" />
     <Compile Include="Components\CardComponents\AddCardComponent.cs" />
+    <Compile Include="Components\CardComponents\DeleteCardComponent.cs" />
+    <Compile Include="Components\CardComponents\EditCardComponent.cs" />
+    <Compile Include="Components\CardComponents\GetCardByIDComponent.cs" />
+    <Compile Include="Components\CardComponents\GetCardListComponent.cs" />
     <Compile Include="Components\PlayerComponents\AddPlayerComponent.cs" />
     <Compile Include="Components\PlayerComponents\DeletePlayerComponent.cs" />
     <Compile Include="Components\PlayerComponents\EditPlayerComponent.cs" />
