@@ -1,10 +1,7 @@
 ﻿using ProjectAriel.DAL;
 using ProjectAriel.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace ProjectAriel.Common
 {
@@ -25,6 +22,11 @@ namespace ProjectAriel.Common
 		public IDbSet<Player> Players()
 		{
 			return Database.Players;
+		}
+
+		public IDbSet<Card> Cards()
+		{
+			return Database.Cards;
 		}
 	}
 }

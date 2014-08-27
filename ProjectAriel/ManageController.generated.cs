@@ -100,15 +100,15 @@ namespace ProjectAriel.Controllers
             public readonly string Index = "Index";
             public readonly string RemoveLogin = "RemoveLogin";
             public readonly string AddPhoneNumber = "AddPhoneNumber";
-            public readonly string EnableTwoFactorAuthentication = "EnableTwoFactorAuthentication";
-            public readonly string DisableTwoFactorAuthentication = "DisableTwoFactorAuthentication";
             public readonly string VerifyPhoneNumber = "VerifyPhoneNumber";
             public readonly string RemovePhoneNumber = "RemovePhoneNumber";
             public readonly string ChangePassword = "ChangePassword";
             public readonly string SetPassword = "SetPassword";
             public readonly string ManageLogins = "ManageLogins";
-            public readonly string LinkLogin = "LinkLogin";
             public readonly string LinkLoginCallback = "LinkLoginCallback";
+            public readonly string EnableTwoFactorAuthentication = "EnableTwoFactorAuthentication";
+            public readonly string DisableTwoFactorAuthentication = "DisableTwoFactorAuthentication";
+            public readonly string LinkLogin = "LinkLogin";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -117,15 +117,15 @@ namespace ProjectAriel.Controllers
             public const string Index = "Index";
             public const string RemoveLogin = "RemoveLogin";
             public const string AddPhoneNumber = "AddPhoneNumber";
-            public const string EnableTwoFactorAuthentication = "EnableTwoFactorAuthentication";
-            public const string DisableTwoFactorAuthentication = "DisableTwoFactorAuthentication";
             public const string VerifyPhoneNumber = "VerifyPhoneNumber";
             public const string RemovePhoneNumber = "RemovePhoneNumber";
             public const string ChangePassword = "ChangePassword";
             public const string SetPassword = "SetPassword";
             public const string ManageLogins = "ManageLogins";
-            public const string LinkLogin = "LinkLogin";
             public const string LinkLoginCallback = "LinkLoginCallback";
+            public const string EnableTwoFactorAuthentication = "EnableTwoFactorAuthentication";
+            public const string DisableTwoFactorAuthentication = "DisableTwoFactorAuthentication";
+            public const string LinkLogin = "LinkLogin";
         }
 
 
@@ -134,6 +134,23 @@ namespace ProjectAriel.Controllers
         public ActionParamsClass_Index IndexParams { get { return s_params_Index; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionParamsClass_Index
+        {
+            public readonly string message = "message";
+        }
+        static readonly ActionParamsClass_VerifyPhoneNumber s_params_VerifyPhoneNumber = new ActionParamsClass_VerifyPhoneNumber();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_VerifyPhoneNumber VerifyPhoneNumberParams { get { return s_params_VerifyPhoneNumber; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_VerifyPhoneNumber
+        {
+            public readonly string phoneNumber = "phoneNumber";
+            public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_ManageLogins s_params_ManageLogins = new ActionParamsClass_ManageLogins();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_ManageLogins ManageLoginsParams { get { return s_params_ManageLogins; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_ManageLogins
         {
             public readonly string message = "message";
         }
@@ -154,15 +171,6 @@ namespace ProjectAriel.Controllers
         {
             public readonly string model = "model";
         }
-        static readonly ActionParamsClass_VerifyPhoneNumber s_params_VerifyPhoneNumber = new ActionParamsClass_VerifyPhoneNumber();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_VerifyPhoneNumber VerifyPhoneNumberParams { get { return s_params_VerifyPhoneNumber; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_VerifyPhoneNumber
-        {
-            public readonly string phoneNumber = "phoneNumber";
-            public readonly string model = "model";
-        }
         static readonly ActionParamsClass_ChangePassword s_params_ChangePassword = new ActionParamsClass_ChangePassword();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ActionParamsClass_ChangePassword ChangePasswordParams { get { return s_params_ChangePassword; } }
@@ -178,14 +186,6 @@ namespace ProjectAriel.Controllers
         public class ActionParamsClass_SetPassword
         {
             public readonly string model = "model";
-        }
-        static readonly ActionParamsClass_ManageLogins s_params_ManageLogins = new ActionParamsClass_ManageLogins();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_ManageLogins ManageLoginsParams { get { return s_params_ManageLogins; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_ManageLogins
-        {
-            public readonly string message = "message";
         }
         static readonly ActionParamsClass_LinkLogin s_params_LinkLogin = new ActionParamsClass_LinkLogin();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -250,6 +250,85 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
+        partial void AddPhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult AddPhoneNumber()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddPhoneNumber);
+            AddPhoneNumberOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void VerifyPhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string phoneNumber);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> VerifyPhoneNumber(string phoneNumber)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.VerifyPhoneNumber);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "phoneNumber", phoneNumber);
+            VerifyPhoneNumberOverride(callInfo, phoneNumber);
+            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
+        }
+
+        [NonAction]
+        partial void RemovePhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> RemovePhoneNumber()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.RemovePhoneNumber);
+            RemovePhoneNumberOverride(callInfo);
+            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
+        }
+
+        [NonAction]
+        partial void ChangePasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult ChangePassword()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ChangePassword);
+            ChangePasswordOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void SetPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult SetPassword()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SetPassword);
+            SetPasswordOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ManageLoginsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Controllers.ManageController.ManageMessageId? message);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ManageLogins(ProjectAriel.Controllers.ManageController.ManageMessageId? message)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ManageLogins);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "message", message);
+            ManageLoginsOverride(callInfo, message);
+            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
+        }
+
+        [NonAction]
+        partial void LinkLoginCallbackOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> LinkLoginCallback()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.LinkLoginCallback);
+            LinkLoginCallbackOverride(callInfo);
+            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
+        }
+
+        [NonAction]
         partial void RemoveLoginOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string loginProvider, string providerKey);
 
         [NonAction]
@@ -260,17 +339,6 @@ namespace ProjectAriel.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "providerKey", providerKey);
             RemoveLoginOverride(callInfo, loginProvider, providerKey);
             return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
-        }
-
-        [NonAction]
-        partial void AddPhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult AddPhoneNumber()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddPhoneNumber);
-            AddPhoneNumberOverride(callInfo);
-            return callInfo;
         }
 
         [NonAction]
@@ -308,18 +376,6 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void VerifyPhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string phoneNumber);
-
-        [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> VerifyPhoneNumber(string phoneNumber)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.VerifyPhoneNumber);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "phoneNumber", phoneNumber);
-            VerifyPhoneNumberOverride(callInfo, phoneNumber);
-            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
-        }
-
-        [NonAction]
         partial void VerifyPhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.VerifyPhoneNumberViewModel model);
 
         [NonAction]
@@ -329,28 +385,6 @@ namespace ProjectAriel.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
             VerifyPhoneNumberOverride(callInfo, model);
             return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
-        }
-
-        [NonAction]
-        partial void RemovePhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> RemovePhoneNumber()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.RemovePhoneNumber);
-            RemovePhoneNumberOverride(callInfo);
-            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
-        }
-
-        [NonAction]
-        partial void ChangePasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult ChangePassword()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ChangePassword);
-            ChangePasswordOverride(callInfo);
-            return callInfo;
         }
 
         [NonAction]
@@ -366,17 +400,6 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void SetPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult SetPassword()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SetPassword);
-            SetPasswordOverride(callInfo);
-            return callInfo;
-        }
-
-        [NonAction]
         partial void SetPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.SetPasswordViewModel model);
 
         [NonAction]
@@ -385,18 +408,6 @@ namespace ProjectAriel.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SetPassword);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
             SetPasswordOverride(callInfo, model);
-            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
-        }
-
-        [NonAction]
-        partial void ManageLoginsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Controllers.ManageController.ManageMessageId? message);
-
-        [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ManageLogins(ProjectAriel.Controllers.ManageController.ManageMessageId? message)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ManageLogins);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "message", message);
-            ManageLoginsOverride(callInfo, message);
             return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
         }
 
@@ -410,17 +421,6 @@ namespace ProjectAriel.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "provider", provider);
             LinkLoginOverride(callInfo, provider);
             return callInfo;
-        }
-
-        [NonAction]
-        partial void LinkLoginCallbackOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> LinkLoginCallback()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.LinkLoginCallback);
-            LinkLoginCallbackOverride(callInfo);
-            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
         }
 
     }

@@ -114,6 +114,7 @@
     <Reference Include="System.Net.Http.WebRequest" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\CardComponents\AddCardComponentTests.cs" />
     <Compile Include="Components\PlayerComponents\GetPlayerByIDComponentTests.cs" />
     <Compile Include="Components\PlayerComponents\GetPlayerListComponentTests.cs" />
     <Compile Include="Components\PlayerComponents\AddPlayerComponentTests.cs" />
