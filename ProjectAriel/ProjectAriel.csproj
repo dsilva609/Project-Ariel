@@ -179,6 +179,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="CardController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Common\ElmahResult.cs" />
     <Compile Include="Common\ProjectArielContextWrapper.cs" />
     <Compile Include="Components\CardComponents\AddCardComponent.cs" />
@@ -192,6 +195,7 @@
     <Compile Include="Components\PlayerComponents\GetPlayerByIDComponent.cs" />
     <Compile Include="Components\PlayerComponents\GetPlayerListComponent.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\ElmahController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -210,9 +214,9 @@
     <Compile Include="ManageController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201408241941592_initialcreate.cs" />
-    <Compile Include="Migrations\201408241941592_initialcreate.Designer.cs">
-      <DependentUpon>201408241941592_initialcreate.cs</DependentUpon>
+    <Compile Include="Migrations\201408281603202_InitialCreate.cs" />
+    <Compile Include="Migrations\201408281603202_InitialCreate.Designer.cs">
+      <DependentUpon>201408281603202_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -228,6 +232,7 @@
     <Compile Include="Repositories\IUnitOfWork.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
+    <Compile Include="Services\CardService.cs" />
     <Compile Include="Services\PlayerService.cs" />
     <Compile Include="SharedController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
@@ -312,6 +317,11 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>T4MVC.cs</LastGenOutput>
     </None>
+    <Content Include="Views\Card\Create.cshtml" />
+    <Content Include="Views\Card\Delete.cshtml" />
+    <Content Include="Views\Card\Details.cshtml" />
+    <Content Include="Views\Card\Edit.cshtml" />
+    <Content Include="Views\Card\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,12 +334,12 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408241941592_initialcreate.resx">
-      <DependentUpon>201408241941592_initialcreate.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <EmbeddedResource Include="Migrations\201408281603202_InitialCreate.resx">
+      <DependentUpon>201408281603202_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
