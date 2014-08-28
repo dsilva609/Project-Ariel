@@ -25,9 +25,9 @@ namespace ProjectAriel.Controllers
 		}
 
 		[HttpGet]
-		public virtual ActionResult Details(int id)
+		public virtual ActionResult Details(int ID)
 		{
-			var player = this._Service.GetByID(id);
+			var player = this._Service.GetByID(ID);
 
 			if (player == null)
 			{
@@ -43,14 +43,14 @@ namespace ProjectAriel.Controllers
 		}
 
 		[HttpGet]
-		public virtual ActionResult Edit(int? id)
+		public virtual ActionResult Edit(int? ID)
 		{//TODO should this be nullable?
 			var player = new Player();
 			ViewBag.Title = "Create Player";
 
-			if (id > 0)
+			if (ID > 0)
 			{
-				player = this._Service.GetByID(id);
+				player = this._Service.GetByID(ID);
 				ViewBag.Title = "Edit Player";
 			}
 
@@ -63,13 +63,13 @@ namespace ProjectAriel.Controllers
 		}
 
 		[HttpGet]
-		public virtual ActionResult Delete(int id)
+		public virtual ActionResult Delete(int ID)
 		{
-			if (id == null)
-			{
-				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			}
-			var player = this._Service.GetByID(id);
+			//if (id == null)
+			//{
+			//	return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			//}
+			var player = this._Service.GetByID(ID);
 			if (player == null)
 			{
 				return HttpNotFound();
@@ -118,12 +118,12 @@ namespace ProjectAriel.Controllers
 			}
 			return View(player);
 		}
-
+		//TODO is this needed?
 		[HttpPost, ActionName("Delete")]
 		[ValidateAntiForgeryToken]
-		public virtual ActionResult DeleteConfirmed(int id)
+		public virtual ActionResult DeleteConfirmed(int ID)
 		{
-			this._Service.Delete(id);
+			this._Service.Delete(ID);
 
 			return RedirectToAction("Index");
 		}

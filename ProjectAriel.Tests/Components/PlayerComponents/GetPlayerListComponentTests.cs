@@ -29,7 +29,7 @@ namespace ProjectAriel.Tests.Components.PlayerComponents
 			this._mock.Setup(m => m.GetAll()).Returns( new List<Player> { 
 				new Player { ID = 1, Name = "Smitty Werbenjagermanjensen", IsActive = true }, 
 				new Player { Name = "Walter White", ID = 2, IsActive = true }, 
-				new Player { Name = "Tom Neville", ID = 3, IsActive = true}});
+				new Player { Name = "Tom Neville", ID = 3, IsActive = true }});
 			this._repo = this._mock.Object;
 
 			//--Act
