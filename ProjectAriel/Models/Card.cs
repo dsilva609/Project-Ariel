@@ -11,6 +11,7 @@ namespace ProjectAriel.Models
 		public string Type { get; set; }
 		public char Suit { get; set; }
 		public char Rank { get; set; }
+		[Display(Name="Image Location")]
 		public string ImageLocation { get; set; }
 
 		[Display(Name = "Active")]

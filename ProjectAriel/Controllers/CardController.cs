@@ -26,55 +26,35 @@ namespace ProjectAriel.Controllers
 			this._Service = new CardService(this._Uow);
 		}
 
-        // GET: Card
+		#region HttpGet
 		[HttpGet]
 		public virtual ActionResult Index()
         {
             return View(this._Service.GetAll());
         }
 
-        // GET: Card/Details/5
 		[HttpGet]
 		public virtual ActionResult Details(int? ID)
-        {
+		{
 			var card = this._Service.GetByID(ID);
 
-            if (card == null)
-            {
-                return HttpNotFound();
-            }
+			if (card == null)
+			{
+				return HttpNotFound();
+			}
 
-            return View(card);
-        }
+			return View(card);
+		}
 
-        // GET: Card/Create
 		[HttpGet]
 		public virtual ActionResult Create()
         {
 			return RedirectToAction(MVC.Card.Edit());
         }
 
-        // POST: Card/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-		public virtual ActionResult Create([Bind(Include = "ID,Name,Description,Type,ImageLocation,IsActive")] Card card)
-        {
-            if (ModelState.IsValid)
-            {
-				this._Service.Add(card);
-
-                return RedirectToAction("Index");
-            }
-
-            return View(card);
-        }
-
-        // GET: Card/Edit/5
 		[HttpGet]
 		public virtual ActionResult Edit(int? ID)
-        {
+		{
 			//TODO should this be nullable?
 			var card = new Card();
 			ViewBag.Title = "Create New Card";
@@ -91,6 +71,40 @@ namespace ProjectAriel.Controllers
 			}
 
 			return View(card);
+		}
+
+		[HttpGet]
+		public virtual ActionResult Delete(int? ID)
+		{
+			//if (id == null)
+			//{
+			//	return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			//}
+			var card = this._Service.GetByID(ID);
+			if (card == null)
+			{
+				return HttpNotFound();
+			}
+			return View(card);
+		}
+		#endregion
+
+		#region HttpPost
+		// POST: Card/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+		public virtual ActionResult Create([Bind(Include = "ID,Name,Description,Type,ImageLocation,IsActive")] Card card)
+        {
+            if (ModelState.IsValid)
+            {
+				this._Service.Add(card);
+
+                return RedirectToAction("Index");
+            }
+
+            return View(card);
         }
 
         // POST: Card/Edit/5
@@ -115,32 +129,17 @@ namespace ProjectAriel.Controllers
 			return View(card);
         }
 
-        // GET: Card/Delete/5
-		[HttpGet]
-		public virtual ActionResult Delete(int? ID)
-        {
-			//if (id == null)
-			//{
-			//	return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			//}
-			var card = this._Service.GetByID(ID);
-            if (card == null)
-            {
-                return HttpNotFound();
-            }
-            return View(card);
-        }
-
 		//TODO is this needed?
-        // POST: Card/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+		// POST: Card/Delete/5
+		[HttpPost, ActionName("Delete")]
+		[ValidateAntiForgeryToken]
 		public virtual ActionResult DeleteConfirmed(int ID)
-        {
-			var card = this._Service.GetByID(ID);
-            
-            return RedirectToAction("Index");
-        }
+		{
+			this._Service.Delete(ID);
+
+			return RedirectToAction("Index");
+		}
+		#endregion
 
         protected override void Dispose(bool disposing)
         {
