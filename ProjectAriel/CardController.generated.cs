@@ -122,14 +122,6 @@ namespace ProjectAriel.Controllers
         {
             public readonly string ID = "ID";
         }
-        static readonly ActionParamsClass_Create s_params_Create = new ActionParamsClass_Create();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_Create CreateParams { get { return s_params_Create; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_Create
-        {
-            public readonly string card = "card";
-        }
         static readonly ActionParamsClass_Edit s_params_Edit = new ActionParamsClass_Edit();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ActionParamsClass_Edit EditParams { get { return s_params_Edit; } }
@@ -146,6 +138,14 @@ namespace ProjectAriel.Controllers
         public class ActionParamsClass_Delete
         {
             public readonly string ID = "ID";
+        }
+        static readonly ActionParamsClass_Create s_params_Create = new ActionParamsClass_Create();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Create CreateParams { get { return s_params_Create; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Create
+        {
+            public readonly string card = "card";
         }
         static readonly ActionParamsClass_DeleteConfirmed s_params_DeleteConfirmed = new ActionParamsClass_DeleteConfirmed();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -165,13 +165,11 @@ namespace ProjectAriel.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string Create = "Create";
                 public readonly string Delete = "Delete";
                 public readonly string Details = "Details";
                 public readonly string Edit = "Edit";
                 public readonly string Index = "Index";
             }
-            public readonly string Create = "~/Views/Card/Create.cshtml";
             public readonly string Delete = "~/Views/Card/Delete.cshtml";
             public readonly string Details = "~/Views/Card/Details.cshtml";
             public readonly string Edit = "~/Views/Card/Edit.cshtml";
@@ -219,18 +217,6 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void CreateOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.Card card);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult Create(ProjectAriel.Models.Card card)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Create);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "card", card);
-            CreateOverride(callInfo, card);
-            return callInfo;
-        }
-
-        [NonAction]
         partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? ID);
 
         [NonAction]
@@ -239,6 +225,30 @@ namespace ProjectAriel.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Edit);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
             EditOverride(callInfo, ID);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void DeleteOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? ID);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Delete(int? ID)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
+            DeleteOverride(callInfo, ID);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void CreateOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.Card card);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Create(ProjectAriel.Models.Card card)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Create);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "card", card);
+            CreateOverride(callInfo, card);
             return callInfo;
         }
 
@@ -252,18 +262,6 @@ namespace ProjectAriel.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "card", card);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
             EditOverride(callInfo, card, ID);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void DeleteOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? ID);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult Delete(int? ID)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
-            DeleteOverride(callInfo, ID);
             return callInfo;
         }
 
