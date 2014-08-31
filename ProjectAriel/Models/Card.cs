@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ProjectAriel.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjectAriel.Models
 {
@@ -8,10 +9,11 @@ namespace ProjectAriel.Models
 		public string Name { get; set; }
 		public int ID { get; set; }
 		public string Description { get; set; }
-		public string Type { get; set; }
-		public char Suit { get; set; }
-		public char Rank { get; set; }
-		[Display(Name="Image Location")]
+		[Display(Name = "Type")]
+		public CardType Cardtype { get; set; }
+		public Suit Suit { get; set; }
+		public Rank Rank { get; set; }
+		[Display(Name = "Image Location")]
 		public string ImageLocation { get; set; }
 
 		[Display(Name = "Active")]

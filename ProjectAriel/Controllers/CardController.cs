@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using ProjectAriel.DAL;
+﻿using ProjectAriel.DAL;
 using ProjectAriel.Models;
 using ProjectAriel.Repositories;
 using ProjectAriel.Services;
+using System.Web.Mvc;
 
 namespace ProjectAriel.Controllers
 {
 	public partial class CardController : Controller
-    {
-       // private ProjectArielContext db = new ProjectArielContext();
+	{
+		// private ProjectArielContext db = new ProjectArielContext();
 
 		private readonly IUnitOfWork _Uow;
 		private readonly CardService _Service;
@@ -29,9 +22,9 @@ namespace ProjectAriel.Controllers
 		#region HttpGet
 		[HttpGet]
 		public virtual ActionResult Index()
-        {
-            return View(this._Service.GetAll());
-        }
+		{
+			return View(this._Service.GetAll());
+		}
 
 		[HttpGet]
 		public virtual ActionResult Details(int? ID)
@@ -48,9 +41,9 @@ namespace ProjectAriel.Controllers
 
 		[HttpGet]
 		public virtual ActionResult Create()
-        {
+		{
 			return RedirectToAction(MVC.Card.Edit());
-        }
+		}
 
 		[HttpGet]
 		public virtual ActionResult Edit(int? ID)
@@ -91,29 +84,29 @@ namespace ProjectAriel.Controllers
 
 		#region HttpPost
 		// POST: Card/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public virtual ActionResult Create([Bind(Include = "ID,Name,Description,Type,ImageLocation,IsActive")] Card card)
-        {
-            if (ModelState.IsValid)
-            {
+		{
+			if (ModelState.IsValid)
+			{
 				this._Service.Add(card);
 
-                return RedirectToAction("Index");
-            }
+				return RedirectToAction("Index");
+			}
 
-            return View(card);
-        }
+			return View(card);
+		}
 
-        // POST: Card/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-		public virtual ActionResult Edit([Bind(Include = "ID,Name,Description,Type,ImageLocation,IsActive")] Card card, int ID)
-        {
+		// POST: Card/Edit/5
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public virtual ActionResult Edit([Bind(Include = "ID,Name,Description,Cardtype,Suit,Rank,ImageLocation,IsActive")] Card card, int ID)
+		{
 			if (ModelState.IsValid)
 			{
 				if (ID == 0)
@@ -127,7 +120,7 @@ namespace ProjectAriel.Controllers
 				return RedirectToAction("Index");
 			}
 			return View(card);
-        }
+		}
 
 		//TODO is this needed?
 		// POST: Card/Delete/5
@@ -141,13 +134,13 @@ namespace ProjectAriel.Controllers
 		}
 		#endregion
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
 			{
 				this._Uow.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-    }
+			}
+			base.Dispose(disposing);
+		}
+	}
 }

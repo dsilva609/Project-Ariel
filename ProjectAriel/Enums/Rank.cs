@@ -1,7 +1,10 @@
-﻿namespace ProjectAriel.Enums
+﻿using System.ComponentModel.DataAnnotations;
+namespace ProjectAriel.Enums
 {
 	public enum Rank
 	{
+		[Display(Name = "-Select Rank-")]
+		Default,
 		One,
 		Two,
 		Three,

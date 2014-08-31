@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectAriel.Models;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using ProjectAriel.Repositories;
 using ProjectAriel.Components.CardComponents;
+using ProjectAriel.Enums;
+using ProjectAriel.Models;
+using ProjectAriel.Repositories;
 
 namespace ProjectAriel.Tests.Components.CardComponents
 {
@@ -20,7 +20,16 @@ namespace ProjectAriel.Tests.Components.CardComponents
 		{
 			this._editCardComponent = new EditCardComponent();
 			this._mock = new Mock<IRepository<Card>>();
-			this._card = new Card { Name = "Bang!", ID = 1, Description = "Kill 'Em All", Suit = 'S', Rank = 'A', Type = "Basic", IsActive = true };
+			this._card = new Card
+			{
+				Name = "Bang!",
+				ID = 1,
+				Description = "Kill 'Em All",
+				Suit = Suit.Spade,
+				Rank = Rank.Ace,
+				Cardtype = CardType.Basic,
+				IsActive = true
+			};
 		}
 
 		[TestMethod]

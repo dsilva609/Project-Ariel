@@ -221,6 +221,14 @@
     <Compile Include="Migrations\201408281603202_InitialCreate.Designer.cs">
       <DependentUpon>201408281603202_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408302320351_addEnumsToCardModel.cs" />
+    <Compile Include="Migrations\201408302320351_addEnumsToCardModel.Designer.cs">
+      <DependentUpon>201408302320351_addEnumsToCardModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408302345268_updateCardModel.cs" />
+    <Compile Include="Migrations\201408302345268_updateCardModel.Designer.cs">
+      <DependentUpon>201408302345268_updateCardModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Card.cs" />
@@ -341,6 +349,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201408281603202_InitialCreate.resx">
       <DependentUpon>201408281603202_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408302320351_addEnumsToCardModel.resx">
+      <DependentUpon>201408302320351_addEnumsToCardModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408302345268_updateCardModel.resx">
+      <DependentUpon>201408302345268_updateCardModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
