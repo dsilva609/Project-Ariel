@@ -30,7 +30,6 @@ namespace ProjectAriel.Controllers
 		public virtual ActionResult Details(int? ID)
 		{
 			var card = this._Service.GetByID(ID);
-
 			if (card == null)
 			{
 				return HttpNotFound();
@@ -114,7 +113,7 @@ namespace ProjectAriel.Controllers
 					card.IsActive = true;
 					this._Service.Add(card);
 				}
-
+				this._Service.ConvertEnums(card);
 				this._Service.Edit(ID, card);
 
 				return RedirectToAction("Index");

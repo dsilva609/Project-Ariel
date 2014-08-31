@@ -37,8 +37,7 @@
 			@Html.DisplayFor(modelItem => item.Description)
 		</td>
 		<td>
-		@*	@Html.DisplayFor(modelItem => item.Cardtype.GetType().GetField(item.Cardtype.ToString()).GetCustomAttributesData().FirstOrDefault())*@
-			@Html.DisplayFor(modelItem => item.Cardtype)
+			@Html.DisplayFor(modelItem => item.CardTypeString)
 		</td>
 		<td>
 			@Html.DisplayFor(modelItem => item.ImageLocation)

@@ -11,8 +11,11 @@ namespace ProjectAriel.Models
 		public string Description { get; set; }
 		[Display(Name = "Type")]
 		public CardType Cardtype { get; set; }
+		public string CardTypeString { get; set; }
 		public Suit Suit { get; set; }
+		public string SuitString { get; set; }
 		public Rank Rank { get; set; }
+		public string RankString { get; set; }
 		[Display(Name = "Image Location")]
 		public string ImageLocation { get; set; }
 
