@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectAriel.Repositories;
-using ProjectAriel.Models;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using ProjectAriel.Components.PlayerComponents;
+using ProjectAriel.Models;
+using ProjectAriel.Repositories;
 using System.Collections.Generic;
 
 namespace ProjectAriel.Tests.Components.PlayerComponents
@@ -21,15 +20,33 @@ namespace ProjectAriel.Tests.Components.PlayerComponents
 			this._getPlayerListComponent = new GetPlayerListComponent();
 			this._mock = new Mock<IRepository<Player>>();
 		}
-		
+
 		[TestMethod]
 		public void TestThatRepositoryReturnsAllPlayers()
 		{
 			//--Arrange
-			this._mock.Setup(m => m.GetAll()).Returns( new List<Player> { 
-				new Player { ID = 1, Name = "Smitty Werbenjagermanjensen", IsActive = true }, 
-				new Player { Name = "Walter White", ID = 2, IsActive = true }, 
-				new Player { Name = "Tom Neville", ID = 3, IsActive = true }});
+			this._mock.Setup(m => m.GetAll()).Returns(new List<Player> { 
+				new Player 
+				{ 
+					ID = 1, 
+					Name = "Smitty Werbenjagermanjensen", 
+					IsActive = true 
+				},
+ 
+				new Player 
+				{ 
+					Name = "Walter White", 
+					ID = 2, 
+					IsActive = true 
+				},
+ 
+				new Player 
+				{ 
+					Name = "Tom Neville", 
+					ID = 3, 
+					IsActive = true 
+				}
+			});
 			this._repo = this._mock.Object;
 
 			//--Act

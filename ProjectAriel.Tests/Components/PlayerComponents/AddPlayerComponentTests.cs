@@ -19,7 +19,12 @@ namespace ProjectAriel.Tests.Components.PlayerComponents
 		public void Setup()
 		{
 			this._addPlayerComponent = new AddPlayerComponent();
-			this._player = new Player { ID = 1, Name = "Smitty Werbenjagermanjensen", IsActive = true };
+			this._player = new Player
+			{
+				ID = 1,
+				Name = "Smitty Werbenjagermanjensen",
+				IsActive = true
+			};
 			this._mock = new Mock<IRepository<Player>>();
 
 		}
@@ -35,7 +40,7 @@ namespace ProjectAriel.Tests.Components.PlayerComponents
 			this._addPlayerComponent.Execute(this._repo, this._player);
 
 			//--Assert
-			this._mock.Verify(m => m.Add(It.Is<Player>(p => p.ID == this._player.ID && p.Name == this._player.Name && p.IsActive == this._player.IsActive )));
+			this._mock.Verify(m => m.Add(It.Is<Player>(p => p.ID == this._player.ID && p.Name == this._player.Name && p.IsActive == this._player.IsActive)));
 		}
 	}
 }

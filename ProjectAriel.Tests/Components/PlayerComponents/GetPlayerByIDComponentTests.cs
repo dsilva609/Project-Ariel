@@ -20,7 +20,12 @@ namespace ProjectAriel.Tests.Components.PlayerComponents
 		{
 			this._getPlayerByIDComponent = new GetPlayerByIDComponent();
 			this._mock = new Mock<IRepository<Player>>();
-			this._player = new Player { ID = 1, Name = "Smitty Werbenjagermanjensen", IsActive = true };
+			this._player = new Player
+			{
+				ID = 1,
+				Name = "Smitty Werbenjagermanjensen",
+				IsActive = true
+			};
 		}
 
 		[TestMethod]
