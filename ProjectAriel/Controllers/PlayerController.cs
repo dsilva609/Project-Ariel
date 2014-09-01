@@ -107,6 +107,7 @@ namespace ProjectAriel.Controllers
 		}
 		#endregion
 
+		[NonAction]
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing)
