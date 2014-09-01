@@ -167,11 +167,13 @@ namespace ProjectAriel.Controllers
             {
                 public readonly string Delete = "Delete";
                 public readonly string Details = "Details";
+                public readonly string DropDownValidationPopup = "DropDownValidationPopup";
                 public readonly string Edit = "Edit";
                 public readonly string Index = "Index";
             }
             public readonly string Delete = "~/Views/Card/Delete.cshtml";
             public readonly string Details = "~/Views/Card/Details.cshtml";
+            public readonly string DropDownValidationPopup = "~/Views/Card/DropDownValidationPopup.cshtml";
             public readonly string Edit = "~/Views/Card/Edit.cshtml";
             public readonly string Index = "~/Views/Card/Index.cshtml";
         }

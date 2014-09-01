@@ -353,6 +353,7 @@
     <Content Include="Views\Card\Details.cshtml" />
     <Content Include="Views\Card\Edit.cshtml" />
     <Content Include="Views\Card\Index.cshtml" />
+    <Content Include="Views\Card\DropDownValidationPopup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
