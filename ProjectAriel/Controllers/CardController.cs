@@ -93,7 +93,7 @@ namespace ProjectAriel.Controllers
 				this._Service.ConvertEnums(card);
 				this._Service.Edit(ID, card);
 
-				return RedirectToAction("Index");
+				return RedirectToAction(MVC.Card.Index());
 			}
 			return View(card);
 		}
@@ -105,7 +105,7 @@ namespace ProjectAriel.Controllers
 		{
 			this._Service.Delete(ID);
 
-			return RedirectToAction("Index");
+			return RedirectToAction(MVC.Card.Index());
 		}
 		#endregion
 

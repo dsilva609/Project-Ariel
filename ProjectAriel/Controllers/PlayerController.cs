@@ -92,7 +92,7 @@ namespace ProjectAriel.Controllers
 
 				this._Service.Edit(ID, player);
 
-				return RedirectToAction("Index");
+				return RedirectToAction(MVC.Player.Index());
 			}
 			return View(player);
 		}
@@ -103,7 +103,7 @@ namespace ProjectAriel.Controllers
 		{
 			this._Service.Delete(ID);
 
-			return RedirectToAction("Index");
+			return RedirectToAction(MVC.Player.Index());
 		}
 		#endregion
 
