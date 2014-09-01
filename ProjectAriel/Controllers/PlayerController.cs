@@ -1,9 +1,8 @@
-﻿using System.Net;
-using System.Web.Mvc;
-using ProjectAriel.DAL;
+﻿using ProjectAriel.DAL;
 using ProjectAriel.Models;
 using ProjectAriel.Repositories;
 using ProjectAriel.Services;
+using System.Web.Mvc;
 
 namespace ProjectAriel.Controllers
 {
@@ -17,6 +16,7 @@ namespace ProjectAriel.Controllers
 			this._Uow = new UnitOfWork<ProjectArielContext>();
 			this._Service = new PlayerService(this._Uow);
 		}
+
 		#region HttpGet
 		[HttpGet]
 		public virtual ActionResult Index()
@@ -44,7 +44,7 @@ namespace ProjectAriel.Controllers
 
 		[HttpGet]
 		public virtual ActionResult Edit(int? ID)
-		{//TODO should this be nullable?
+		{
 			var player = new Player();
 			ViewBag.Title = "Create Player";
 
@@ -65,10 +65,6 @@ namespace ProjectAriel.Controllers
 		[HttpGet]
 		public virtual ActionResult Delete(int ID)
 		{
-			//if (id == null)
-			//{
-			//	return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			//}
 			var player = this._Service.GetByID(ID);
 			if (player == null)
 			{
@@ -80,24 +76,6 @@ namespace ProjectAriel.Controllers
 		#endregion
 
 		#region HttpPost
-
-		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public virtual ActionResult Create([Bind(Include = "ID,Name,IsActive")] Player player)
-		{
-			if (ModelState.IsValid)
-			{
-				player.IsActive = true;
-				this._Service.Add(player);
-
-				return RedirectToAction("Index");
-			}
-
-			return View(player);
-		}
-
 		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
 		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
@@ -118,7 +96,7 @@ namespace ProjectAriel.Controllers
 			}
 			return View(player);
 		}
-		//TODO is this needed?
+
 		[HttpPost, ActionName("Delete")]
 		[ValidateAntiForgeryToken]
 		public virtual ActionResult DeleteConfirmed(int ID)
