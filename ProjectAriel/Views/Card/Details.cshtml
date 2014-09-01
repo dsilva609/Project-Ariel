@@ -69,6 +69,6 @@
 	</dl>
 </div>
 <p>
-	@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-	@Html.ActionLink("Back to List", "Index")
+	@Html.ActionLink("Edit", MVC.Card.Edit(Model.ID), new { id = Model.ID }) |
+	@Html.ActionLink("Back to List", MVC.Card.Index())
 </p>
