@@ -51,7 +51,7 @@ namespace ProjectAriel.Controllers
 			if (ID > 0)
 			{
 				player = this._Service.GetByID(ID);
-				ViewBag.Title = "Edit Player";
+				ViewBag.Title = "Edit Player: " + player.Name;
 			}
 
 			if (player == null)
