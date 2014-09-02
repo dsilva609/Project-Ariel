@@ -237,8 +237,8 @@ th {
   .navbar {
     display: none;
   }
-  .table td,
-  .table th {
+  .table div, td,
+  .table div, th {
     background-color: #fff !important;
   }
   .btn > .caret,
@@ -251,8 +251,8 @@ th {
   .table {
     border-collapse: collapse !important;
   }
-  .table-bordered th,
-  .table-bordered td {
+  .table-bordered div, th,
+  .table-bordered div, td {
     border: 1px solid #ddd !important;
   }
 }
@@ -2058,7 +2058,9 @@ th {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
+  background-color: #2e3338 !important;
 }
+.table > div > div,
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -2074,6 +2076,7 @@ th {
   vertical-align: bottom;
   border-bottom: 2px solid #1c1e22;
 }
+
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
 .table > thead:first-child > tr:first-child > th,

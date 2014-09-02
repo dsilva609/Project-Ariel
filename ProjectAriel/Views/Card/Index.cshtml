@@ -8,48 +8,93 @@
 <p>
 	@Html.ActionLink("Create New", MVC.Card.Create())
 </p>
-<table class="table">
-	<tr>
-		<th>
+@*<table class="table">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Description)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Cardtype)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.ImageLocation)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.IsActive)
+			</th>
+		</tr>
+	</table>*@
+<div class="table">
+	<div class="bold row">
+		<div class="col-lg-3">
 			@Html.DisplayNameFor(model => model.Name)
-		</th>
-		<th>
+		</div>
+		<div class="col-lg-3">
 			@Html.DisplayNameFor(model => model.Description)
-		</th>
-		<th>
+		</div>
+		<div class="col-lg-1">
 			@Html.DisplayNameFor(model => model.Cardtype)
-		</th>
-		<th>
+		</div>
+		<div class="col-lg-2">
 			@Html.DisplayNameFor(model => model.ImageLocation)
-		</th>
-		<th>
+		</div>
+		<div class="col-lg-3">
 			@Html.DisplayNameFor(model => model.IsActive)
-		</th>
-		<th></th>
-	</tr>
+		</div>
+	</div>
+	@foreach (var item in Model)
+	{
+		@*<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Description)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.CardTypeString)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.ImageLocation)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.IsActive)
+				</td>
+				<td>
+					@Html.ActionLink("Edit", MVC.Card.Edit(item.ID), new { id = item.ID }) |
+					@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id = item.ID }) |
+					@Html.ActionLink("Delete", MVC.Card.Delete(item.ID), new { id = item.ID })
+				</td>
+			</tr>*@
+		<a href=@MVC.Card.Edit(item.ID)>
+			<div class="row">
+				<div class="col-lg-3">
+					@Html.DisplayFor(modelItem => item.Name)
+				</div>
+				<div class="col-lg-3">
+					@Html.DisplayFor(modelItem => item.Description)
+				</div>
+				<div class="col-lg-1">
+					@Html.DisplayFor(modelItem => item.CardTypeString)
+				</div>
+				<div class="col-lg-2">
+					@Html.DisplayFor(modelItem => item.ImageLocation)
+				</div>
+				<div class="col-lg-1">
+					@Html.DisplayFor(modelItem => item.IsActive)
+				</div>
+				<div class="col-lg-2">
+					@Html.ActionLink("Edit", MVC.Card.Edit(item.ID), new { id = item.ID }) |
+					@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id = item.ID }) |
+					@Html.ActionLink("Delete", MVC.Card.Delete(item.ID), new { id = item.ID })
+				</div>
+			</div>
+		</a>
+	}
+</div>
+@*</table>*@
 
-@foreach (var item in Model) {
-	<tr>
-		<td>
-			@Html.DisplayFor(modelItem => item.Name)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Description)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.CardTypeString)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.ImageLocation)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.IsActive)
-		</td>
-		<td>
-			@Html.ActionLink("Edit", MVC.Card.Edit(item.ID), new { id=item.ID }) |
-			@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id=item.ID }) |
-			@Html.ActionLink("Delete", MVC.Card.Delete(item.ID), new { id=item.ID })
-		</td>
-	</tr>
-}
-</table>
+
