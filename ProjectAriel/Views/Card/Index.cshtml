@@ -3,53 +3,56 @@
 @{
 	ViewBag.Title = "Cards";
 }
+<script>
+	var editURL = '@Url.Action(MVC.Card.Edit())';
+</script>
+
 <h2>Cards</h2>
 
 <p>
 	@Html.ActionLink("Create New", MVC.Card.Create())
 </p>
-<table class="table">
-	<tr>
-		<th>
+<div class="table">
+	<div class="bold row">
+		<div class="col-lg-3 removePaddingLeftRight">
 			@Html.DisplayNameFor(model => model.Name)
-		</th>
-		<th>
+		</div>
+		<div class="col-lg-3 removePaddingLeftRight">
 			@Html.DisplayNameFor(model => model.Description)
-		</th>
-		<th>
+		</div>
+		<div class="col-lg-1 removePaddingLeftRight">
 			@Html.DisplayNameFor(model => model.Cardtype)
-		</th>
-		<th>
+		</div>
+		<div class="col-lg-2 removePaddingLeftRight">
 			@Html.DisplayNameFor(model => model.ImageLocation)
-		</th>
-		<th>
+		</div>
+		<div class="col-lg-3 removePaddingLeftRight">
 			@Html.DisplayNameFor(model => model.IsActive)
-		</th>
-		<th></th>
-	</tr>
-
-@foreach (var item in Model) {
-	<tr>
-		<td>
-			@Html.DisplayFor(modelItem => item.Name)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Description)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.CardTypeString)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.ImageLocation)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.IsActive)
-		</td>
-		<td>
-			@Html.ActionLink("Edit", MVC.Card.Edit(item.ID), new { id=item.ID }) |
-			@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id=item.ID }) |
-			@Html.ActionLink("Delete", MVC.Card.Delete(item.ID), new { id=item.ID })
-		</td>
-	</tr>
-}
-</table>
+		</div>
+	</div>
+	@foreach (var item in Model)
+	{
+			<div id="card" class="row" data-id="@item.ID">
+				<div class="col-lg-3 removePaddingLeftRight">
+					@Html.DisplayFor(modelItem => item.Name)
+				</div>
+				<div class="col-lg-3 removePaddingLeftRight">
+					@Html.DisplayFor(modelItem => item.Description)
+				</div>
+				<div class="col-lg-1 removePaddingLeftRight">
+					@Html.DisplayFor(modelItem => item.CardTypeString)
+				</div>
+				<div class="col-lg-2 removePaddingLeftRight">
+					@Html.DisplayFor(modelItem => item.ImageLocation)
+				</div>
+				<div class="col-lg-1 removePaddingLeftRight">
+					@Html.DisplayFor(modelItem => item.IsActive)
+				</div>
+				<div class="col-lg-2 removePaddingLeftRight">
+					@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id = item.ID }) |
+					@Html.ActionLink("Delete", MVC.Card.Delete(item.ID), new { id = item.ID })
+				</div>
+			</div>
+	}
+</div>
+@Scripts.Render(Links.Scripts.PageSpecific.CardIndex_js)

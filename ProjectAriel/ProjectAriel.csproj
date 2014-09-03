@@ -284,11 +284,23 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\PageSpecific\CardIndex.js">
+      <DependentUpon>CardIndex.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\CardIndex.min.js">
+      <DependentUpon>CardIndex.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\PageSpecific\EditCard.js">
       <DependentUpon>EditCard.coffee</DependentUpon>
     </Content>
     <Content Include="Scripts\PageSpecific\EditCard.min.js">
       <DependentUpon>EditCard.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\PlayerIndex.js">
+      <DependentUpon>PlayerIndex.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\PlayerIndex.min.js">
+      <DependentUpon>PlayerIndex.js</DependentUpon>
     </Content>
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -301,6 +313,20 @@
     </Content>
     <Content Include="Scripts\PageSpecific\EditCard.min.js.map">
       <DependentUpon>EditCard.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\CardIndex.coffee" />
+    <Content Include="Scripts\PageSpecific\CardIndex.js.map">
+      <DependentUpon>CardIndex.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\CardIndex.min.js.map">
+      <DependentUpon>CardIndex.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\PlayerIndex.coffee" />
+    <Content Include="Scripts\PageSpecific\PlayerIndex.js.map">
+      <DependentUpon>PlayerIndex.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\PlayerIndex.min.js.map">
+      <DependentUpon>PlayerIndex.min.js</DependentUpon>
     </Content>
     <None Include="T4MVC.tt.settings.xml" />
     <Content Include="Web.config" />
