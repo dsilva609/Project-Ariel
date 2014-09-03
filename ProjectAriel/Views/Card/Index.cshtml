@@ -50,7 +50,9 @@
 				</div>
 				<div class="col-lg-2 removePaddingLeftRight">
 					@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id = item.ID }) |
-					@Html.ActionLink("Delete", MVC.Card.Delete(item.ID), new { id = item.ID })
+					@Html.ActionLink("Delete", "", new { id = item.ID })
+					@*<input class="btn btn-link" type="button" data-id="@item.ID" value="Delete" />*@
+				@*	@Html.ActionLink("Delete", MVC.Card.Delete(item.ID), new { id = item.ID })*@
 				</div>
 			</div>
 	}
