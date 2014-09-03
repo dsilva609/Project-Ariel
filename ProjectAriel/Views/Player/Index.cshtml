@@ -1,40 +1,42 @@
 ﻿@model IEnumerable<ProjectAriel.Models.Player>
 
 @{
-    ViewBag.Title = "Players";
+	ViewBag.Title = "Players";
 }
+<script>
+	var editURL = '@Url.Action(MVC.Player.Edit())';
+</script>
 
 <h2>Players</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+	@Html.ActionLink("Add New", MVC.Player.Create())
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th></th>
-    </tr>
+<div class="table">
+	<div class="bold row">
+		<div class="col-lg-6">
+			@Html.DisplayNameFor(model => model.Name)
+		</div>
+		<div class="col-lg-6">
+			@Html.DisplayNameFor(model => model.IsActive)
+		</div>
+	</div>
+	@foreach (var item in Model)
+	{
+		<div id="player" class="row" data-id="@item.ID">
+			@Html.HiddenFor(p => item.ID)
+			<div class="col-lg-6">
+				@Html.DisplayFor(modelItem => item.Name)
+			</div>
+			<div class="col-lg-3">
+				@Html.DisplayFor(modelItem => item.IsActive)
+			</div>
+			<div class="col-lg-3">
+				@Html.ActionLink("Details", MVC.Player.Details(item.ID), new { id = item.ID }) |
+				@Html.ActionLink("Delete", MVC.Player.Delete(item.ID), new { id = item.ID })
+			</div>
+		</div>
+	}
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-		@Html.HiddenFor(p => item.ID)
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", MVC.Player.Edit(item.ID), new { id=item.ID }) |
-            @Html.ActionLink("Details", MVC.Player.Details(item.ID), new { id=item.ID }) |
-            @Html.ActionLink("Delete", MVC.Player.Delete(item.ID), new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+@Scripts.Render(Links.Scripts.PageSpecific.PlayerIndex_js)

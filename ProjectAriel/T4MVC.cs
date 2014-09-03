@@ -88,11 +88,21 @@ namespace Links
             private const string URLPATH = "~/Scripts/PageSpecific";
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string CardIndex_coffee = Url("CardIndex.coffee");
+            public static readonly string CardIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/CardIndex.min.js") ? Url("CardIndex.min.js") : Url("CardIndex.js");
+            public static readonly string CardIndex_js_map = Url("CardIndex.js.map");
+            public static readonly string CardIndex_min_js = Url("CardIndex.min.js");
+            public static readonly string CardIndex_min_js_map = Url("CardIndex.min.js.map");
             public static readonly string EditCard_coffee = Url("EditCard.coffee");
             public static readonly string EditCard_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/EditCard.min.js") ? Url("EditCard.min.js") : Url("EditCard.js");
             public static readonly string EditCard_js_map = Url("EditCard.js.map");
             public static readonly string EditCard_min_js = Url("EditCard.min.js");
             public static readonly string EditCard_min_js_map = Url("EditCard.min.js.map");
+            public static readonly string PlayerIndex_coffee = Url("PlayerIndex.coffee");
+            public static readonly string PlayerIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/PlayerIndex.min.js") ? Url("PlayerIndex.min.js") : Url("PlayerIndex.js");
+            public static readonly string PlayerIndex_js_map = Url("PlayerIndex.js.map");
+            public static readonly string PlayerIndex_min_js = Url("PlayerIndex.min.js");
+            public static readonly string PlayerIndex_min_js_map = Url("PlayerIndex.min.js.map");
         }
     
         public static readonly string respond_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/respond.min.js") ? Url("respond.min.js") : Url("respond.js");
