@@ -32,6 +32,6 @@ textarea {
 	padding-right: 0 !important;
 }
 
-.row:hover {
+.table .row:not(:first-child):hover {
 	background-color: ButtonShadow;
 }
