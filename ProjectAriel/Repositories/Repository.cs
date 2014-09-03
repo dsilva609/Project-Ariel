@@ -26,20 +26,10 @@ namespace ProjectAriel.Repositories
 		}
 
 		public virtual void Delete(int ID)
-		{//TODO finish this
+		{
 			var entry = this._DBSet.Find(ID);
 			this._DBSet.Remove(entry);
 			this._Context.SaveChanges();
-		}
-
-		public virtual IEnumerable<T> All()
-		{//TODO what does this do?
-			return this._DBSet;
-		}
-
-		public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
-		{//TODO should this be private?
-			return this._DBSet.Where(predicate);
 		}
 
 		public List<T> GetAll()
@@ -56,7 +46,11 @@ namespace ProjectAriel.Repositories
 		{
 			this._Context.Entry(entity).State = EntityState.Modified;
 			this._Context.SaveChanges();
+		}
 
+		private IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+		{
+			return this._DBSet.Where(predicate);
 		}
 	}
 }
