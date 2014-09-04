@@ -1,4 +1,4 @@
-﻿using ProjectAriel.Components.PlayerComponents;
+﻿using ProjectAriel.Components.CrudComponents;
 using ProjectAriel.Models;
 using ProjectAriel.Repositories;
 using System;
@@ -11,45 +11,45 @@ namespace ProjectAriel.Services
 	public class PlayerService
 	{
 		private readonly IRepository<Player> _Repository;
-		private readonly GetPlayerListComponent _getPlayerListComponent;
-		private readonly AddPlayerComponent _addPlayerComponent;
-		private readonly GetPlayerByIDComponent _getPlayerByIDComponent;
-		private readonly EditPlayerComponent _editPlayerComponent;
-		private readonly DeletePlayerComponent _deletePlayerComponent;
+		private readonly GetEntityListComponent _getEntityListComponent;
+		private readonly AddEntityComponent _addEntityComponent;
+		private readonly GetEntityByIDComponent _getEntityByIDComponent;
+		private readonly EditEntityComponent _editEntityComponent;
+		private readonly DeleteEntityComponent _deleteEntityComponent;
 
 		public PlayerService(IUnitOfWork uow)
 		{
 			this._Repository = uow.GetRepository<Player>();
-			this._getPlayerListComponent = new GetPlayerListComponent();
-			this._addPlayerComponent = new AddPlayerComponent();
-			this._getPlayerByIDComponent = new GetPlayerByIDComponent();
-			this._editPlayerComponent = new EditPlayerComponent();
-			this._deletePlayerComponent = new DeletePlayerComponent();
+			this._getEntityListComponent = new GetEntityListComponent();
+			this._addEntityComponent = new AddEntityComponent();
+			this._getEntityByIDComponent = new GetEntityByIDComponent();
+			this._editEntityComponent = new EditEntityComponent();
+			this._deleteEntityComponent = new DeleteEntityComponent();
 		}
 
 		public void Add(Player player)
 		{
-			this._addPlayerComponent.Execute(this._Repository, player);
+			this._addEntityComponent.Execute(this._Repository, player);
 		}
 
 		public IEnumerable<Player> GetAll()
 		{
-			return this._getPlayerListComponent.Execute(this._Repository);
+			return this._getEntityListComponent.Execute(this._Repository);
 		}
 
 		public Player GetByID(int? ID)
 		{//TODO needs null check
-			return this._getPlayerByIDComponent.Execute(this._Repository, ID);
+			return this._getEntityByIDComponent.Execute(this._Repository, ID);
 		}
 
 		public void Edit(int ID, Player player)
 		{
-			this._editPlayerComponent.Execute(this._Repository, player);
+			this._editEntityComponent.Execute(this._Repository, player);
 		}
 
 		public void Delete(int ID)
 		{
-			this._deletePlayerComponent.Execute(this._Repository, ID);
+			this._deleteEntityComponent.Execute(this._Repository, ID);
 		}
 	}
 }
