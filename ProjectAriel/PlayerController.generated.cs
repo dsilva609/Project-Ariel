@@ -72,12 +72,6 @@ namespace ProjectAriel.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
         }
-        [NonAction]
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult DeleteConfirmed()
-        {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.DeleteConfirmed);
-        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public PlayerController Actions { get { return MVC.Player; } }
@@ -99,7 +93,6 @@ namespace ProjectAriel.Controllers
             public readonly string Create = "Create";
             public readonly string Edit = "Edit";
             public readonly string Delete = "Delete";
-            public readonly string DeleteConfirmed = "Delete";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -110,7 +103,6 @@ namespace ProjectAriel.Controllers
             public const string Create = "Create";
             public const string Edit = "Edit";
             public const string Delete = "Delete";
-            public const string DeleteConfirmed = "Delete";
         }
 
 
@@ -139,14 +131,6 @@ namespace ProjectAriel.Controllers
         {
             public readonly string ID = "ID";
         }
-        static readonly ActionParamsClass_DeleteConfirmed s_params_DeleteConfirmed = new ActionParamsClass_DeleteConfirmed();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_DeleteConfirmed DeleteConfirmedParams { get { return s_params_DeleteConfirmed; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_DeleteConfirmed
-        {
-            public readonly string ID = "ID";
-        }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ViewsClass Views { get { return s_views; } }
@@ -157,12 +141,10 @@ namespace ProjectAriel.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string Delete = "Delete";
                 public readonly string Details = "Details";
                 public readonly string Edit = "Edit";
                 public readonly string Index = "Index";
             }
-            public readonly string Delete = "~/Views/Player/Delete.cshtml";
             public readonly string Details = "~/Views/Player/Details.cshtml";
             public readonly string Edit = "~/Views/Player/Edit.cshtml";
             public readonly string Index = "~/Views/Player/Index.cshtml";
@@ -242,18 +224,6 @@ namespace ProjectAriel.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "player", player);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
             EditOverride(callInfo, player, ID);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void DeleteConfirmedOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int ID);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult DeleteConfirmed(int ID)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.DeleteConfirmed);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
-            DeleteConfirmedOverride(callInfo, ID);
             return callInfo;
         }
 

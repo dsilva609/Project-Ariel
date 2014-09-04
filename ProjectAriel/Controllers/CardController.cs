@@ -63,14 +63,11 @@ namespace ProjectAriel.Controllers
 		}
 
 		[HttpGet]
-		public virtual ActionResult Delete(int? ID)
+		public virtual ActionResult Delete(int ID)
 		{
-			var card = this._Service.GetByID(ID);
-			if (card == null)
-			{
-				return HttpNotFound();
-			}
-			return View(card);
+			this._Service.Delete(ID);
+
+			return RedirectToAction(MVC.Card.Index());
 		}
 		#endregion
 
@@ -98,15 +95,6 @@ namespace ProjectAriel.Controllers
 			return View(card);
 		}
 
-		// POST: Card/Delete/5
-		[HttpPost, ActionName("Delete")]
-		[ValidateAntiForgeryToken]
-		public virtual ActionResult DeleteConfirmed(int ID)
-		{
-			this._Service.Delete(ID);
-
-			return RedirectToAction(MVC.Card.Index());
-		}
 		#endregion
 
 		[NonAction]

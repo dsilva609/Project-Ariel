@@ -65,12 +65,9 @@ namespace ProjectAriel.Controllers
 		[HttpGet]
 		public virtual ActionResult Delete(int ID)
 		{
-			var player = this._Service.GetByID(ID);
-			if (player == null)
-			{
-				return HttpNotFound();
-			}
-			return View(player);
+			this._Service.Delete(ID);
+
+			return RedirectToAction(MVC.Player.Index());
 		}
 
 		#endregion
@@ -97,14 +94,6 @@ namespace ProjectAriel.Controllers
 			return View(player);
 		}
 
-		[HttpPost, ActionName("Delete")]
-		[ValidateAntiForgeryToken]
-		public virtual ActionResult DeleteConfirmed(int ID)
-		{
-			this._Service.Delete(ID);
-
-			return RedirectToAction(MVC.Player.Index());
-		}
 		#endregion
 
 		[NonAction]
