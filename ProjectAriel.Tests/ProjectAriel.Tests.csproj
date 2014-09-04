@@ -114,21 +114,11 @@
     <Reference Include="System.Net.Http.WebRequest" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\CardComponents\AddCardComponentTests.cs" />
-    <Compile Include="Components\CardComponents\DeleteCardComponentTests.cs" />
-    <Compile Include="Components\CardComponents\GetCardByIDComponentTests.cs" />
-    <Compile Include="Components\CardComponents\GetCardListComponentTests.cs" />
-    <Compile Include="Components\CardComponents\EditCardComponentTests.cs" />
     <Compile Include="Components\CrudComponents\AddEntityComponentTests.cs" />
     <Compile Include="Components\CrudComponents\DeleteEntityComponentTests.cs" />
     <Compile Include="Components\CrudComponents\EditEntityComponentTests.cs" />
     <Compile Include="Components\CrudComponents\GetEntityByIDComponentTests.cs" />
     <Compile Include="Components\CrudComponents\GetEntityListComponentTests.cs" />
-    <Compile Include="Components\PlayerComponents\GetPlayerByIDComponentTests.cs" />
-    <Compile Include="Components\PlayerComponents\GetPlayerListComponentTests.cs" />
-    <Compile Include="Components\PlayerComponents\AddPlayerComponentTests.cs" />
-    <Compile Include="Components\PlayerComponents\EditPlayerComponentTest.cs" />
-    <Compile Include="Components\PlayerComponents\DeletePlayerComponentTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
