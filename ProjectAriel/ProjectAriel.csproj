@@ -184,16 +184,11 @@
     </Compile>
     <Compile Include="Common\ElmahResult.cs" />
     <Compile Include="Common\ProjectArielContextWrapper.cs" />
-    <Compile Include="Components\CardComponents\AddCardComponent.cs" />
-    <Compile Include="Components\CardComponents\DeleteCardComponent.cs" />
-    <Compile Include="Components\CardComponents\EditCardComponent.cs" />
-    <Compile Include="Components\CardComponents\GetCardByIDComponent.cs" />
-    <Compile Include="Components\CardComponents\GetCardListComponent.cs" />
-    <Compile Include="Components\PlayerComponents\AddPlayerComponent.cs" />
-    <Compile Include="Components\PlayerComponents\DeletePlayerComponent.cs" />
-    <Compile Include="Components\PlayerComponents\EditPlayerComponent.cs" />
-    <Compile Include="Components\PlayerComponents\GetPlayerByIDComponent.cs" />
-    <Compile Include="Components\PlayerComponents\GetPlayerListComponent.cs" />
+    <Compile Include="Components\CrudComponents\AddEntityComponent.cs" />
+    <Compile Include="Components\CrudComponents\DeleteEntityComponent.cs" />
+    <Compile Include="Components\CrudComponents\EditEntityComponent.cs" />
+    <Compile Include="Components\CrudComponents\GetEntityByIDComponent.cs" />
+    <Compile Include="Components\CrudComponents\GetEntityListComponent.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\ElmahController.cs" />
