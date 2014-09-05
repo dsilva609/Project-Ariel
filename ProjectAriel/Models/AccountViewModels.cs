@@ -48,10 +48,14 @@ namespace ProjectAriel.Models
 
 	public class LoginViewModel
 	{
+		//[Required]
+		//[Display(Name = "Email")]
+		//[EmailAddress]
+		//public string Email { get; set; }
+
 		[Required]
-		[Display(Name = "Email")]
-		[EmailAddress]
-		public string Email { get; set; }
+		[Display(Name = "User Name")]
+		public string UserName { get; set; }
 
 		[Required]
 		[DataType(DataType.Password)]
@@ -64,9 +68,9 @@ namespace ProjectAriel.Models
 
 	public class RegisterViewModel
 	{
-		//[Required]
-		//[Display(Name = "Diaplay Name")]
-		//public string DisplayName { get; set; }
+		[Required]
+		[Display(Name = "User Name")]
+		public string UserName { get; set; }
 
 		[Required]
 		[EmailAddress]
