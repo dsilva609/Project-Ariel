@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using ProjectAriel.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using ProjectAriel.Models;
 
 namespace ProjectAriel.Controllers
 {
@@ -15,12 +14,16 @@ namespace ProjectAriel.Controllers
 	{
 		private ApplicationUserManager _userManager;
 
+		public ManageController()
+		{
+		}
+
 		public ManageController(ApplicationUserManager userManager)
 		{
 			UserManager = userManager;
 		}
 
-		
+
 		public ApplicationUserManager UserManager
 		{
 			get
