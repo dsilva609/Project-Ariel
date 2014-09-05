@@ -30,6 +30,10 @@
 					<li>@Html.ActionLink("Contact", MVC.Home.Contact())</li>
 					<li>@Html.ActionLink("Players", MVC.Player.Index())</li>
 					<li>@Html.ActionLink("Cards", MVC.Card.Index())</li>
+					@if (User.IsInRole("Admin"))
+					{
+						<li>@Html.ActionLink("Error Log", MVC.Elmah.Index())</li>
+					}
 				</ul>
 				@Html.Partial(MVC.Shared.Views._LoginPartial)
 			</div>
@@ -37,8 +41,8 @@
 	</div>
 	<div class="container body-content">
 		@RenderBody()
-		@*<hr />*@
 		<footer>
+			<br/>
 			<p>&copy; @DateTime.Now.Year - Project Ariel</p>
 		</footer>
 	</div>
