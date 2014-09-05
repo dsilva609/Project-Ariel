@@ -9,10 +9,12 @@
 </script>
 
 <h2>Cards</h2>
-
+@if (User.IsInRole("Admin"))
+{ 
 <p>
 	@Html.ActionLink("Create New", MVC.Card.Create())
 </p>
+}
 <div class="table">
 	<div class="bold row">
 		<div class="col-lg-3 removePaddingLeftRight">
@@ -33,27 +35,34 @@
 	</div>
 	@foreach (var item in Model)
 	{
-			<div id="card" class="row" data-id="@item.ID">
-				<div class="col-lg-3 removePaddingLeftRight">
-					@Html.DisplayFor(modelItem => item.Name)
-				</div>
-				<div class="col-lg-3 removePaddingLeftRight">
-					@Html.DisplayFor(modelItem => item.Description)
-				</div>
-				<div class="col-lg-1 removePaddingLeftRight">
-					@Html.DisplayFor(modelItem => item.CardTypeString)
-				</div>
-				<div class="col-lg-2 removePaddingLeftRight">
-					@Html.DisplayFor(modelItem => item.ImageLocation)
-				</div>
-				<div class="col-lg-1 removePaddingLeftRight">
-					@Html.DisplayFor(modelItem => item.IsActive)
-				</div>
-				<div class="col-lg-2 removePaddingLeftRight">
-					@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id = item.ID }) |
-					<input id="delete" class="btn btn-link btn-link-height" type="button" data-id="@item.ID" value="Delete" />
-				</div>
+		<div id="card" class="row" data-id="@item.ID">
+			<div class="col-lg-3 removePaddingLeftRight">
+				@Html.DisplayFor(modelItem => item.Name)
 			</div>
+			<div class="col-lg-3 removePaddingLeftRight">
+				@Html.DisplayFor(modelItem => item.Description)
+			</div>
+			<div class="col-lg-1 removePaddingLeftRight">
+				@Html.DisplayFor(modelItem => item.CardTypeString)
+			</div>
+			<div class="col-lg-2 removePaddingLeftRight">
+				@Html.DisplayFor(modelItem => item.ImageLocation)
+			</div>
+			<div class="col-lg-1 removePaddingLeftRight">
+				@Html.DisplayFor(modelItem => item.IsActive)
+			</div>
+			<div class="col-lg-2 removePaddingLeftRight">
+				@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id = item.ID })
+				@if (User.IsInRole("Admin"))
+				{
+					<span>|</span>
+					<input id="delete" class="btn btn-link btn-link-height" type="button" data-id="@item.ID" value="Delete" />
+				}
+			</div>
+		</div>
 	}
 </div>
-@Scripts.Render(Links.Scripts.PageSpecific.CardIndex_js)
+@if (User.IsInRole("Admin"))
+{ 
+	@Scripts.Render(Links.Scripts.PageSpecific.CardIndex_js)
+}

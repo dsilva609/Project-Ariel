@@ -36,12 +36,14 @@ namespace ProjectAriel.Controllers
 			return View(card);
 		}
 
+		[Authorize(Roles = "Admin")]
 		[HttpGet]
 		public virtual ActionResult Create()
 		{
 			return RedirectToAction(MVC.Card.Edit());
 		}
 
+		[Authorize(Roles = "Admin")]
 		[HttpGet]
 		public virtual ActionResult Edit(int? ID)
 		{
@@ -61,7 +63,7 @@ namespace ProjectAriel.Controllers
 
 			return View(card);
 		}
-
+		[Authorize(Roles = "Admin")]
 		[HttpGet]
 		public virtual ActionResult Delete(int ID)
 		{
@@ -71,6 +73,7 @@ namespace ProjectAriel.Controllers
 		}
 		#endregion
 
+		[Authorize(Roles = "Admin")]
 		#region HttpPost
 
 		// POST: Card/Edit/5

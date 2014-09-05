@@ -9,10 +9,12 @@
 </script>
 
 <h2>Players</h2>
-
-<p>
-	@Html.ActionLink("Add New", MVC.Player.Create())
-</p>
+@if (User.IsInRole("Admin"))
+{
+	<p>
+		@Html.ActionLink("Add New", MVC.Player.Create())
+	</p>
+}
 <div class="table">
 	<div class="bold row">
 		<div class="col-lg-6">
@@ -33,11 +35,19 @@
 				@Html.DisplayFor(modelItem => item.IsActive)
 			</div>
 			<div class="col-lg-3">
-				@Html.ActionLink("Details", MVC.Player.Details(item.ID), new { id = item.ID }) |
-				<input id="delete" class="btn btn-link btn-link-height" type="button" data-id="@item.ID" value="Delete" />
+				@Html.ActionLink("Details", MVC.Player.Details(item.ID), new { id = item.ID })
+				@if (User.IsInRole("Admin"))
+				{
+					<span>|</span>
+					<input id="delete" class="btn btn-link btn-link-height" type="button" data-id="@item.ID" value="Delete" />
+				}
 			</div>
 		</div>
 	}
 </div>
 
-@Scripts.Render(Links.Scripts.PageSpecific.PlayerIndex_js)
+
+@if (User.IsInRole("Admin"))
+{
+	@Scripts.Render(Links.Scripts.PageSpecific.PlayerIndex_js)
+}

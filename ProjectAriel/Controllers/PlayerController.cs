@@ -36,12 +36,14 @@ namespace ProjectAriel.Controllers
 			return View(player);
 		}
 
+		[Authorize(Roles = "Admin")]
 		[HttpGet]
 		public virtual ActionResult Create()
 		{
 			return RedirectToAction(MVC.Player.Edit());
 		}
 
+		[Authorize(Roles = "Admin")]
 		[HttpGet]
 		public virtual ActionResult Edit(int? ID)
 		{
@@ -62,6 +64,7 @@ namespace ProjectAriel.Controllers
 			return View(player);
 		}
 
+		[Authorize(Roles = "Admin")]
 		[HttpGet]
 		public virtual ActionResult Delete(int ID)
 		{
@@ -72,6 +75,7 @@ namespace ProjectAriel.Controllers
 
 		#endregion
 
+		[Authorize(Roles = "Admin")]
 		#region HttpPost
 		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
 		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
