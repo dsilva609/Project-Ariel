@@ -9,6 +9,9 @@ namespace ProjectAriel.Models
 		public string Name { get; set; }
 		public int ID { get; set; }
 		public string Description { get; set; }
+		public string Action { get; set; }
+		public Expansion? Expansion { get; set; }
+		public string ExpansionString { get; set; }
 		[Display(Name = "Type")]
 		public CardType Cardtype { get; set; }
 		public string CardTypeString { get; set; }
@@ -16,9 +19,9 @@ namespace ProjectAriel.Models
 		public string SuitString { get; set; }
 		public Rank Rank { get; set; }
 		public string RankString { get; set; }
+		public int? Range { get; set; }
 		[Display(Name = "Image Location")]
 		public string ImageLocation { get; set; }
-
 		[Display(Name = "Active")]
 		public bool IsActive { get; set; }
 	}

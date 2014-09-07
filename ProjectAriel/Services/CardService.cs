@@ -54,7 +54,7 @@ namespace ProjectAriel.Services
 			switch (card.Cardtype)
 			{
 				case ProjectAriel.Enums.CardType.Default:
-					card.CardTypeString = "";
+					card.CardTypeString = string.Empty;
 					break;
 				case ProjectAriel.Enums.CardType.Basic:
 					card.CardTypeString = "Basic";
@@ -84,7 +84,7 @@ namespace ProjectAriel.Services
 			switch (card.Suit)
 			{
 				case ProjectAriel.Enums.Suit.Default:
-					card.SuitString = "";
+					card.SuitString = string.Empty;
 					break;
 				case ProjectAriel.Enums.Suit.Heart:
 					card.SuitString = "Heart";
@@ -105,7 +105,7 @@ namespace ProjectAriel.Services
 			switch (card.Rank)
 			{
 				case ProjectAriel.Enums.Rank.Default:
-					card.RankString = "";
+					card.RankString = string.Empty;
 					break;
 				case ProjectAriel.Enums.Rank.One:
 					card.RankString = "One";
@@ -148,6 +148,41 @@ namespace ProjectAriel.Services
 					break;
 				case ProjectAriel.Enums.Rank.Ace:
 					card.RankString = "Ace";
+					break;
+				default:
+					break;
+			}
+			switch (card.Expansion)
+			{
+				case ProjectAriel.Enums.Expansion.Default:
+					card.ExpansionString = string.Empty;
+					break;
+				case ProjectAriel.Enums.Expansion.HighNoon:
+					card.ExpansionString = "High Noon";
+					break;
+				case ProjectAriel.Enums.Expansion.DodgeCity:
+					card.ExpansionString = "Dodge City";
+					break;
+				case ProjectAriel.Enums.Expansion.AFistfulOfCards:
+					card.ExpansionString = "A Fistful Of Cards";
+					break;
+				case ProjectAriel.Enums.Expansion.WildWestShow:
+					card.ExpansionString = "Wild West Show";
+					break;
+				case ProjectAriel.Enums.Expansion.GoldRush:
+					card.ExpansionString = "Gold Rush";
+					break;
+				case ProjectAriel.Enums.Expansion.ValleyOfShadows:
+					card.ExpansionString = "Valley Of Shadows";
+					break;
+				case ProjectAriel.Enums.Expansion.ElDorado:
+					card.ExpansionString = "El Dorado";
+					break;
+				case ProjectAriel.Enums.Expansion.DeathMesa:
+					card.ExpansionString = "Death Mesa";
+					break;
+				case ProjectAriel.Enums.Expansion.RobbersRoost:
+					card.ExpansionString = "Robber's Roost";
 					break;
 				default:
 					break;
