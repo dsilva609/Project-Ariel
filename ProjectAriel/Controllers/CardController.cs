@@ -81,7 +81,7 @@ namespace ProjectAriel.Controllers
 		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public virtual ActionResult Edit([Bind(Include = "ID,Name,Description,Cardtype,Suit,Rank,ImageLocation,IsActive")] Card card, int ID)
+		public virtual ActionResult Edit([Bind(Include = "ID,Name,Description,Expansion,Action,Range,Cardtype,Suit,Rank,ImageLocation,IsActive")] Card card, int ID)
 		{
 			if (ModelState.IsValid)
 			{

@@ -245,9 +245,9 @@
     <Compile Include="Migrations\201409070040559_addCardExpansionStringProperty.Designer.cs">
       <DependentUpon>201409070040559_addCardExpansionStringProperty.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201409070044319_madeCardExpansionNullable.cs" />
-    <Compile Include="Migrations\201409070044319_madeCardExpansionNullable.Designer.cs">
-      <DependentUpon>201409070044319_madeCardExpansionNullable.cs</DependentUpon>
+    <Compile Include="Migrations\201409070114069_makeCardExpansionRequired.cs" />
+    <Compile Include="Migrations\201409070114069_makeCardExpansionRequired.Designer.cs">
+      <DependentUpon>201409070114069_makeCardExpansionRequired.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -431,8 +431,8 @@
     <EmbeddedResource Include="Migrations\201409070040559_addCardExpansionStringProperty.resx">
       <DependentUpon>201409070040559_addCardExpansionStringProperty.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409070044319_madeCardExpansionNullable.resx">
-      <DependentUpon>201409070044319_madeCardExpansionNullable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201409070114069_makeCardExpansionRequired.resx">
+      <DependentUpon>201409070114069_makeCardExpansionRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

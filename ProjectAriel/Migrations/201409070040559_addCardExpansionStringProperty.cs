@@ -7,7 +7,7 @@ namespace ProjectAriel.Migrations
 		public override void Up()
 		{
 			AddColumn("dbo.Card", "ExpansionString", c => c.String(nullable: true, defaultValue: null));
-			AlterColumn("dbo.Card", "Expansion", c => c.Int(nullable: true, defaultValue: null));
+			AlterColumn("dbo.Card", "Expansion", c => c.Int(nullable: false));
 		}
 
 		public override void Down()

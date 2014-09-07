@@ -10,7 +10,7 @@ namespace ProjectAriel.Models
 		public int ID { get; set; }
 		public string Description { get; set; }
 		public string Action { get; set; }
-		public Expansion? Expansion { get; set; }
+		public Expansion Expansion { get; set; }
 		public string ExpansionString { get; set; }
 		[Display(Name = "Type")]
 		public CardType Cardtype { get; set; }

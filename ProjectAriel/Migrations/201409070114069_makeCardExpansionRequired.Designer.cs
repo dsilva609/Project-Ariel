@@ -7,13 +7,13 @@ namespace ProjectAriel.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class madeCardExpansionNullable : IMigrationMetadata
+    public sealed partial class makeCardExpansionRequired : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(madeCardExpansionNullable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(makeCardExpansionRequired));
         
         string IMigrationMetadata.Id
         {
-            get { return "201409070044319_madeCardExpansionNullable"; }
+            get { return "201409070114069_makeCardExpansionRequired"; }
         }
         
         string IMigrationMetadata.Source

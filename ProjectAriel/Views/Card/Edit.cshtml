@@ -31,7 +31,7 @@
 		<div class="form-group">
 			@Html.LabelFor(model => model.Expansion, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
-				@Html.EnumDropDownListFor(model => model.Expansion, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.EnumDropDownListFor(model => model.Expansion, new { @id = "expansionDropDown", @class = "form-control" })
 				@Html.ValidationMessageFor(model => model.Expansion, "", new { @class = "text-danger" })
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 		<div class="form-group">
 			@Html.LabelFor(model => model.Cardtype, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
-				@Html.EnumDropDownListFor(model => model.Cardtype, new { @id = "cardTypeDropDown" })
+				@Html.EnumDropDownListFor(model => model.Cardtype, new { @id = "cardTypeDropDown", @class = "form-control" })
 				@Html.ValidationMessageFor(model => model.Cardtype, "", new { @class = "text-danger" })
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 		<div class="form-group">
 			@Html.LabelFor(model => model.Rank, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
-				@Html.EnumDropDownListFor(model => model.Rank, new { @id = "rankDropDown" })
+				@Html.EnumDropDownListFor(model => model.Rank, new { @id = "rankDropDown", @class = "form-control" })
 				@Html.ValidationMessageFor(model => model.Rank, "", new { @class = "text-danger" })
 			</div>
 		</div>
@@ -71,7 +71,7 @@
 		<div class="form-group">
 			@Html.LabelFor(model => model.Suit, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
-				@Html.EnumDropDownListFor(model => model.Suit, new { @id = "suitDropDown" })
+				@Html.EnumDropDownListFor(model => model.Suit, new { @id = "suitDropDown", @class = "form-control" })
 				@Html.ValidationMessageFor(model => model.Suit, "", new { @class = "text-danger" })
 			</div>
 		</div>

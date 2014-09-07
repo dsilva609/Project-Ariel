@@ -3,16 +3,16 @@ namespace ProjectAriel.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class madeCardExpansionNullable : DbMigration
+    public partial class makeCardExpansionRequired : DbMigration
     {
         public override void Up()
         {
-            AlterColumn("dbo.Card", "Expansion", c => c.Int());
+            AlterColumn("dbo.Card", "Expansion", c => c.Int(nullable: false));
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Card", "Expansion", c => c.Int(nullable: false));
+            AlterColumn("dbo.Card", "Expansion", c => c.Int());
         }
     }
 }

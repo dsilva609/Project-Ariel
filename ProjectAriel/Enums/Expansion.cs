@@ -6,6 +6,7 @@ namespace ProjectAriel.Enums
 	{
 		[Display(Name = "-Select Expansion-")]
 		Default,
+		Standard,
 		[Display(Name = "High Noon")]
 		HighNoon,
 		[Display(Name = "Dodge City")]
