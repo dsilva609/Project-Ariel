@@ -36,6 +36,14 @@
 		</div>
 
 		<div class="form-group">
+			@Html.LabelFor(model => model.Cardtype, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EnumDropDownListFor(model => model.Cardtype, new { @id = "cardTypeDropDown", @class = "form-control" })
+				@Html.ValidationMessageFor(model => model.Cardtype, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
 			@Html.LabelFor(model => model.Action, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
 				@Html.EditorFor(model => model.Action, new { htmlAttributes = new { @id = "actionField", @class = "form-control" } })
@@ -48,14 +56,6 @@
 			<div class="col-md-10">
 				@Html.EditorFor(model => model.Range, new { htmlAttributes = new { @id = "rangeField", @class = "form-control" } })
 				@Html.ValidationMessageFor(model => model.Range, "", new { @class = "text-danger" })
-			</div>
-		</div>
-
-		<div class="form-group">
-			@Html.LabelFor(model => model.Cardtype, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.EnumDropDownListFor(model => model.Cardtype, new { @id = "cardTypeDropDown", @class = "form-control" })
-				@Html.ValidationMessageFor(model => model.Cardtype, "", new { @class = "text-danger" })
 			</div>
 		</div>
 
