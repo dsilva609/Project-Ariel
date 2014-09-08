@@ -23,11 +23,11 @@
 		<div class="col-lg-3 removePaddingLeftRight">
 			@Html.DisplayNameFor(model => model.Description)
 		</div>
+		<div class="col-lg-2 removePaddingLeftRight">
+			@Html.DisplayNameFor(model => model.Expansion)
+		</div>
 		<div class="col-lg-1 removePaddingLeftRight">
 			@Html.DisplayNameFor(model => model.Cardtype)
-		</div>
-		<div class="col-lg-2 removePaddingLeftRight">
-			@Html.DisplayNameFor(model => model.ImageLocation)
 		</div>
 		<div class="col-lg-3 removePaddingLeftRight">
 			@Html.DisplayNameFor(model => model.IsActive)
@@ -42,11 +42,11 @@
 			<div class="col-lg-3 removePaddingLeftRight">
 				@Html.DisplayFor(modelItem => item.Description)
 			</div>
+			<div class="col-lg-2 removePaddingLeftRight">
+				@Html.DisplayFor(modelItem => item.ExpansionString)
+			</div>
 			<div class="col-lg-1 removePaddingLeftRight">
 				@Html.DisplayFor(modelItem => item.CardTypeString)
-			</div>
-			<div class="col-lg-2 removePaddingLeftRight">
-				@Html.DisplayFor(modelItem => item.ImageLocation)
 			</div>
 			<div class="col-lg-1 removePaddingLeftRight">
 				@Html.DisplayFor(modelItem => item.IsActive)

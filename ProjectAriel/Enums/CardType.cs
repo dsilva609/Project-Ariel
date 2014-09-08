@@ -13,6 +13,8 @@ namespace ProjectAriel.Enums
 		Weapon,
 		Equipment,
 		[Display(Name = "Target All")]
-		TargetAll
+		TargetAll,
+		Role,
+		Event
 	}
 }
