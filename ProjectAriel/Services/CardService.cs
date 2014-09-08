@@ -1,4 +1,5 @@
 ﻿using ProjectAriel.Components.CrudComponents;
+using ProjectAriel.Enums;
 using ProjectAriel.Models;
 using ProjectAriel.Repositories;
 using System.Collections.Generic;
@@ -53,29 +54,35 @@ namespace ProjectAriel.Services
 		{
 			switch (card.Cardtype)
 			{
-				case ProjectAriel.Enums.CardType.Default:
+				case CardType.Default:
 					card.CardTypeString = string.Empty;
 					break;
-				case ProjectAriel.Enums.CardType.Basic:
+				case CardType.Basic:
 					card.CardTypeString = "Basic";
 					break;
-				case ProjectAriel.Enums.CardType.Alcohol:
+				case CardType.Alcohol:
 					card.CardTypeString = "Alcohol";
 					break;
-				case ProjectAriel.Enums.CardType.Draw:
+				case CardType.Draw:
 					card.CardTypeString = "Draw";
 					break;
-				case ProjectAriel.Enums.CardType.TimeDelay:
+				case CardType.TimeDelay:
 					card.CardTypeString = "Time Delay";
 					break;
-				case ProjectAriel.Enums.CardType.Weapon:
+				case CardType.Weapon:
 					card.CardTypeString = "Weapon";
 					break;
-				case ProjectAriel.Enums.CardType.Equipment:
+				case CardType.Equipment:
 					card.CardTypeString = "Equipment";
 					break;
-				case ProjectAriel.Enums.CardType.TargetAll:
+				case CardType.TargetAll:
 					card.CardTypeString = "Target All";
+					break;
+				case CardType.Role:
+					card.CardTypeString = "Role";
+					break;
+				case CardType.Event:
+					card.CardTypeString = "Event";
 					break;
 				default:
 					break;
@@ -83,19 +90,19 @@ namespace ProjectAriel.Services
 
 			switch (card.Suit)
 			{
-				case ProjectAriel.Enums.Suit.Default:
-					card.SuitString = string.Empty;
+				case Suit.Default:
+					card.SuitString = null;
 					break;
-				case ProjectAriel.Enums.Suit.Heart:
+				case Suit.Heart:
 					card.SuitString = "Heart";
 					break;
-				case ProjectAriel.Enums.Suit.Diamond:
+				case Suit.Diamond:
 					card.SuitString = "Diamond";
 					break;
-				case ProjectAriel.Enums.Suit.Club:
+				case Suit.Club:
 					card.SuitString = "Club";
 					break;
-				case ProjectAriel.Enums.Suit.Spade:
+				case Suit.Spade:
 					card.SuitString = "Spade";
 					break;
 				default:
@@ -104,49 +111,49 @@ namespace ProjectAriel.Services
 
 			switch (card.Rank)
 			{
-				case ProjectAriel.Enums.Rank.Default:
-					card.RankString = string.Empty;
+				case Rank.Default:
+					card.RankString = null;
 					break;
-				case ProjectAriel.Enums.Rank.One:
+				case Rank.One:
 					card.RankString = "One";
 					break;
-				case ProjectAriel.Enums.Rank.Two:
+				case Rank.Two:
 					card.RankString = "Two";
 					break;
-				case ProjectAriel.Enums.Rank.Three:
+				case Rank.Three:
 					card.RankString = "Three";
 					break;
-				case ProjectAriel.Enums.Rank.Four:
+				case Rank.Four:
 					card.RankString = "Four";
 					break;
-				case ProjectAriel.Enums.Rank.Five:
+				case Rank.Five:
 					card.RankString = "Five";
 					break;
-				case ProjectAriel.Enums.Rank.Six:
+				case Rank.Six:
 					card.RankString = "Six";
 					break;
-				case ProjectAriel.Enums.Rank.Seven:
+				case Rank.Seven:
 					card.RankString = "Seven";
 					break;
-				case ProjectAriel.Enums.Rank.Eight:
+				case Rank.Eight:
 					card.RankString = "Eight";
 					break;
-				case ProjectAriel.Enums.Rank.Nine:
+				case Rank.Nine:
 					card.RankString = "Nine";
 					break;
-				case ProjectAriel.Enums.Rank.Ten:
+				case Rank.Ten:
 					card.RankString = "Ten";
 					break;
-				case ProjectAriel.Enums.Rank.Jack:
+				case Rank.Jack:
 					card.RankString = "Jack";
 					break;
-				case ProjectAriel.Enums.Rank.Queen:
+				case Rank.Queen:
 					card.RankString = "Queen";
 					break;
-				case ProjectAriel.Enums.Rank.King:
+				case Rank.King:
 					card.RankString = "King";
 					break;
-				case ProjectAriel.Enums.Rank.Ace:
+				case Rank.Ace:
 					card.RankString = "Ace";
 					break;
 				default:
@@ -154,34 +161,37 @@ namespace ProjectAriel.Services
 			}
 			switch (card.Expansion)
 			{
-				case ProjectAriel.Enums.Expansion.Default:
+				case Expansion.Default:
 					card.ExpansionString = string.Empty;
 					break;
-				case ProjectAriel.Enums.Expansion.HighNoon:
+				case Expansion.Standard:
+					card.ExpansionString = "Standard";
+					break;
+				case Expansion.HighNoon:
 					card.ExpansionString = "High Noon";
 					break;
-				case ProjectAriel.Enums.Expansion.DodgeCity:
+				case Expansion.DodgeCity:
 					card.ExpansionString = "Dodge City";
 					break;
-				case ProjectAriel.Enums.Expansion.AFistfulOfCards:
+				case Expansion.AFistfulOfCards:
 					card.ExpansionString = "A Fistful Of Cards";
 					break;
-				case ProjectAriel.Enums.Expansion.WildWestShow:
+				case Expansion.WildWestShow:
 					card.ExpansionString = "Wild West Show";
 					break;
-				case ProjectAriel.Enums.Expansion.GoldRush:
+				case Expansion.GoldRush:
 					card.ExpansionString = "Gold Rush";
 					break;
-				case ProjectAriel.Enums.Expansion.ValleyOfShadows:
+				case Expansion.ValleyOfShadows:
 					card.ExpansionString = "Valley Of Shadows";
 					break;
-				case ProjectAriel.Enums.Expansion.ElDorado:
+				case Expansion.ElDorado:
 					card.ExpansionString = "El Dorado";
 					break;
-				case ProjectAriel.Enums.Expansion.DeathMesa:
+				case Expansion.DeathMesa:
 					card.ExpansionString = "Death Mesa";
 					break;
-				case ProjectAriel.Enums.Expansion.RobbersRoost:
+				case Expansion.RobbersRoost:
 					card.ExpansionString = "Robber's Roost";
 					break;
 				default:
