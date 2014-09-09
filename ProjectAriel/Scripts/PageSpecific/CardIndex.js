@@ -1,6 +1,6 @@
-﻿(function() {
+(function() {
   $('[id=card]').on("click", function() {
-    return window.location.href = editURL + "/" + $(this).data("id");
+    return window.location.href = redirectURL + "/" + $(this).data("id");
   });
 
   $('[id=delete]').on("click", function() {
@@ -25,5 +25,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=CardIndex.js.map
