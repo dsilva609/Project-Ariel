@@ -56,6 +56,12 @@ namespace ProjectAriel.Controllers
 
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult RedirectUser()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.RedirectUser);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult Details()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Details);
@@ -89,6 +95,7 @@ namespace ProjectAriel.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
+            public readonly string RedirectUser = "RedirectUser";
             public readonly string Details = "Details";
             public readonly string Create = "Create";
             public readonly string Edit = "Edit";
@@ -99,6 +106,7 @@ namespace ProjectAriel.Controllers
         public class ActionNameConstants
         {
             public const string Index = "Index";
+            public const string RedirectUser = "RedirectUser";
             public const string Details = "Details";
             public const string Create = "Create";
             public const string Edit = "Edit";
@@ -106,6 +114,14 @@ namespace ProjectAriel.Controllers
         }
 
 
+        static readonly ActionParamsClass_RedirectUser s_params_RedirectUser = new ActionParamsClass_RedirectUser();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_RedirectUser RedirectUserParams { get { return s_params_RedirectUser; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_RedirectUser
+        {
+            public readonly string ID = "ID";
+        }
         static readonly ActionParamsClass_Details s_params_Details = new ActionParamsClass_Details();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ActionParamsClass_Details DetailsParams { get { return s_params_Details; } }
@@ -168,10 +184,22 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void DetailsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int ID);
+        partial void RedirectUserOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? ID);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Details(int ID)
+        public override System.Web.Mvc.ActionResult RedirectUser(int? ID)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.RedirectUser);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
+            RedirectUserOverride(callInfo, ID);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void DetailsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? ID);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Details(int? ID)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Details);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);

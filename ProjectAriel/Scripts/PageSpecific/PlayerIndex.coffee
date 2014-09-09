@@ -1,5 +1,5 @@
 ﻿$('[id=player]').on "click", ->
-	window.location.href = editURL + "/" + $(this).data "id"
+	window.location.href = redirectURL + "/" + $(this).data "id"
 	
 $('[id=delete]').on "click", ->
 	ID = $(this).data "id"

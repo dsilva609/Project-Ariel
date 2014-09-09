@@ -4,8 +4,7 @@
 	ViewBag.Title = "Players";
 }
 <script>
-	var editURL = '@Url.Action(MVC.Player.Edit())';
-	var deleteURL = '@Url.Action(MVC.Player.Delete())';
+	var redirectURL = '@Url.Action(MVC.Player.RedirectUser())';
 </script>
 
 <h2>Players</h2>
@@ -34,20 +33,14 @@
 			<div class="col-lg-3">
 				@Html.DisplayFor(modelItem => item.IsActive)
 			</div>
-			<div class="col-lg-3">
-				@Html.ActionLink("Details", MVC.Player.Details(item.ID), new { id = item.ID })
-				@if (User.IsInRole("Admin"))
-				{
-					<span>|</span>
+			@if (User.IsInRole("Admin"))
+			{
+				<div class="col-lg-3">		
 					<input id="delete" class="btn btn-link btn-link-height" type="button" data-id="@item.ID" value="Delete" />
-				}
-			</div>
+				</div>
+			}
 		</div>
 	}
 </div>
 
-
-@if (User.IsInRole("Admin"))
-{
-	@Scripts.Render(Links.Scripts.PageSpecific.PlayerIndex_js)
-}
+@Scripts.Render(Links.Scripts.PageSpecific.PlayerIndex_js)
