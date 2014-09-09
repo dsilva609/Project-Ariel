@@ -52,11 +52,13 @@
 				@Html.DisplayFor(modelItem => item.IsActive)
 			</div>
 			<div class="col-lg-2 removePaddingLeftRight">
-				@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id = item.ID })
 				@if (User.IsInRole("Admin"))
 				{
-					<span>|</span>
 					<input id="delete" class="btn btn-link btn-link-height" type="button" data-id="@item.ID" value="Delete" />
+				}
+				else
+				{
+					@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id = item.ID })
 				}
 			</div>
 		</div>
