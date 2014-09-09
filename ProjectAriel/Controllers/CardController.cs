@@ -25,6 +25,15 @@ namespace ProjectAriel.Controllers
 		}
 
 		[HttpGet]
+		public virtual ActionResult RedirectUser(int? ID)
+		{
+			if (User.IsInRole("Admin"))
+				return RedirectToAction(MVC.Card.Edit(ID));
+
+			return RedirectToAction(MVC.Card.Details(ID));
+		}
+
+		[HttpGet]
 		public virtual ActionResult Details(int? ID)
 		{
 			var card = this._Service.GetByID(ID);

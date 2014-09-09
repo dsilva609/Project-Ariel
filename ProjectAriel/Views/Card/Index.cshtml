@@ -4,8 +4,7 @@
 	ViewBag.Title = "Cards";
 }
 <script>
-	var editURL = '@Url.Action(MVC.Card.Edit())';
-	var deleteURL = '@Url.Action(MVC.Card.Delete())';
+	var redirectURL = '@Url.Action(MVC.Card.RedirectUser())';
 </script>
 
 <h2>Cards</h2>
@@ -51,18 +50,14 @@
 			<div class="col-lg-1 removePaddingLeftRight">
 				@Html.DisplayFor(modelItem => item.IsActive)
 			</div>
-			<div class="col-lg-2 removePaddingLeftRight">
-				@Html.ActionLink("Details", MVC.Card.Details(item.ID), new { id = item.ID })
-				@if (User.IsInRole("Admin"))
-				{
-					<span>|</span>
+			@if (User.IsInRole("Admin"))
+			{
+				<div class="col-lg-2 removePaddingLeftRight">
 					<input id="delete" class="btn btn-link btn-link-height" type="button" data-id="@item.ID" value="Delete" />
-				}
-			</div>
+				</div>
+			}
 		</div>
 	}
 </div>
-@if (User.IsInRole("Admin"))
-{ 
-	@Scripts.Render(Links.Scripts.PageSpecific.CardIndex_js)
-}
+
+@Scripts.Render(Links.Scripts.PageSpecific.CardIndex_js)
