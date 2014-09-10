@@ -34,6 +34,7 @@ textarea {
 
 .table .row:not(:first-child):hover {
 	background-color: ButtonShadow;
+	cursor: pointer;
 }
 .btn-link {
 	height: 20px;
