@@ -100,6 +100,11 @@ namespace Links
             public static readonly string EditCard_js_map = Url("EditCard.js.map");
             public static readonly string EditCard_min_js = Url("EditCard.min.js");
             public static readonly string EditCard_min_js_map = Url("EditCard.min.js.map");
+            public static readonly string Login_coffee = Url("Login.coffee");
+            public static readonly string Login_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Login.min.js") ? Url("Login.min.js") : Url("Login.js");
+            public static readonly string Login_js_map = Url("Login.js.map");
+            public static readonly string Login_min_js = Url("Login.min.js");
+            public static readonly string Login_min_js_map = Url("Login.min.js.map");
             public static readonly string PlayerIndex_coffee = Url("PlayerIndex.coffee");
             public static readonly string PlayerIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/PlayerIndex.min.js") ? Url("PlayerIndex.min.js") : Url("PlayerIndex.js");
             public static readonly string PlayerIndex_js_map = Url("PlayerIndex.js.map");

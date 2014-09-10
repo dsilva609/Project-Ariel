@@ -310,6 +310,12 @@
     <Content Include="Scripts\PageSpecific\EditCard.min.js">
       <DependentUpon>EditCard.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\PageSpecific\Login.js">
+      <DependentUpon>Login.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\Login.min.js">
+      <DependentUpon>Login.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\PageSpecific\PlayerIndex.js">
       <DependentUpon>PlayerIndex.coffee</DependentUpon>
     </Content>
@@ -341,6 +347,13 @@
     </Content>
     <Content Include="Scripts\PageSpecific\PlayerIndex.min.js.map">
       <DependentUpon>PlayerIndex.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\Login.coffee" />
+    <Content Include="Scripts\PageSpecific\Login.js.map">
+      <DependentUpon>Login.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\Login.min.js.map">
+      <DependentUpon>Login.min.js</DependentUpon>
     </Content>
     <None Include="T4MVC.tt.settings.xml" />
     <Content Include="Web.config" />
