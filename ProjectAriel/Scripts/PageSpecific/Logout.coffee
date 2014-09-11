@@ -12,5 +12,4 @@
 					className: ""
 					callback: ->
 						$("#logoutForm").submit()
-		event.preventDefault()
-						
+		event.preventDefault()					

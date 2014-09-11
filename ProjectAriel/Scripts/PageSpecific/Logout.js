@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
   $(function() {
     return $("#logOffBtn").on("click", function(event) {
       bootbox.dialog({
@@ -24,3 +24,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=Logout.js.map
