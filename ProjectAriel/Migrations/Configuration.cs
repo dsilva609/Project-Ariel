@@ -19,6 +19,21 @@ namespace ProjectAriel.Migrations
 				new Player { Name = "Rachel McAdams", ID = 3, IsActive = true },
 				new Player { Name = "Marky Mark and the Funky Bunch", ID = 4, IsActive = true }
 				);
+			#region Cards
+
+			#region Roles
+
+			#endregion
+
+			#region Characters
+
+			#endregion
+
+			#region Playable Cards
+
+			#endregion
+
+			#endregion
 
 			context.Cards.AddOrUpdate(
 				new Card { Name = "Bang!", ID = 1, Cardtype = CardType.Basic, Description = "Kill 'Em All", Rank = Rank.Ace, Suit = Suit.Spade, ImageLocation = null, IsActive = true }
