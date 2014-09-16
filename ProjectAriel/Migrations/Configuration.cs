@@ -28,7 +28,7 @@ namespace ProjectAriel.Migrations
 				new Card { Name = "Deputy", ID = 2, Expansion = Expansion.Standard, Cardtype = CardType.Role, IsActive = true },
 				new Card { Name = "Outlaw", ID = 3, Expansion = Expansion.Standard, Cardtype = CardType.Role, IsActive = true },
 				new Card { Name = "Renegade", ID = 4, Expansion = Expansion.Standard, Cardtype = CardType.Role, IsActive = true }
-				);
+			);
 			#endregion
 
 			#region Characters
@@ -36,6 +36,16 @@ namespace ProjectAriel.Migrations
 			#endregion
 
 			#region Playable Cards
+
+			#region Weapons
+			context.Cards.AddOrUpdate(
+				new Card { Name = "Volcanic", Expansion = Expansion.Standard, Cardtype = CardType.Weapon, Range = 1, IsActive = true },
+				new Card { Name = "Schofield", Expansion = Expansion.Standard, Cardtype = CardType.Weapon, Range = 2, IsActive = true },
+				new Card { Name = "Remington", Expansion = Expansion.Standard, Cardtype = CardType.Weapon, Range = 3, IsActive = true },
+				new Card { Name = "Rev. Carabine", Expansion = Expansion.Standard, Cardtype = CardType.Weapon, Range = 4, IsActive = true },
+				new Card { Name = "Winchester", Expansion = Expansion.Standard, Cardtype = CardType.Weapon, Range = 5, IsActive = true }
+			);
+			#endregion
 
 			#endregion
 
