@@ -37,6 +37,28 @@ namespace ProjectAriel.Migrations
 
 			#region Playable Cards
 
+			#region Basic
+			context.Cards.AddOrUpdate(
+				new Card { Name = "Bang!", Expansion = Expansion.Standard, Cardtype = CardType.Basic, IsActive = true },
+				new Card { Name = "Missed!", Expansion = Expansion.Standard, Cardtype = CardType.Basic, IsActive = true },
+				new Card { Name = "Beer", Expansion = Expansion.Standard, Cardtype = CardType.Alcohol, IsActive = true },
+				new Card { Name = "Panic!", Expansion = Expansion.Standard, Cardtype = CardType.Draw, Range = 1, IsActive = true },
+				new Card { Name = "Cat Balou", Expansion = Expansion.Standard, Cardtype = CardType.Draw, IsActive = true },
+				new Card { Name = "Stagecoach", Expansion = Expansion.Standard, Cardtype = CardType.Draw, IsActive = true },
+				new Card { Name = "Wells Fargo", Expansion = Expansion.Standard, Cardtype = CardType.Draw, IsActive = true },
+				new Card { Name = "Gatling", Expansion = Expansion.Standard, Cardtype = CardType.TargetAll, IsActive = true },
+				new Card { Name = "Indians!", Expansion = Expansion.Standard, Cardtype = CardType.TargetAll, IsActive = true },
+				new Card { Name = "Duel", Expansion = Expansion.Standard, Cardtype = CardType.Event, IsActive = true },
+				new Card { Name = "General Store", Expansion = Expansion.Standard, Cardtype = CardType.Event, IsActive = true },
+				new Card { Name = "Saloon", Expansion = Expansion.Standard, Cardtype = CardType.Event, IsActive = true },
+				new Card { Name = "Jail", Expansion = Expansion.Standard, Cardtype = CardType.TimeDelay, IsActive = true },
+				new Card { Name = "Dynamite", Expansion = Expansion.Standard, Cardtype = CardType.TimeDelay, IsActive = true },
+				new Card { Name = "Barrel", Expansion = Expansion.Standard, Cardtype = CardType.Equipment, IsActive = true },
+				new Card { Name = "Scope", Expansion = Expansion.Standard, Cardtype = CardType.Equipment, IsActive = true },
+				new Card { Name = "Mustang", Expansion = Expansion.Standard, Cardtype = CardType.Equipment, IsActive = true }
+				);
+			#endregion
+
 			#region Weapons
 			context.Cards.AddOrUpdate(
 				new Card { Name = "Volcanic", Expansion = Expansion.Standard, Cardtype = CardType.Weapon, Range = 1, IsActive = true },
