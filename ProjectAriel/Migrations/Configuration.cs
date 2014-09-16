@@ -19,6 +19,7 @@ namespace ProjectAriel.Migrations
 				new Player { Name = "Rachel McAdams", ID = 3, IsActive = true },
 				new Player { Name = "Marky Mark and the Funky Bunch", ID = 4, IsActive = true }
 				);
+
 			#region Cards
 
 			#region Roles
