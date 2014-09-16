@@ -23,7 +23,12 @@ namespace ProjectAriel.Migrations
 			#region Cards
 
 			#region Roles
-
+			context.Cards.AddOrUpdate(
+				new Card { Name = "Sheriff", ID = 1, Expansion = Expansion.Standard, Cardtype = CardType.Role, IsActive = true },
+				new Card { Name = "Deputy", ID = 2, Expansion = Expansion.Standard, Cardtype = CardType.Role, IsActive = true },
+				new Card { Name = "Outlaw", ID = 3, Expansion = Expansion.Standard, Cardtype = CardType.Role, IsActive = true },
+				new Card { Name = "Renegade", ID = 4, Expansion = Expansion.Standard, Cardtype = CardType.Role, IsActive = true }
+				);
 			#endregion
 
 			#region Characters
@@ -37,8 +42,8 @@ namespace ProjectAriel.Migrations
 			#endregion
 
 			context.Cards.AddOrUpdate(
-				new Card { Name = "Bang!", ID = 1, Cardtype = CardType.Basic, Description = "Kill 'Em All", Rank = Rank.Ace, Suit = Suit.Spade, ImageLocation = null, IsActive = true }
-				);
+									   new Card { Name = "Bang!", ID = 1, Cardtype = CardType.Basic, Description = "Kill 'Em All", Rank = Rank.Ace, Suit = Suit.Spade, ImageLocation = null, IsActive = true }
+									   );
 			//  This method will be called after migrating to the latest version.
 
 			//  You can use the DbSet<T>.AddOrUpdate() helper extension method 
