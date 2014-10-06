@@ -24,6 +24,10 @@ namespace ProjectAriel.Enums
 		[Display(Name = "Death Mesa")]
 		DeathMesa,
 		[Display(Name = "Robber's Roost")]
-		RobbersRoost
+		RobbersRoost,
+		[Display(Name = "Bang! The Bullet")]
+		BangTheBullet,
+		[Display(Name = "Anniversary")]
+		Anniversary
 	}
 }

@@ -15,6 +15,7 @@ namespace ProjectAriel.Enums
 		[Display(Name = "Target All")]
 		TargetAll,
 		Role,
-		Event
+		Event,
+		Character
 	}
 }
