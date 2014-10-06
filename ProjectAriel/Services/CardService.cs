@@ -84,6 +84,9 @@ namespace ProjectAriel.Services
 				case CardType.Event:
 					card.CardTypeString = "Event";
 					break;
+				case CardType.Character:
+					card.CardTypeString = "Character";
+					break;
 				default:
 					break;
 			}
@@ -193,6 +196,12 @@ namespace ProjectAriel.Services
 					break;
 				case Expansion.RobbersRoost:
 					card.ExpansionString = "Robber's Roost";
+					break;
+				case Expansion.BangTheBullet:
+					card.ExpansionString = "Bang! The Bullet";
+					break;
+				case Expansion.Anniversary:
+					card.ExpansionString = "Anniversary";
 					break;
 				default:
 					break;
