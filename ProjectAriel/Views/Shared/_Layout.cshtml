@@ -30,6 +30,7 @@
 					<li>@Html.ActionLink("Contact", MVC.Home.Contact())</li>
 					<li>@Html.ActionLink("Players", MVC.Player.Index())</li>
 					<li>@Html.ActionLink("Cards", MVC.Card.Index())</li>
+					<li>@Html.ActionLink("Game", MVC.Game.Index())</li>
 					@if (User.IsInRole("Admin"))
 					{
 						<li>@Html.ActionLink("Error Log", MVC.Elmah.Index())</li>
