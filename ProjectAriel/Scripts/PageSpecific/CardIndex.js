@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
   Namespace("Views.Card");
 
   Views.Card.Index = function() {};
@@ -10,7 +10,7 @@
       $('[id=card]').on("click", function() {
         return window.location.href = redirectURL + "/" + $(this).data("id");
       });
-      return $('[id=delete]').on("click", function() {
+      return $('[id=deleteCard]').on("click", function() {
         var ID;
         ID = $(this).data("id");
         bootbox.dialog({
@@ -43,3 +43,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=CardIndex.js.map

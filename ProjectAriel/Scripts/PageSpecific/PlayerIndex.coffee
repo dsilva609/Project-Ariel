@@ -10,7 +10,7 @@ class Views.Player.Index
 		$('[id=player]').on "click", ->
 			window.location.href = redirectURL + "/" + $(this).data "id"
 	
-		$('[id=delete]').on "click", ->
+		$('[id=deletePlayer]').on "click", ->
 			ID = $(this).data "id"
 	
 			bootbox.dialog 

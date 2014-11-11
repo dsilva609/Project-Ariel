@@ -1,4 +1,4 @@
-﻿(function() {
+(function() {
   Namespace("Views.Player");
 
   Views.Player.Index = function() {};
@@ -10,7 +10,7 @@
       $('[id=player]').on("click", function() {
         return window.location.href = redirectURL + "/" + $(this).data("id");
       });
-      return $('[id=delete]').on("click", function() {
+      return $('[id=deletePlayer]').on("click", function() {
         var ID;
         ID = $(this).data("id");
         bootbox.dialog({
@@ -43,5 +43,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=PlayerIndex.js.map

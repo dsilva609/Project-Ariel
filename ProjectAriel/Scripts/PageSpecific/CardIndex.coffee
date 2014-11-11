@@ -10,7 +10,7 @@ class Views.Card.Index
 		$('[id=card]').on "click", ->
 			window.location.href = redirectURL + "/" + $(this).data "id"
 
-		$('[id=delete]').on "click", ->
+		$('[id=deleteCard]').on "click", ->
 			ID = $(this).data "id"
 	
 			bootbox.dialog 
@@ -29,3 +29,4 @@ $ ->
 	index = new Views.Card.Index
 	
 	index.init()
+

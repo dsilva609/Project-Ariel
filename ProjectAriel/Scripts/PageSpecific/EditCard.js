@@ -1,4 +1,4 @@
-﻿(function() {
+(function() {
   Namespace("Views.Card");
 
   Views.Card.Edit = function() {};
@@ -57,5 +57,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=EditCard.js.map
