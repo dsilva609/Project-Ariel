@@ -22,6 +22,13 @@ namespace ProjectAriel
 					  "~/Scripts/bootstrap.js",
 					  "~/Scripts/respond.js"));
 
+			bundles.Add(new ScriptBundle("~/bundles/custom")
+				.Include("~/Scripts/Namespace.js")
+				.Include("~/Scripts/PageSpecific/Logout.js")
+				.Include("~/Scripts/PageSpecific/CardIndex.js")
+				.Include("~/Scripts/PageSpecific/EditCard.js")
+				.Include("~/Scripts/PageSpecific/PlayerIndex.js"));
+
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/bootstrap.css",
 					  "~/Content/site.css"));

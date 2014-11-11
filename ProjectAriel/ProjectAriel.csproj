@@ -321,6 +321,7 @@
     <Content Include="Scripts\PageSpecific\Logout.min.js">
       <DependentUpon>Logout.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\Namespace.js" />
     <Content Include="Scripts\PageSpecific\PlayerIndex.js">
       <DependentUpon>PlayerIndex.coffee</DependentUpon>
     </Content>

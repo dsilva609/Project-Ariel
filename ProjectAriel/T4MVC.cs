@@ -74,6 +74,7 @@ namespace Links
         private const string URLPATH = "~/Scripts";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+        public static readonly string _Layout_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/_Layout.min.js") ? Url("_Layout.min.js") : Url("_Layout.js");
         public static readonly string _references_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/_references.min.js") ? Url("_references.min.js") : Url("_references.js");
         public static readonly string bootbox_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootbox.min.js") ? Url("bootbox.min.js") : Url("bootbox.js");
         public static readonly string bootbox_min_js = Url("bootbox.min.js");
@@ -106,6 +107,7 @@ namespace Links
             public static readonly string Logout_js_map = Url("Logout.js.map");
             public static readonly string Logout_min_js = Url("Logout.min.js");
             public static readonly string Logout_min_js_map = Url("Logout.min.js.map");
+            public static readonly string Namespace_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Namespace.min.js") ? Url("Namespace.min.js") : Url("Namespace.js");
             public static readonly string PlayerIndex_coffee = Url("PlayerIndex.coffee");
             public static readonly string PlayerIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/PlayerIndex.min.js") ? Url("PlayerIndex.min.js") : Url("PlayerIndex.js");
             public static readonly string PlayerIndex_js_map = Url("PlayerIndex.js.map");
