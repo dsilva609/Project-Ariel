@@ -7,11 +7,11 @@
     function Index() {}
 
     Index.prototype.init = function() {
-      $("div#carddsa").draggable();
+      $("div#card").draggable();
       $("#droppable").draggable();
       return $("#droppable").droppable({
         tolerance: "touch",
-        accept: "*",
+        accept: "#card",
         drop: function(event, ui) {
           return alert("dropped");
         }

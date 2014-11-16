@@ -7,13 +7,13 @@ Views.Game.Index = ->
 ##Implementation
 class Views.Game.Index
 	init: ->
-		$("div#carddsa").draggable()
+		$("div#card").draggable()
 	
 		$("#droppable").draggable()
 		
 		$("#droppable").droppable 
 			tolerance: "touch",
-			accept: "*",
+			accept: "#card",
 			drop: (event, ui) ->
 				alert "dropped"
 				
