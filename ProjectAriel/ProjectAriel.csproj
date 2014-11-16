@@ -303,29 +303,35 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\PageSpecific\CardIndex.js">
+    <Content Include="Scripts\PageSpecific\Card\CardIndex.js">
       <DependentUpon>CardIndex.coffee</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\CardIndex.min.js">
+    <Content Include="Scripts\PageSpecific\Card\CardIndex.min.js">
       <DependentUpon>CardIndex.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\EditCard.js">
+    <Content Include="Scripts\PageSpecific\Card\EditCard.js">
       <DependentUpon>EditCard.coffee</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\EditCard.min.js">
+    <Content Include="Scripts\PageSpecific\Card\EditCard.min.js">
       <DependentUpon>EditCard.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\Logout.js">
+    <Content Include="Scripts\PageSpecific\Game\GameIndex.js">
+      <DependentUpon>GameIndex.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\Game\GameIndex.min.js">
+      <DependentUpon>GameIndex.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Shared\Logout.js">
       <DependentUpon>Logout.coffee</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\Logout.min.js">
+    <Content Include="Scripts\Shared\Logout.min.js">
       <DependentUpon>Logout.js</DependentUpon>
     </Content>
     <Content Include="Scripts\Namespace.js" />
-    <Content Include="Scripts\PageSpecific\PlayerIndex.js">
+    <Content Include="Scripts\PageSpecific\Player\PlayerIndex.js">
       <DependentUpon>PlayerIndex.coffee</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\PlayerIndex.min.js">
+    <Content Include="Scripts\PageSpecific\Player\PlayerIndex.min.js">
       <DependentUpon>PlayerIndex.js</DependentUpon>
     </Content>
     <Content Include="Scripts\respond.js" />
@@ -333,33 +339,40 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Scripts\PageSpecific\EditCard.coffee" />
-    <Content Include="Scripts\PageSpecific\EditCard.js.map">
+    <Content Include="Scripts\PageSpecific\Card\EditCard.coffee" />
+    <Content Include="Scripts\PageSpecific\Card\EditCard.js.map">
       <DependentUpon>EditCard.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\EditCard.min.js.map">
+    <Content Include="Scripts\PageSpecific\Card\EditCard.min.js.map">
       <DependentUpon>EditCard.min.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\CardIndex.coffee" />
-    <Content Include="Scripts\PageSpecific\CardIndex.js.map">
+    <Content Include="Scripts\PageSpecific\Card\CardIndex.coffee" />
+    <Content Include="Scripts\PageSpecific\Card\CardIndex.js.map">
       <DependentUpon>CardIndex.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\CardIndex.min.js.map">
+    <Content Include="Scripts\PageSpecific\Card\CardIndex.min.js.map">
       <DependentUpon>CardIndex.min.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\PlayerIndex.coffee" />
-    <Content Include="Scripts\PageSpecific\PlayerIndex.js.map">
+    <Content Include="Scripts\PageSpecific\Player\PlayerIndex.coffee" />
+    <Content Include="Scripts\PageSpecific\Player\PlayerIndex.js.map">
       <DependentUpon>PlayerIndex.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\PlayerIndex.min.js.map">
+    <Content Include="Scripts\PageSpecific\Player\PlayerIndex.min.js.map">
       <DependentUpon>PlayerIndex.min.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\Logout.coffee" />
-    <Content Include="Scripts\PageSpecific\Logout.js.map">
+    <Content Include="Scripts\Shared\Logout.coffee" />
+    <Content Include="Scripts\Shared\Logout.js.map">
       <DependentUpon>Logout.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\PageSpecific\Logout.min.js.map">
+    <Content Include="Scripts\Shared\Logout.min.js.map">
       <DependentUpon>Logout.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\Game\GameIndex.coffee" />
+    <Content Include="Scripts\PageSpecific\Game\GameIndex.js.map">
+      <DependentUpon>GameIndex.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSpecific\Game\GameIndex.min.js.map">
+      <DependentUpon>GameIndex.min.js</DependentUpon>
     </Content>
     <None Include="T4MVC.tt.settings.xml" />
     <Content Include="Web.config" />

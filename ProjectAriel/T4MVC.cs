@@ -74,7 +74,6 @@ namespace Links
         private const string URLPATH = "~/Scripts";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-        public static readonly string _Layout_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/_Layout.min.js") ? Url("_Layout.min.js") : Url("_Layout.js");
         public static readonly string _references_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/_references.min.js") ? Url("_references.min.js") : Url("_references.js");
         public static readonly string bootbox_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootbox.min.js") ? Url("bootbox.min.js") : Url("bootbox.js");
         public static readonly string bootbox_min_js = Url("bootbox.min.js");
@@ -87,36 +86,69 @@ namespace Links
         public static readonly string jquery_validate_unobtrusive_min_js = Url("jquery.validate.unobtrusive.min.js");
         public static readonly string modernizr_2_6_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/modernizr-2.6.2.min.js") ? Url("modernizr-2.6.2.min.js") : Url("modernizr-2.6.2.js");
         public static readonly string modernizr_2_8_3_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/modernizr-2.8.3.min.js") ? Url("modernizr-2.8.3.min.js") : Url("modernizr-2.8.3.js");
+        public static readonly string Namespace_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Namespace.min.js") ? Url("Namespace.min.js") : Url("Namespace.js");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class PageSpecific {
             private const string URLPATH = "~/Scripts/PageSpecific";
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            public static readonly string CardIndex_coffee = Url("CardIndex.coffee");
-            public static readonly string CardIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/CardIndex.min.js") ? Url("CardIndex.min.js") : Url("CardIndex.js");
-            public static readonly string CardIndex_js_map = Url("CardIndex.js.map");
-            public static readonly string CardIndex_min_js = Url("CardIndex.min.js");
-            public static readonly string CardIndex_min_js_map = Url("CardIndex.min.js.map");
-            public static readonly string EditCard_coffee = Url("EditCard.coffee");
-            public static readonly string EditCard_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/EditCard.min.js") ? Url("EditCard.min.js") : Url("EditCard.js");
-            public static readonly string EditCard_js_map = Url("EditCard.js.map");
-            public static readonly string EditCard_min_js = Url("EditCard.min.js");
-            public static readonly string EditCard_min_js_map = Url("EditCard.min.js.map");
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class Card {
+                private const string URLPATH = "~/Scripts/PageSpecific/Card";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string CardIndex_coffee = Url("CardIndex.coffee");
+                public static readonly string CardIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/CardIndex.min.js") ? Url("CardIndex.min.js") : Url("CardIndex.js");
+                public static readonly string CardIndex_js_map = Url("CardIndex.js.map");
+                public static readonly string CardIndex_min_js = Url("CardIndex.min.js");
+                public static readonly string CardIndex_min_js_map = Url("CardIndex.min.js.map");
+                public static readonly string EditCard_coffee = Url("EditCard.coffee");
+                public static readonly string EditCard_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/EditCard.min.js") ? Url("EditCard.min.js") : Url("EditCard.js");
+                public static readonly string EditCard_js_map = Url("EditCard.js.map");
+                public static readonly string EditCard_min_js = Url("EditCard.min.js");
+                public static readonly string EditCard_min_js_map = Url("EditCard.min.js.map");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class Game {
+                private const string URLPATH = "~/Scripts/PageSpecific/Game";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string GameIndex_coffee = Url("GameIndex.coffee");
+                public static readonly string GameIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/GameIndex.min.js") ? Url("GameIndex.min.js") : Url("GameIndex.js");
+                public static readonly string GameIndex_js_map = Url("GameIndex.js.map");
+                public static readonly string GameIndex_min_js = Url("GameIndex.min.js");
+                public static readonly string GameIndex_min_js_map = Url("GameIndex.min.js.map");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class Player {
+                private const string URLPATH = "~/Scripts/PageSpecific/Player";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string PlayerIndex_coffee = Url("PlayerIndex.coffee");
+                public static readonly string PlayerIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/PlayerIndex.min.js") ? Url("PlayerIndex.min.js") : Url("PlayerIndex.js");
+                public static readonly string PlayerIndex_js_map = Url("PlayerIndex.js.map");
+                public static readonly string PlayerIndex_min_js = Url("PlayerIndex.min.js");
+                public static readonly string PlayerIndex_min_js_map = Url("PlayerIndex.min.js.map");
+            }
+        
+        }
+    
+        public static readonly string respond_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/respond.min.js") ? Url("respond.min.js") : Url("respond.js");
+        public static readonly string respond_min_js = Url("respond.min.js");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class Shared {
+            private const string URLPATH = "~/Scripts/Shared";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
             public static readonly string Logout_coffee = Url("Logout.coffee");
             public static readonly string Logout_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Logout.min.js") ? Url("Logout.min.js") : Url("Logout.js");
             public static readonly string Logout_js_map = Url("Logout.js.map");
             public static readonly string Logout_min_js = Url("Logout.min.js");
             public static readonly string Logout_min_js_map = Url("Logout.min.js.map");
-            public static readonly string Namespace_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Namespace.min.js") ? Url("Namespace.min.js") : Url("Namespace.js");
-            public static readonly string PlayerIndex_coffee = Url("PlayerIndex.coffee");
-            public static readonly string PlayerIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/PlayerIndex.min.js") ? Url("PlayerIndex.min.js") : Url("PlayerIndex.js");
-            public static readonly string PlayerIndex_js_map = Url("PlayerIndex.js.map");
-            public static readonly string PlayerIndex_min_js = Url("PlayerIndex.min.js");
-            public static readonly string PlayerIndex_min_js_map = Url("PlayerIndex.min.js.map");
         }
     
-        public static readonly string respond_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/respond.min.js") ? Url("respond.min.js") : Url("respond.js");
-        public static readonly string respond_min_js = Url("respond.min.js");
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]

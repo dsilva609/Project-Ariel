@@ -1,1 +1,14 @@
-﻿
+﻿@model List<ProjectAriel.Models.Card>
+
+<h1>Cards</h1>
+
+@for (int i = 0; i < 5; i++)
+{
+	<div id="card" class="card" draggable="true">
+		@Html.DisplayFor(x => Model.ElementAt(i).Name)
+	</div>
+}
+
+<div id="droppable" class="card green" >
+	Drop Zone
+</div>

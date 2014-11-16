@@ -24,10 +24,11 @@ namespace ProjectAriel
 
 			bundles.Add(new ScriptBundle("~/bundles/custom")
 				.Include("~/Scripts/Namespace.js")
-				.Include("~/Scripts/PageSpecific/Logout.js")
-				.Include("~/Scripts/PageSpecific/CardIndex.js")
-				.Include("~/Scripts/PageSpecific/EditCard.js")
-				.Include("~/Scripts/PageSpecific/PlayerIndex.js"));
+				.Include("~/Scripts/PageSpecific/Shared/Logout.js")
+				.Include("~/Scripts/PageSpecific/Card/CardIndex.js")
+				.Include("~/Scripts/PageSpecific/Card/EditCard.js")
+				.Include("~/Scripts/PageSpecific/Player/PlayerIndex.js")
+				.Include("~/Scripts/PageSpecific/Game/GameIndex.js"));
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/bootstrap.css",
