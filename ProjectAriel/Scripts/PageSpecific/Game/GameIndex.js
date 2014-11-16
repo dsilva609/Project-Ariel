@@ -7,16 +7,12 @@
     function Index() {}
 
     Index.prototype.init = function() {
-      $("div#card").bind("dragend", function(event) {
-        return $(this).css({
-          top: event.offsety,
-          left: event.offsetx
-        });
-      });
+      $("div#carddsa").draggable();
+      $("#droppable").draggable();
       return $("#droppable").droppable({
         tolerance: "touch",
         accept: "*",
-        over: function(event, ui) {
+        drop: function(event, ui) {
           return alert("dropped");
         }
       });
@@ -26,7 +22,7 @@
 
   })();
 
-  $(function() {
+  $(document).ready(function() {
     var index;
     index = new Views.Game.Index;
     return index.init();
