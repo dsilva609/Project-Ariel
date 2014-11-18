@@ -47,6 +47,11 @@ textarea {
 	width: 100px;
 	height: 100px;
 	border: double;
+	z-index: 1;
+}
+
+#droppable {
+	z-index: 0;
 }
 
 .green {

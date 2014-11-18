@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
   Namespace("Views.Game");
 
   Views.Game.Index = function() {};
@@ -11,7 +11,10 @@
         revert: true,
         cursor: "move"
       });
-      $("#droppable").draggable();
+      $("div#droppable").draggable({
+        revert: true,
+        cursor: "move"
+      });
       return $("#droppable").droppable({
         tolerance: "touch",
         accept: "#card",
@@ -32,3 +35,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=GameIndex.js.map

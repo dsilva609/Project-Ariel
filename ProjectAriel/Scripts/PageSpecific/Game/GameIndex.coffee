@@ -11,7 +11,9 @@ class Views.Game.Index
 			revert: true,
 			cursor: "move"	
 	
-		$("#droppable").draggable()
+		$("div#droppable").draggable
+			revert: true,
+			cursor: "move"
 		
 		$("#droppable").droppable 
 			tolerance: "touch",
