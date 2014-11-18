@@ -7,7 +7,9 @@ Views.Game.Index = ->
 ##Implementation
 class Views.Game.Index
 	init: ->
-		$("div#card").draggable()
+		$("div#card").draggable
+			revert: true,
+			cursor: "move"	
 	
 		$("#droppable").draggable()
 		
