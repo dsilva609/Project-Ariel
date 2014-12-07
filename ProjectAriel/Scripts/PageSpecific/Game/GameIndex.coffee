@@ -13,14 +13,20 @@ class Views.Game.Index
 	
 		$("div#droppable").draggable
 			revert: true,
-			cursor: "move"
+			cursor: "move",
 		
 		$("#droppable").droppable 
 			tolerance: "touch",
 			accept: "#card",
+			stack: "#card",
 			drop: (event, ui) ->
 				alert "dropped"
-				
+				$("<li></li>", {
+					 "text": ui.draggable.text(),
+				}).appendTo(this);
+			#	$(ui.draggable).remove()
+                
+                				
 $(document).ready ->
 	index = new Views.Game.Index
 	

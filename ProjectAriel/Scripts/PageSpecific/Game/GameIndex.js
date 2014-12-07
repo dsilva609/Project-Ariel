@@ -1,4 +1,4 @@
-﻿(function() {
+(function() {
   Namespace("Views.Game");
 
   Views.Game.Index = function() {};
@@ -18,8 +18,12 @@
       return $("#droppable").droppable({
         tolerance: "touch",
         accept: "#card",
+        stack: "#card",
         drop: function(event, ui) {
-          return alert("dropped");
+          alert("dropped");
+          return $("<li></li>", {
+            "text": ui.draggable.text()
+          }).appendTo(this);
         }
       });
     };
@@ -35,5 +39,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=GameIndex.js.map
