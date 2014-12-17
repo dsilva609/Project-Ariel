@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
   Namespace("Views.Game");
 
   Views.Game.Index = function() {};
@@ -9,21 +9,32 @@
     Index.prototype.init = function() {
       $("div#card").draggable({
         revert: true,
-        cursor: "move"
+        cursor: "move",
+        snap: true,
+        snapMode: "inner",
+        stack: "#card"
       });
       $("div#droppable").draggable({
         revert: true,
-        cursor: "move"
+        cursor: "move",
+        snap: true,
+        snapMode: 'inner',
+        stack: "#card"
+      });
+      $("div#card").droppable({
+        stack: "#card",
+        drop: function(event, ui) {
+          return ui.draggable.appendTo(this);
+        }
       });
       return $("#droppable").droppable({
         tolerance: "touch",
         accept: "#card",
         stack: "#card",
+        snap: true,
+        snapMode: "inner",
         drop: function(event, ui) {
-          alert("dropped");
-          return $("<li></li>", {
-            "text": ui.draggable.text()
-          }).appendTo(this);
+          return ui.draggable.appendTo(this);
         }
       });
     };
@@ -39,3 +50,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=GameIndex.js.map
