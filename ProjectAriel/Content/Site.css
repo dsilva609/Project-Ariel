@@ -66,6 +66,20 @@ textarea {
 	margin-left: 33%;
 }
 
+.deck {
+	background-color: gray;
+	width: 100px;
+	height: 125px;
+	margin: 30px;
+}
+
+.discard {
+	background-color: gray;
+	width: 100px;
+	height: 125px;
+	margin: -155px 0 0 220px;
+}
+
 .mainPlayer {
 	background-color: violet;
 	text-align: center;

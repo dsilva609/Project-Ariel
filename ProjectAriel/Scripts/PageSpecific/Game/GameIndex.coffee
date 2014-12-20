@@ -33,7 +33,14 @@ class Views.Game.Index
 			snap: true
 			snapMode: "inner"
 			drop: (event, ui) ->
-				ui.draggable.appendTo this				     
+				ui.draggable.appendTo this	
+		
+		$(".deck").on "click", ->
+			alert "new card"
+			
+		$(".discard").on "click", ->
+			alert "Send 'em to the brig!"
+					     			     
                 				
 $(document).ready ->
 	index = new Views.Game.Index

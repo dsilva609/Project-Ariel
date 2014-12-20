@@ -1,4 +1,4 @@
-﻿(function() {
+(function() {
   Namespace("Views.Game");
 
   Views.Game.Index = function() {};
@@ -27,7 +27,7 @@
           return ui.draggable.appendTo(this);
         }
       });
-      return $("#droppable").droppable({
+      $("#droppable").droppable({
         tolerance: "touch",
         accept: "#card",
         stack: "#card",
@@ -36,6 +36,12 @@
         drop: function(event, ui) {
           return ui.draggable.appendTo(this);
         }
+      });
+      $(".deck").on("click", function() {
+        return alert("new card");
+      });
+      return $(".discard").on("click", function() {
+        return alert("Send 'em to the brig!");
       });
     };
 
@@ -50,5 +56,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=GameIndex.js.map
