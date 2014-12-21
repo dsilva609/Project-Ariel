@@ -14,25 +14,27 @@ class Views.Game.Index
 			snapMode: "inner"
 			stack: "#card"
 	
-		$("div#droppable").draggable
-			revert: true
-			cursor: "move"
-			snap: true
-			snapMode: 'inner'
-			stack: "#card"
+#		$("div#droppable").draggable
+#			revert: true
+#			cursor: "move"
+#			snap: true
+#			snapMode: 'inner'
+#			stack: "#card"
+
 
 		$("div#card").droppable
 			stack: "#card"
 			drop: (event, ui) ->
 				ui.draggable.appendTo this
 						
-		$("#droppable").droppable 
+		$("div#droppable").droppable 
 			tolerance: "touch"
 			accept: "#card"
 			stack: "#card"
 			snap: true
 			snapMode: "inner"
 			drop: (event, ui) ->
+				alert "qwefghj"
 				ui.draggable.appendTo this	
 		
 		$(".deck").on "click", ->

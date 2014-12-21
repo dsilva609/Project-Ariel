@@ -14,26 +14,20 @@
         snapMode: "inner",
         stack: "#card"
       });
-      $("div#droppable").draggable({
-        revert: true,
-        cursor: "move",
-        snap: true,
-        snapMode: 'inner',
-        stack: "#card"
-      });
       $("div#card").droppable({
         stack: "#card",
         drop: function(event, ui) {
           return ui.draggable.appendTo(this);
         }
       });
-      $("#droppable").droppable({
+      $("div#droppable").droppable({
         tolerance: "touch",
         accept: "#card",
         stack: "#card",
         snap: true,
         snapMode: "inner",
         drop: function(event, ui) {
+          alert("qwefghj");
           return ui.draggable.appendTo(this);
         }
       });
