@@ -8,6 +8,7 @@
 	@Scripts.Render("~/bundles/modernizr")
 	@Styles.Render(Links.Content.Responsive_css)
 	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/jqueryui")
 	@Scripts.Render("~/bundles/bootstrap")
 	@Scripts.Render(Links.Scripts.bootbox_min_js)
 	@RenderSection("scripts", required: false)
@@ -30,6 +31,7 @@
 					<li>@Html.ActionLink("Contact", MVC.Home.Contact())</li>
 					<li>@Html.ActionLink("Players", MVC.Player.Index())</li>
 					<li>@Html.ActionLink("Cards", MVC.Card.Index())</li>
+					<li>@Html.ActionLink("Game", MVC.Game.Index())</li>
 					@if (User.IsInRole("Admin"))
 					{
 						<li>@Html.ActionLink("Error Log", MVC.Elmah.Index())</li>
@@ -41,6 +43,8 @@
 	</div>
 	<div class="container body-content">
 		@RenderBody()
+
+		@Scripts.Render("~/bundles/custom")
 		<footer>
 			<br/>
 			<p>&copy; @DateTime.Now.Year - Project Ariel</p>
