@@ -1,4 +1,4 @@
-﻿(function() {
+(function() {
   Namespace("Views.Shared");
 
   Views.Shared.Logout = function() {
@@ -26,7 +26,6 @@
               label: "Yes",
               className: "",
               callback: function() {
-                alert("asdf");
                 return $("#logoutForm").submit();
               }
             }
@@ -47,5 +46,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=Logout.js.map

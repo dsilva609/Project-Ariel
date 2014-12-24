@@ -11,7 +11,7 @@ class Views.Shared.Logout
 		parent = this;
 		this._LogOffBtn = $("#logOffBtn")
 		
-		this._LogOffBtn.on "click", (event) ->
+		this._LogOffBtn.on "click", (event) ->		
 			bootbox.dialog 
 				message: "Are you sure you want to log out?",
 				buttons: 
@@ -23,12 +23,9 @@ class Views.Shared.Logout
 						label: "Yes"
 						className: ""
 						callback: ->
-							alert "asdf"
 							$("#logoutForm").submit()
-
 			event.preventDefault()					
-
-
+			
 $ -> 
 	logout = new Views.Shared.Logout
 	

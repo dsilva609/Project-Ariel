@@ -10,7 +10,7 @@
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/jqueryui")
 	@Scripts.Render("~/bundles/bootstrap")
-	@Scripts.Render(Links.Scripts.bootbox_min_js)
+	@Scripts.Render(Links.Scripts.bootbox_js)
 	@RenderSection("scripts", required: false)
 </head>
 <body>
@@ -43,7 +43,7 @@
 	</div>
 	<div class="container body-content">
 		@RenderBody()
-
+		
 		@Scripts.Render("~/bundles/custom")
 		<footer>
 			<br/>
