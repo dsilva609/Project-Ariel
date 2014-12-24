@@ -1,4 +1,4 @@
-namespace ProjectAriel.Migrations
+namespace BusinessLogic.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

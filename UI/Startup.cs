@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(ProjectAriel.Startup))]
-namespace ProjectAriel
+[assembly: OwinStartupAttribute(typeof(UI.Startup))]
+namespace UI
 {
     public partial class Startup
     {

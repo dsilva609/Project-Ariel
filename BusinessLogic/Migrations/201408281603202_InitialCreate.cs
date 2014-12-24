@@ -1,34 +1,34 @@
-namespace ProjectAriel.Migrations
+namespace BusinessLogic.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
-    public partial class InitialCreate : DbMigration
-    {
-        public override void Up()
-        {
-            CreateTable(
-                "dbo.Card",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        Description = c.String(),
-                        Type = c.String(),
-                        ImageLocation = c.String(),
-                        IsActive = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID);
-            
-            CreateTable(
-                "dbo.Player",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        IsActive = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID);
+	using System;
+	using System.Data.Entity.Migrations;
+
+	public partial class InitialCreate : DbMigration
+	{
+		public override void Up()
+		{
+			CreateTable(
+				"dbo.Card",
+				c => new
+					{
+						ID = c.Int(nullable: false, identity: true),
+						Name = c.String(nullable: false),
+						Description = c.String(),
+						Type = c.String(),
+						ImageLocation = c.String(),
+						IsActive = c.Boolean(nullable: false),
+					})
+				.PrimaryKey(t => t.ID);
+
+			CreateTable(
+				"dbo.Player",
+				c => new
+					{
+						ID = c.Int(nullable: false, identity: true),
+						Name = c.String(nullable: false),
+						IsActive = c.Boolean(nullable: false),
+					})
+				.PrimaryKey(t => t.ID);
 
 			CreateTable(
 				"dbo.AspNetRoles",
@@ -96,11 +96,11 @@ namespace ProjectAriel.Migrations
 				})
 				.PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
 				.ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
-				.Index(t => t.UserId);            
-        }
-        
-        public override void Down()
-        {
+				.Index(t => t.UserId);
+		}
+
+		public override void Down()
+		{
 			DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
 			DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
 			DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -116,8 +116,8 @@ namespace ProjectAriel.Migrations
 			DropTable("dbo.AspNetUsers");
 			DropTable("dbo.AspNetUserRoles");
 			DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Player");
-            DropTable("dbo.Card");
-        }
-    }
+			DropTable("dbo.Player");
+			DropTable("dbo.Card");
+		}
+	}
 }

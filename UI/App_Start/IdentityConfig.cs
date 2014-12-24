@@ -12,7 +12,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using UI.Models;
 
-namespace ProjectAriel
+namespace UI
 {
     public class EmailService : IIdentityMessageService
     {

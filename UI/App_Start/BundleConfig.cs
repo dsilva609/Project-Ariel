@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace ProjectAriel
+namespace UI
 {
 	public class BundleConfig
 	{

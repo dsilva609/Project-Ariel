@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using BusinessLogic.Models;
+using System.Collections.Generic;
 
-namespace BusinessLogic.Models
+namespace UI.Models
 {
 	public class Game
 	{
