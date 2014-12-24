@@ -26,6 +26,7 @@
               label: "Yes",
               className: "",
               callback: function() {
+                alert("asdf");
                 return $("#logoutForm").submit();
               }
             }

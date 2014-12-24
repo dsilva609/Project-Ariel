@@ -23,8 +23,11 @@ class Views.Shared.Logout
 						label: "Yes"
 						className: ""
 						callback: ->
+							alert "asdf"
 							$("#logoutForm").submit()
+
 			event.preventDefault()					
+
 
 $ -> 
 	logout = new Views.Shared.Logout

@@ -374,7 +374,7 @@ namespace UI.Controllers
 		public virtual ActionResult LogOff()
 		{
 			AuthenticationManager.SignOut();
-			return RedirectToAction("Index", "Home");
+			return RedirectToAction(MVC.Home.Index());
 		}
 		#endregion
 

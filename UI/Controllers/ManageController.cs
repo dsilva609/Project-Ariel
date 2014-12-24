@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using ProjectAriel;
-using UI.Models;
 
 namespace UI.Controllers
 {

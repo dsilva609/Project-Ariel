@@ -22,11 +22,12 @@ namespace UI
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
 					  "~/Scripts/bootstrap.js",
-					  "~/Scripts/respond.js"));
+					  "~/Scripts/respond.js")
+					  .Include("~/Scripts/bootbox.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/custom")
 				.Include("~/Scripts/Namespace.js")
-				.Include("~/Scripts/PageSpecific/Shared/Logout.js")
+				.Include("~/Scripts/Shared/Logout.js")
 				.Include("~/Scripts/PageSpecific/Card/CardIndex.js")
 				.Include("~/Scripts/PageSpecific/Card/EditCard.js")
 				.Include("~/Scripts/PageSpecific/Player/PlayerIndex.js")
