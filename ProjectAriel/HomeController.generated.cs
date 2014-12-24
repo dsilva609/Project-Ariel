@@ -21,7 +21,7 @@ using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 using T4MVC;
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
     public partial class HomeController
     {
@@ -108,7 +108,7 @@ namespace ProjectAriel.Controllers
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_HomeController : ProjectAriel.Controllers.HomeController
+    public partial class T4MVC_HomeController : UI.Controllers.HomeController
     {
         public T4MVC_HomeController() : base(Dummy.Instance) { }
 

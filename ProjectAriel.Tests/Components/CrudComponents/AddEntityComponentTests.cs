@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using BusinessLogic.Components.CrudComponents;
+using BusinessLogic.Enums;
+using BusinessLogic.Models;
+using BusinessLogic.Repositories;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using ProjectAriel.Components.CrudComponents;
-using ProjectAriel.Enums;
-using ProjectAriel.Models;
-using ProjectAriel.Repositories;
 
-namespace ProjectAriel.Tests.Components.CrudComponents
+namespace UI.Tests.Components.CrudComponents
 {
 	[TestClass]
 	public class AddEntityComponentTests
@@ -34,7 +34,7 @@ namespace ProjectAriel.Tests.Components.CrudComponents
 				Rank = Rank.Ace,
 				Cardtype = CardType.Basic,
 				IsActive = true
-			};	
+			};
 
 			this._player = new Player
 			{

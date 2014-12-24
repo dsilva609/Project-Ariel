@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ProjectAriel.Controllers {
+namespace UI.Controllers {
 	public partial class HomeController : Controller
 	{
 		[HttpGet]

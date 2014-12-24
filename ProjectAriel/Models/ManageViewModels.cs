@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace ProjectAriel.Models
+namespace UI.Models
 {
     public class IndexViewModel
     {

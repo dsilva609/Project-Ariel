@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using ProjectAriel.Models;
+using UI.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using ProjectAriel;
+using UI.Models;
 
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
 	[Authorize]
 	public partial class ManageController : Controller

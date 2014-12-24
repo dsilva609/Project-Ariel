@@ -21,7 +21,7 @@ using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 using T4MVC;
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
     public partial class CardController
     {
@@ -168,7 +168,7 @@ namespace ProjectAriel.Controllers
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_CardController : ProjectAriel.Controllers.CardController
+    public partial class T4MVC_CardController : UI.Controllers.CardController
     {
         public T4MVC_CardController() : base(Dummy.Instance) { }
 
@@ -243,10 +243,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.Card card, int ID);
+        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, BusinessLogic.Models.Card card, int ID);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Edit(ProjectAriel.Models.Card card, int ID)
+        public override System.Web.Mvc.ActionResult Edit(BusinessLogic.Models.Card card, int ID)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Edit);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "card", card);

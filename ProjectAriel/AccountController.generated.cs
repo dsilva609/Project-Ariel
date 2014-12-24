@@ -21,7 +21,7 @@ using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 using T4MVC;
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
     public partial class AccountController
     {
@@ -294,7 +294,7 @@ namespace ProjectAriel.Controllers
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_AccountController : ProjectAriel.Controllers.AccountController
+    public partial class T4MVC_AccountController : UI.Controllers.AccountController
     {
         public T4MVC_AccountController() : base(Dummy.Instance) { }
 
@@ -430,10 +430,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void LoginOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.LoginViewModel model, string returnUrl);
+        partial void LoginOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.LoginViewModel model, string returnUrl);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Login(ProjectAriel.Models.LoginViewModel model, string returnUrl)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Login(UI.Models.LoginViewModel model, string returnUrl)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Login);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
@@ -443,10 +443,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void VerifyCodeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.VerifyCodeViewModel model);
+        partial void VerifyCodeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.VerifyCodeViewModel model);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> VerifyCode(ProjectAriel.Models.VerifyCodeViewModel model)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> VerifyCode(UI.Models.VerifyCodeViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.VerifyCode);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
@@ -455,10 +455,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void RegisterOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.RegisterViewModel model);
+        partial void RegisterOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.RegisterViewModel model);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Register(ProjectAriel.Models.RegisterViewModel model)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Register(UI.Models.RegisterViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Register);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
@@ -467,10 +467,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void ForgotPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.ForgotPasswordViewModel model);
+        partial void ForgotPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.ForgotPasswordViewModel model);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ForgotPassword(ProjectAriel.Models.ForgotPasswordViewModel model)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ForgotPassword(UI.Models.ForgotPasswordViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ForgotPassword);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
@@ -479,10 +479,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void ResetPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.ResetPasswordViewModel model);
+        partial void ResetPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.ResetPasswordViewModel model);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ResetPassword(ProjectAriel.Models.ResetPasswordViewModel model)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ResetPassword(UI.Models.ResetPasswordViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ResetPassword);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
@@ -504,10 +504,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void SendCodeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.SendCodeViewModel model);
+        partial void SendCodeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.SendCodeViewModel model);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> SendCode(ProjectAriel.Models.SendCodeViewModel model)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> SendCode(UI.Models.SendCodeViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SendCode);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
@@ -516,10 +516,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void ExternalLoginConfirmationOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.ExternalLoginConfirmationViewModel model, string returnUrl);
+        partial void ExternalLoginConfirmationOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.ExternalLoginConfirmationViewModel model, string returnUrl);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ExternalLoginConfirmation(ProjectAriel.Models.ExternalLoginConfirmationViewModel model, string returnUrl)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ExternalLoginConfirmation(UI.Models.ExternalLoginConfirmationViewModel model, string returnUrl)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ExternalLoginConfirmation);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);

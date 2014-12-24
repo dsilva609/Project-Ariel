@@ -1,7 +1,7 @@
-﻿using ProjectAriel.Common;
+﻿using UI.Common;
 using System.Web.Mvc;
 
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
 	[Authorize(Roles = "Admin")]
 	public partial class ElmahController : Controller

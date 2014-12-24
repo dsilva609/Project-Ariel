@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ProjectAriel.Models
+namespace UI.Models
 {
 	public class ExternalLoginConfirmationViewModel
 	{

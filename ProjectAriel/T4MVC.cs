@@ -25,13 +25,13 @@ using T4MVC;
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static partial class MVC
 {
-    public static ProjectAriel.Controllers.AccountController Account = new ProjectAriel.Controllers.T4MVC_AccountController();
-    public static ProjectAriel.Controllers.CardController Card = new ProjectAriel.Controllers.T4MVC_CardController();
-    public static ProjectAriel.Controllers.ElmahController Elmah = new ProjectAriel.Controllers.T4MVC_ElmahController();
-    public static ProjectAriel.Controllers.GameController Game = new ProjectAriel.Controllers.T4MVC_GameController();
-    public static ProjectAriel.Controllers.HomeController Home = new ProjectAriel.Controllers.T4MVC_HomeController();
-    public static ProjectAriel.Controllers.ManageController Manage = new ProjectAriel.Controllers.T4MVC_ManageController();
-    public static ProjectAriel.Controllers.PlayerController Player = new ProjectAriel.Controllers.T4MVC_PlayerController();
+    public static UI.Controllers.AccountController Account = new UI.Controllers.T4MVC_AccountController();
+    public static UI.Controllers.CardController Card = new UI.Controllers.T4MVC_CardController();
+    public static UI.Controllers.ElmahController Elmah = new UI.Controllers.T4MVC_ElmahController();
+    public static UI.Controllers.GameController Game = new UI.Controllers.T4MVC_GameController();
+    public static UI.Controllers.HomeController Home = new UI.Controllers.T4MVC_HomeController();
+    public static UI.Controllers.ManageController Manage = new UI.Controllers.T4MVC_ManageController();
+    public static UI.Controllers.PlayerController Player = new UI.Controllers.T4MVC_PlayerController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 

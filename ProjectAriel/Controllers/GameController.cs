@@ -1,9 +1,9 @@
-﻿using ProjectAriel.DAL;
-using ProjectAriel.Repositories;
-using ProjectAriel.Services;
+﻿using BusinessLogic.DAL;
+using BusinessLogic.Repositories;
+using BusinessLogic.Services;
 using System.Web.Mvc;
 
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
 	public partial class GameController : Controller
 	{

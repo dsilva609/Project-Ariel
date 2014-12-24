@@ -1,10 +1,11 @@
-﻿using ProjectAriel.DAL;
-using ProjectAriel.Models;
-using ProjectAriel.Repositories;
-using ProjectAriel.Services;
+﻿using BusinessLogic.DAL;
+using BusinessLogic.Models;
+using BusinessLogic.Repositories;
+using BusinessLogic.Services;
 using System.Web.Mvc;
+using UI.Models;
 
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
 	public partial class CardController : Controller
 	{

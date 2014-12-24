@@ -21,7 +21,7 @@ using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 using T4MVC;
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
     public partial class ManageController
     {
@@ -222,15 +222,15 @@ namespace ProjectAriel.Controllers
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_ManageController : ProjectAriel.Controllers.ManageController
+    public partial class T4MVC_ManageController : UI.Controllers.ManageController
     {
         public T4MVC_ManageController() : base(Dummy.Instance) { }
 
         [NonAction]
-        partial void IndexOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Controllers.ManageController.ManageMessageId? message);
+        partial void IndexOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Controllers.ManageController.ManageMessageId? message);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Index(ProjectAriel.Controllers.ManageController.ManageMessageId? message)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Index(UI.Controllers.ManageController.ManageMessageId? message)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "message", message);
@@ -306,10 +306,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void ManageLoginsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Controllers.ManageController.ManageMessageId? message);
+        partial void ManageLoginsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Controllers.ManageController.ManageMessageId? message);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ManageLogins(ProjectAriel.Controllers.ManageController.ManageMessageId? message)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ManageLogins(UI.Controllers.ManageController.ManageMessageId? message)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ManageLogins);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "message", message);
@@ -342,10 +342,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void AddPhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.AddPhoneNumberViewModel model);
+        partial void AddPhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.AddPhoneNumberViewModel model);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> AddPhoneNumber(ProjectAriel.Models.AddPhoneNumberViewModel model)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> AddPhoneNumber(UI.Models.AddPhoneNumberViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddPhoneNumber);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
@@ -376,10 +376,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void VerifyPhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.VerifyPhoneNumberViewModel model);
+        partial void VerifyPhoneNumberOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.VerifyPhoneNumberViewModel model);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> VerifyPhoneNumber(ProjectAriel.Models.VerifyPhoneNumberViewModel model)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> VerifyPhoneNumber(UI.Models.VerifyPhoneNumberViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.VerifyPhoneNumber);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
@@ -388,10 +388,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void ChangePasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.ChangePasswordViewModel model);
+        partial void ChangePasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.ChangePasswordViewModel model);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ChangePassword(ProjectAriel.Models.ChangePasswordViewModel model)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ChangePassword(UI.Models.ChangePasswordViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ChangePassword);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
@@ -400,10 +400,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void SetPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.SetPasswordViewModel model);
+        partial void SetPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.SetPasswordViewModel model);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> SetPassword(ProjectAriel.Models.SetPasswordViewModel model)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> SetPassword(UI.Models.SetPasswordViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SetPassword);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);

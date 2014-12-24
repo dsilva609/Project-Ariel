@@ -21,7 +21,7 @@ using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 using T4MVC;
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
     public partial class ElmahController
     {
@@ -112,7 +112,7 @@ namespace ProjectAriel.Controllers
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_ElmahController : ProjectAriel.Controllers.ElmahController
+    public partial class T4MVC_ElmahController : UI.Controllers.ElmahController
     {
         public T4MVC_ElmahController() : base(Dummy.Instance) { }
 

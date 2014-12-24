@@ -21,7 +21,7 @@ using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 using T4MVC;
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
     public partial class GameController
     {
@@ -97,7 +97,7 @@ namespace ProjectAriel.Controllers
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_GameController : ProjectAriel.Controllers.GameController
+    public partial class T4MVC_GameController : UI.Controllers.GameController
     {
         public T4MVC_GameController() : base(Dummy.Instance) { }
 

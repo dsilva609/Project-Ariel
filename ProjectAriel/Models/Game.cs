@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ProjectAriel.Models
+namespace BusinessLogic.Models
 {
 	public class Game
 	{

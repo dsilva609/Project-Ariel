@@ -21,7 +21,7 @@ using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 using T4MVC;
-namespace ProjectAriel.Controllers
+namespace UI.Controllers
 {
     public partial class PlayerController
     {
@@ -168,7 +168,7 @@ namespace ProjectAriel.Controllers
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_PlayerController : ProjectAriel.Controllers.PlayerController
+    public partial class T4MVC_PlayerController : UI.Controllers.PlayerController
     {
         public T4MVC_PlayerController() : base(Dummy.Instance) { }
 
@@ -243,10 +243,10 @@ namespace ProjectAriel.Controllers
         }
 
         [NonAction]
-        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ProjectAriel.Models.Player player, int ID);
+        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, BusinessLogic.Models.Player player, int ID);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Edit(ProjectAriel.Models.Player player, int ID)
+        public override System.Web.Mvc.ActionResult Edit(BusinessLogic.Models.Player player, int ID)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Edit);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "player", player);

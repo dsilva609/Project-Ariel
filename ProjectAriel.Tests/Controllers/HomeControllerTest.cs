@@ -5,9 +5,9 @@ using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectAriel;
-using ProjectAriel.Controllers;
+using UI.Controllers;
 
-namespace ProjectAriel.Tests.Controllers
+namespace UI.Tests.Controllers
 {
 	[TestClass]
 	public class HomeControllerTest

@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectAriel", "ProjectAriel\ProjectAriel.csproj", "{5920202F-FA64-463D-9E9B-4E1C05728A01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "ProjectAriel\UI.csproj", "{5920202F-FA64-463D-9E9B-4E1C05728A01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectAriel.Tests", "ProjectAriel.Tests\ProjectAriel.Tests.csproj", "{0E591C4D-3DBB-48AC-9313-FD860451E72A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Tests", "ProjectAriel.Tests\UI.Tests.csproj", "{0E591C4D-3DBB-48AC-9313-FD860451E72A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{6E25FA1D-BAD7-4864-B2BF-E503E73A6DB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic.Tests", "BusinessLogic.Tests\BusinessLogic.Tests.csproj", "{497E300C-57A8-489C-AA6A-41B452376866}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{0E591C4D-3DBB-48AC-9313-FD860451E72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E591C4D-3DBB-48AC-9313-FD860451E72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E591C4D-3DBB-48AC-9313-FD860451E72A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E25FA1D-BAD7-4864-B2BF-E503E73A6DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E25FA1D-BAD7-4864-B2BF-E503E73A6DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E25FA1D-BAD7-4864-B2BF-E503E73A6DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E25FA1D-BAD7-4864-B2BF-E503E73A6DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{497E300C-57A8-489C-AA6A-41B452376866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{497E300C-57A8-489C-AA6A-41B452376866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{497E300C-57A8-489C-AA6A-41B452376866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{497E300C-57A8-489C-AA6A-41B452376866}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

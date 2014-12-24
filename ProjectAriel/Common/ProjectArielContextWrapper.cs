@@ -1,9 +1,10 @@
-﻿using ProjectAriel.DAL;
-using ProjectAriel.Models;
-using System;
+﻿using System;
 using System.Data.Entity;
+using BusinessLogic.DAL;
+using UI.Models;
+using BusinessLogic.Models;
 
-namespace ProjectAriel.Common
+namespace UI.Common
 {
 	public class ProjectArielContextWrapper : IDisposable
 	{

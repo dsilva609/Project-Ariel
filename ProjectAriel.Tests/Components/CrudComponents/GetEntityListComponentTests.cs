@@ -1,13 +1,14 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectAriel.Models;
-using ProjectAriel.Repositories;
 using Moq;
 using System.Collections.Generic;
-using ProjectAriel.Enums;
-using ProjectAriel.Components.CrudComponents;
+using UI.Models;
+using BusinessLogic.Repositories;
+using BusinessLogic.Models;
+using BusinessLogic.Components.CrudComponents;
+using BusinessLogic.Enums;
 
-namespace ProjectAriel.Tests.Components.CrudComponents
+namespace UI.Tests.Components.CrudComponents
 {
 	[TestClass]
 	public class GetEntityListComponentTests
