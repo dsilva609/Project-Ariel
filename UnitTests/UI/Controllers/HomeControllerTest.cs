@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectAriel;
 using UI.Controllers;
 
-namespace UI.Tests.Controllers
+namespace UnitTests.UI.Controllers
 {
 	[TestClass]
 	public class HomeControllerTest

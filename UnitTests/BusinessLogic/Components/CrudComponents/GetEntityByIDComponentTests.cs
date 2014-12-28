@@ -5,7 +5,7 @@ using BusinessLogic.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace UI.Tests.Components.CrudComponents
+namespace UnitTests.BusinessLogic.Components.CrudComponents
 {
 	[TestClass]
 	public class GetEntityByIDComponentTests

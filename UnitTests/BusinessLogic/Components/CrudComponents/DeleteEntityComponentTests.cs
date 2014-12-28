@@ -5,14 +5,14 @@ using BusinessLogic.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace UI.Tests.Components.CrudComponents
+namespace UnitTests.BusinessLogic.Components.CrudComponents
 {
 	[TestClass]
-	public class AddEntityComponentTests
+	public class DeleteEntityComponentTests
 	{
 		private IRepository<Card> _cardRepo;
 		private IRepository<Player> _playerRepo;
-		private AddEntityComponent _addEntityComponent;
+		private DeleteEntityComponent _deleteEntityComponent;
 		private Mock<IRepository<Card>> _cardRepositoryMock;
 		private Mock<IRepository<Player>> _playerRepositoryMock;
 		private Card _card;
@@ -21,7 +21,7 @@ namespace UI.Tests.Components.CrudComponents
 		[TestInitialize]
 		public void Setup()
 		{
-			this._addEntityComponent = new AddEntityComponent();
+			this._deleteEntityComponent = new DeleteEntityComponent();
 			this._cardRepositoryMock = new Mock<IRepository<Card>>();
 			this._playerRepositoryMock = new Mock<IRepository<Player>>();
 
@@ -45,31 +45,33 @@ namespace UI.Tests.Components.CrudComponents
 		}
 
 		[TestMethod]
-		public void TestThatANewCardIsAddedToTheRepository()
+		public void TestThatCardIsRemovedFromTheRepository()
 		{
 			//--Arrange
 			this._cardRepositoryMock.Setup(m => m.Add(this._card));
 			this._cardRepo = this._cardRepositoryMock.Object;
 
 			//--Act
-			this._addEntityComponent.Execute(this._cardRepo, this._card);
+			this._deleteEntityComponent.Execute(this._cardRepo, this._card.ID);
+			var result = this._cardRepo.GetByID(this._card.ID);
 
 			//--Assert
-			this._cardRepositoryMock.Verify(m => m.Add(It.Is<Card>(c => c.ID == this._card.ID && c.Name == this._card.Name && c.IsActive == this._card.IsActive)));
+			Assert.IsNull(result);
 		}
 
 		[TestMethod]
-		public void TestThatNewPlayerIsAddedToTheRepository()
+		public void TestThatPlayerIsRemovedFromTheRepository()
 		{
 			//--Arrange
 			this._playerRepositoryMock.Setup(m => m.Add(this._player));
 			this._playerRepo = this._playerRepositoryMock.Object;
 
 			//--Act
-			this._addEntityComponent.Execute(this._playerRepo, this._player);
+			this._deleteEntityComponent.Execute(this._playerRepo, this._player.ID);
+			var result = this._playerRepo.GetByID(this._player.ID);
 
 			//--Assert
-			this._playerRepositoryMock.Verify(m => m.Add(It.Is<Player>(p => p.ID == this._player.ID && p.Name == this._player.Name && p.IsActive == this._player.IsActive)));
+			Assert.IsNull(result);
 		}
 	}
 }

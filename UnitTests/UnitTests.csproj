@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BF71622D-B426-4773-8594-F73F2B0C1628}</ProjectGuid>
+    <ProjectGuid>{85262AFC-5324-425E-83BF-43525B6E407A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UI.Tests</RootNamespace>
-    <AssemblyName>UI.Tests</AssemblyName>
+    <RootNamespace>UnitTests</RootNamespace>
+    <AssemblyName>UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -82,13 +82,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Components\CrudComponents\AddEntityComponentTests.cs" />
-    <Compile Include="Components\CrudComponents\DeleteEntityComponentTests.cs" />
-    <Compile Include="Components\CrudComponents\EditEntityComponentTests.cs" />
-    <Compile Include="Components\CrudComponents\GetEntityByIDComponentTests.cs" />
-    <Compile Include="Components\CrudComponents\GetEntityListComponentTests.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="BusinessLogic\Components\CrudComponents\AddEntityComponentTests.cs" />
+    <Compile Include="BusinessLogic\Components\CrudComponents\DeleteEntityComponentTests.cs" />
+    <Compile Include="BusinessLogic\Components\CrudComponents\EditEntityComponentTests.cs" />
+    <Compile Include="BusinessLogic\Components\CrudComponents\GetEntityByIDComponentTests.cs" />
+    <Compile Include="BusinessLogic\Components\CrudComponents\GetEntityListComponentTests.cs" />
+    <Compile Include="UI\Controllers\HomeControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
@@ -99,10 +103,6 @@
       <Project>{253448f5-b392-4594-9a4c-ea0488a2019a}</Project>
       <Name>UI</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

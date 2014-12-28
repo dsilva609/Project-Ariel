@@ -5,14 +5,14 @@ using BusinessLogic.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace UI.Tests.Components.CrudComponents
+namespace UnitTests.BusinessLogic.Components.CrudComponents
 {
 	[TestClass]
-	public class DeleteEntityComponentTests
+	public class EditEntityComponentTests
 	{
 		private IRepository<Card> _cardRepo;
 		private IRepository<Player> _playerRepo;
-		private DeleteEntityComponent _deleteEntityComponent;
+		private EditEntityComponent _editEntityComponent;
 		private Mock<IRepository<Card>> _cardRepositoryMock;
 		private Mock<IRepository<Player>> _playerRepositoryMock;
 		private Card _card;
@@ -21,7 +21,7 @@ namespace UI.Tests.Components.CrudComponents
 		[TestInitialize]
 		public void Setup()
 		{
-			this._deleteEntityComponent = new DeleteEntityComponent();
+			this._editEntityComponent = new EditEntityComponent();
 			this._cardRepositoryMock = new Mock<IRepository<Card>>();
 			this._playerRepositoryMock = new Mock<IRepository<Player>>();
 
@@ -45,33 +45,34 @@ namespace UI.Tests.Components.CrudComponents
 		}
 
 		[TestMethod]
-		public void TestThatCardIsRemovedFromTheRepository()
+		public void TestThatCardNameIsChanged()
 		{
 			//--Arrange
 			this._cardRepositoryMock.Setup(m => m.Add(this._card));
 			this._cardRepo = this._cardRepositoryMock.Object;
+			this._card.Name = "Indians!";
 
 			//--Act
-			this._deleteEntityComponent.Execute(this._cardRepo, this._card.ID);
-			var result = this._cardRepo.GetByID(this._card.ID);
+			this._editEntityComponent.Execute(this._cardRepo, this._card);
 
 			//--Assert
-			Assert.IsNull(result);
+			this._cardRepositoryMock.Verify(m => m.Edit(It.Is<Card>(c => c.Name == "Indians!")));
 		}
 
+
 		[TestMethod]
-		public void TestThatPlayerIsRemovedFromTheRepository()
+		public void TestThatPlayerNameIsChanged()
 		{
 			//--Arrange
 			this._playerRepositoryMock.Setup(m => m.Add(this._player));
 			this._playerRepo = this._playerRepositoryMock.Object;
+			this._player.Name = "Liam Neeson";
 
 			//--Act
-			this._deleteEntityComponent.Execute(this._playerRepo, this._player.ID);
-			var result = this._playerRepo.GetByID(this._player.ID);
+			this._editEntityComponent.Execute(this._playerRepo, this._player);
 
 			//--Assert
-			Assert.IsNull(result);
+			this._playerRepositoryMock.Verify(m => m.Edit(It.Is<Player>(p => p.Name == "Liam Neeson")));
 		}
 	}
 }

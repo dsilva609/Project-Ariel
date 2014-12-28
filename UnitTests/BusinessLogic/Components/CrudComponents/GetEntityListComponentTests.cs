@@ -8,7 +8,7 @@ using BusinessLogic.Models;
 using BusinessLogic.Components.CrudComponents;
 using BusinessLogic.Enums;
 
-namespace UI.Tests.Components.CrudComponents
+namespace UnitTests.BusinessLogic.Components.CrudComponents
 {
 	[TestClass]
 	public class GetEntityListComponentTests
