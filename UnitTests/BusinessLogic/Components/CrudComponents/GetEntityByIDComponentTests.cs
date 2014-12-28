@@ -8,11 +8,11 @@ using Moq;
 namespace UnitTests.BusinessLogic.Components.CrudComponents
 {
 	[TestClass]
-	public class AddEntityComponentTests
+	public class GetEntityByIDComponentTests
 	{
 		private IRepository<Card> _cardRepo;
 		private IRepository<Player> _playerRepo;
-		private AddEntityComponent _addEntityComponent;
+		private GetEntityByIDComponent _getEntityByIDComponent;
 		private Mock<IRepository<Card>> _cardRepositoryMock;
 		private Mock<IRepository<Player>> _playerRepositoryMock;
 		private Card _card;
@@ -21,7 +21,7 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		[TestInitialize]
 		public void Setup()
 		{
-			this._addEntityComponent = new AddEntityComponent();
+			this._getEntityByIDComponent = new GetEntityByIDComponent();
 			this._cardRepositoryMock = new Mock<IRepository<Card>>();
 			this._playerRepositoryMock = new Mock<IRepository<Player>>();
 
@@ -45,31 +45,32 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		}
 
 		[TestMethod]
-		public void TestThatANewCardIsAddedToTheRepository()
+		public void TestThatCardOfMatchingIDIsReturned()
 		{
-			//--Arrange
-			this._cardRepositoryMock.Setup(m => m.Add(this._card));
+			//--Arrange	
+			this._cardRepositoryMock.Setup(m => m.GetByID(1)).Returns(this._card);
 			this._cardRepo = this._cardRepositoryMock.Object;
 
 			//--Act
-			this._addEntityComponent.Execute(this._cardRepo, this._card);
+			var result = this._getEntityByIDComponent.Execute(this._cardRepo, 1);
 
 			//--Assert
-			this._cardRepositoryMock.Verify(m => m.Add(It.Is<Card>(c => c.ID == this._card.ID && c.Name == this._card.Name && c.IsActive == this._card.IsActive)));
+			Assert.AreEqual(1, result.ID);
 		}
 
+
 		[TestMethod]
-		public void TestThatNewPlayerIsAddedToTheRepository()
+		public void TestThatPlayerOfMatchingIDIsReturned()
 		{
-			//--Arrange
-			this._playerRepositoryMock.Setup(m => m.Add(this._player));
+			//--Arrange	
+			this._playerRepositoryMock.Setup(m => m.GetByID(1)).Returns(this._player);
 			this._playerRepo = this._playerRepositoryMock.Object;
 
 			//--Act
-			this._addEntityComponent.Execute(this._playerRepo, this._player);
+			var result = this._getEntityByIDComponent.Execute(this._playerRepo, 1);
 
 			//--Assert
-			this._playerRepositoryMock.Verify(m => m.Add(It.Is<Player>(p => p.ID == this._player.ID && p.Name == this._player.Name && p.IsActive == this._player.IsActive)));
+			Assert.AreEqual(1, result.ID);
 		}
 	}
 }
