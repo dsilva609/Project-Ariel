@@ -11,8 +11,7 @@ class Views.Card.Edit
 		
 		parent.disableAndEnableFields()
 		
-		$("#btnSubmit").on "click", (event) ->	
-			 
+		$("#btnSubmit").on "click", (event) ->		 
 			if (parseInt($("#cardTypeDropDown").val()) > 0 and parseInt($("#cardTypeDropDown").val()) < 8) and (parseInt($("#rankDropDown").val()) is 0 or parseInt($("#suitDropDown").val()) is 0)
 				bootbox.alert "Rank and suit must be selected"
 				event.preventDefault()
@@ -26,7 +25,6 @@ class Views.Card.Edit
 				event.preventDefault()
 	
 		$("#cardTypeDropDown").on "change", ->
-			alert $("#cardTypeDropDown").val()
 			parent.disableAndEnableFields()
 			
 	disableAndEnableFields: ->

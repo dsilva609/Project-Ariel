@@ -25,7 +25,6 @@
         }
       });
       return $("#cardTypeDropDown").on("change", function() {
-        alert($("#cardTypeDropDown").val());
         return parent.disableAndEnableFields();
       });
     };
