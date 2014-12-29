@@ -1,5 +1,5 @@
-﻿using UI.Common;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using UI.Common;
 
 namespace UI.Controllers
 {

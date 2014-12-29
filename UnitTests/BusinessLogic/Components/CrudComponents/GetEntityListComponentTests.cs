@@ -1,12 +1,10 @@
-﻿using System;
+﻿using BusinessLogic.Components.CrudComponents;
+using BusinessLogic.Enums;
+using BusinessLogic.Models;
+using BusinessLogic.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
-using UI.Models;
-using BusinessLogic.Repositories;
-using BusinessLogic.Models;
-using BusinessLogic.Components.CrudComponents;
-using BusinessLogic.Enums;
 
 namespace UnitTests.BusinessLogic.Components.CrudComponents
 {
