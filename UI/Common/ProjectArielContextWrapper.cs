@@ -1,8 +1,7 @@
-﻿using System;
-using System.Data.Entity;
-using BusinessLogic.DAL;
-using UI.Models;
+﻿using BusinessLogic.DAL;
 using BusinessLogic.Models;
+using System;
+using System.Data.Entity;
 
 namespace UI.Common
 {

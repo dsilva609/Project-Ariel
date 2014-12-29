@@ -3,7 +3,6 @@ using BusinessLogic.Models;
 using BusinessLogic.Repositories;
 using BusinessLogic.Services;
 using System.Web.Mvc;
-using UI.Models;
 
 namespace UI.Controllers
 {
