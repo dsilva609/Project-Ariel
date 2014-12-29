@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
   Namespace("Views.Card");
 
   Views.Card.Edit = function() {};
@@ -11,36 +11,41 @@
       parent = this;
       parent.disableAndEnableFields();
       $("#btnSubmit").on("click", function(event) {
-        if ($("#cardTypeDropDown").val() > '0' && $("#cardTypeDropDown").val() < '8' && ($("#rankDropDown").val() === '0' || $("#suitDropDown").val() === '0')) {
+        if ((parseInt($("#cardTypeDropDown").val()) > 0 && parseInt($("#cardTypeDropDown").val()) < 8) && (parseInt($("#rankDropDown").val()) === 0 || parseInt($("#suitDropDown").val()) === 0)) {
           bootbox.alert("Rank and suit must be selected");
           event.preventDefault();
         }
-        if ($("#cardTypeDropDown").val() === '0') {
+        if (parseInt($("#cardTypeDropDown").val()) === 0) {
           bootbox.alert("Card type must be selected");
           event.preventDefault();
         }
-        if ($("#expansionDropDown").val() === '0') {
+        if (parseInt($("#expansionDropDown").val()) === 0) {
           bootbox.alert("Expansion must be selected");
           return event.preventDefault();
         }
       });
       return $("#cardTypeDropDown").on("change", function() {
+        alert($("#cardTypeDropDown").val());
         return parent.disableAndEnableFields();
       });
     };
 
     Edit.prototype.disableAndEnableFields = function() {
-      if ($("#cardTypeDropDown").val() >= 8) {
+      if (parseInt($("#cardTypeDropDown").val()) >= 8) {
         $("#rankDropDown").val(0);
         $("#rankDropDown").attr("readonly", true);
+        $("#rankDropDown").attr("disabled", true);
         $("#suitDropDown").val(0);
         $("#suitDropDown").attr("readonly", true);
+        $("#suitDropDown").attr("disabled", true);
         $("#actionField").attr("readonly", true);
         $("#actionField").val(null);
         return $("#rangeField").attr("disabled", true);
       } else {
         $("#rankDropDown").attr("readonly", false);
+        $("#rankDropDown").attr("disabled", false);
         $("#suitDropDown").attr("readonly", false);
+        $("#suitDropDown").attr("disabled", false);
         $("#actionField").attr("readonly", false);
         return $("#rangeField").attr("disabled", false);
       }
@@ -57,3 +62,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=EditCard.js.map

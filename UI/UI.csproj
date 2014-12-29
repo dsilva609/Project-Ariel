@@ -290,7 +290,9 @@
     <Content Include="Scripts\Namespace.js" />
     <Content Include="Scripts\PageSpecific\Card\CardIndex.js" />
     <Content Include="Scripts\PageSpecific\Card\CardIndex.min.js" />
-    <Content Include="Scripts\PageSpecific\Card\EditCard.js" />
+    <Content Include="Scripts\PageSpecific\Card\EditCard.js">
+      <DependentUpon>EditCard.coffee</DependentUpon>
+    </Content>
     <Content Include="Scripts\PageSpecific\Card\EditCard.min.js" />
     <Content Include="Scripts\PageSpecific\Game\GameIndex.js" />
     <Content Include="Scripts\PageSpecific\Game\GameIndex.min.js" />
