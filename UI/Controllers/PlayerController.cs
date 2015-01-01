@@ -21,7 +21,7 @@ namespace UI.Controllers
 		[HttpGet]
 		public virtual ActionResult Index()
 		{
-			return View(this._Service.GetAll());
+			return View(this._Service.GetAll(true));
 		}
 
 		[HttpGet]

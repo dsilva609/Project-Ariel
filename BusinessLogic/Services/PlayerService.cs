@@ -2,6 +2,7 @@
 using BusinessLogic.Models;
 using BusinessLogic.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessLogic.Services
 {
@@ -29,9 +30,16 @@ namespace BusinessLogic.Services
 			this._addEntityComponent.Execute(this._Repository, player);
 		}
 
-		public IEnumerable<Player> GetAll()
+		public List<Player> GetAll(bool? sortAscending = null)
 		{
-			return this._getEntityListComponent.Execute(this._Repository);
+			List<Player> playerList = this._getEntityListComponent.Execute(this._Repository);
+
+			if (sortAscending == true)
+				playerList = playerList.OrderBy(x => x.Name).ToList();
+			else if (sortAscending == false)
+				playerList = playerList.OrderByDescending(x => x.Name).ToList();
+
+			return playerList;
 		}
 
 		public Player GetByID(int? ID)
