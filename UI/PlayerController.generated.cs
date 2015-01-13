@@ -100,6 +100,7 @@ namespace UI.Controllers
             public readonly string Create = "Create";
             public readonly string Edit = "Edit";
             public readonly string Delete = "Delete";
+            public readonly string SortPlayers = "SortPlayers";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -111,6 +112,7 @@ namespace UI.Controllers
             public const string Create = "Create";
             public const string Edit = "Edit";
             public const string Delete = "Delete";
+            public const string SortPlayers = "SortPlayers";
         }
 
 
@@ -239,6 +241,17 @@ namespace UI.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
             DeleteOverride(callInfo, ID);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void SortPlayersOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult SortPlayers()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SortPlayers);
+            SortPlayersOverride(callInfo);
             return callInfo;
         }
 

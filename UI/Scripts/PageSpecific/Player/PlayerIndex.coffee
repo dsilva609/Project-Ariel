@@ -7,6 +7,9 @@ Views.Player.Index = ->
 #Implementation
 class Views.Player.Index
 	init: ->
+		$('#nameHeader').on "click", ->
+			return window.location.href = "/Player/SortPlayers"
+	
 		$('[id=player]').on "click", ->
 			window.location.href = redirectURL + "/" + $(this).data "id"
 	

@@ -21,7 +21,7 @@ namespace UI.Controllers
 		[HttpGet]
 		public virtual ActionResult Index()
 		{
-			return View(this._Service.GetAll(true));
+			return View(this._Service.GetAll((bool)Session["SortAscending"]));
 		}
 
 		[HttpGet]
@@ -78,6 +78,17 @@ namespace UI.Controllers
 		public virtual ActionResult Delete(int ID)
 		{
 			this._Service.Delete(ID);
+
+			return RedirectToAction(MVC.Player.Index());
+		}
+
+		[HttpGet]
+		public virtual ActionResult SortPlayers()
+		{
+			if ((bool)Session["SortAscending"])
+				Session["SortAscending"] = false;
+			else
+				Session["SortAscending"] = true;
 
 			return RedirectToAction(MVC.Player.Index());
 		}

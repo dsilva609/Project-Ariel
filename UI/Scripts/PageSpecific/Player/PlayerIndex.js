@@ -7,6 +7,9 @@
     function Index() {}
 
     Index.prototype.init = function() {
+      $('#nameHeader').on("click", function() {
+        return window.location.href = "/Player/SortPlayers";
+      });
       $('[id=player]').on("click", function() {
         return window.location.href = redirectURL + "/" + $(this).data("id");
       });
