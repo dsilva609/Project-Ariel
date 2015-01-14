@@ -30,7 +30,7 @@ namespace BusinessLogic.Services
 			this._addEntityComponent.Execute(this._Repository, card);
 		}
 
-		public IEnumerable<Card> GetAll()
+		public List<Card> GetAll()
 		{
 			return this._getEntityListComponent.Execute(this._Repository);
 		}

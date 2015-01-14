@@ -27,26 +27,22 @@ namespace UnitTests.BusinessLogic.Services
 				new Player
 				{
 					ID = 1,
-					Name = "Smitty Werbenjagermanjensen",
-					IsActive = true
+					Name = "Smitty Werbenjagermanjensen"
 				},
 				new Player
 				{
 					ID = 2,
-					Name = "Neesons",
-					IsActive = true
+					Name = "Neesons"
 				},		
 				new Player
 				{
 					ID = 3,
-					Name = "Willis",
-					IsActive = true
+					Name = "Willis"
 				},
 				new Player
 				{
 					ID = 4,
-					Name = "Hank Moody",
-					IsActive = true
+					Name = "Hank Moody"
 				}
 			};
 		}
