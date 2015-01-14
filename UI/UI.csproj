@@ -296,7 +296,9 @@
     <Content Include="Scripts\PageSpecific\Card\EditCard.min.js" />
     <Content Include="Scripts\PageSpecific\Game\GameIndex.js" />
     <Content Include="Scripts\PageSpecific\Game\GameIndex.min.js" />
-    <Content Include="Scripts\PageSpecific\Player\PlayerIndex.js" />
+    <Content Include="Scripts\PageSpecific\Player\PlayerIndex.js">
+      <DependentUpon>PlayerIndex.coffee</DependentUpon>
+    </Content>
     <Content Include="Scripts\PageSpecific\Player\PlayerIndex.min.js" />
     <Content Include="Scripts\Shared\Logout.js">
       <DependentUpon>Logout.coffee</DependentUpon>

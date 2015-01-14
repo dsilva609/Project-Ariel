@@ -21,7 +21,7 @@ namespace UI.Controllers
 		[HttpGet]
 		public virtual ActionResult Index()
 		{
-			return View(this._Service.GetAll());
+			return View(this._Service.GetAll((bool)Session["SortAscending"], Session["PlayerSortPreference"].ToString()));
 		}
 
 		[HttpGet]
@@ -39,9 +39,8 @@ namespace UI.Controllers
 			var player = this._Service.GetByID(ID);
 
 			if (player == null)
-			{
 				return HttpNotFound();
-			}
+
 			return View(player);
 		}
 
@@ -66,9 +65,7 @@ namespace UI.Controllers
 			}
 
 			if (player == null)
-			{
 				return HttpNotFound();
-			}
 
 			return View(player);
 		}
@@ -78,6 +75,22 @@ namespace UI.Controllers
 		public virtual ActionResult Delete(int ID)
 		{
 			this._Service.Delete(ID);
+
+			return RedirectToAction(MVC.Player.Index());
+		}
+
+		[HttpGet]
+		public virtual ActionResult SortPlayers(string sortPreference)
+		{
+			if (sortPreference == "Name")
+			{
+				if ((bool)Session["PlayerNameSortAscending"])
+					Session["PlayerNameSortAscending"] = false;
+				else
+					Session["PlayerNameSortAscending"] = true;
+
+				Session["SortAscending"] = (bool)Session["PlayerNameSortAscending"];
+			}
 
 			return RedirectToAction(MVC.Player.Index());
 		}

@@ -78,6 +78,12 @@ namespace UI.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult SortPlayers()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SortPlayers);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public PlayerController Actions { get { return MVC.Player; } }
@@ -100,6 +106,7 @@ namespace UI.Controllers
             public readonly string Create = "Create";
             public readonly string Edit = "Edit";
             public readonly string Delete = "Delete";
+            public readonly string SortPlayers = "SortPlayers";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -111,6 +118,7 @@ namespace UI.Controllers
             public const string Create = "Create";
             public const string Edit = "Edit";
             public const string Delete = "Delete";
+            public const string SortPlayers = "SortPlayers";
         }
 
 
@@ -146,6 +154,14 @@ namespace UI.Controllers
         public class ActionParamsClass_Delete
         {
             public readonly string ID = "ID";
+        }
+        static readonly ActionParamsClass_SortPlayers s_params_SortPlayers = new ActionParamsClass_SortPlayers();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_SortPlayers SortPlayersParams { get { return s_params_SortPlayers; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_SortPlayers
+        {
+            public readonly string sortPreference = "sortPreference";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -239,6 +255,18 @@ namespace UI.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
             DeleteOverride(callInfo, ID);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void SortPlayersOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string sortPreference);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult SortPlayers(string sortPreference)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SortPlayers);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "sortPreference", sortPreference);
+            SortPlayersOverride(callInfo, sortPreference);
             return callInfo;
         }
 

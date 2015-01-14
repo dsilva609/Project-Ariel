@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
   Namespace("Views.Player");
 
   Views.Player.Index = function() {};
@@ -7,6 +7,13 @@
     function Index() {}
 
     Index.prototype.init = function() {
+      $('#nameHeader').on("click", function() {
+        return $.get("/Player/SortPlayers", {
+          sortPreference: "Name"
+        }, function() {
+          return location.reload();
+        });
+      });
       $('[id=player]').on("click", function() {
         return window.location.href = redirectURL + "/" + $(this).data("id");
       });
@@ -43,3 +50,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=PlayerIndex.js.map
