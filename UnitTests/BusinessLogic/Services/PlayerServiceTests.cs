@@ -59,7 +59,7 @@ namespace UnitTests.BusinessLogic.Services
 			this._playerRepositoryMock.Setup(x => x.GetAll()).Returns(this._playerList);
 
 			//--Act
-			var results = this._Service.Object.GetAll(true);
+			var results = this._Service.Object.GetAll(true, "Name");
 
 			//--Assert
 			Assert.AreEqual("Hank Moody", results[0].Name);
@@ -73,7 +73,7 @@ namespace UnitTests.BusinessLogic.Services
 			this._playerRepositoryMock.Setup(x => x.GetAll()).Returns(this._playerList);
 
 			//--Act
-			var results = this._Service.Object.GetAll(false);
+			var results = this._Service.Object.GetAll(false, "Name");
 
 			//--Assert
 			Assert.AreEqual("Willis", results[0].Name);

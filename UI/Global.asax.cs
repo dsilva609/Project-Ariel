@@ -18,6 +18,8 @@ namespace UI
 		protected void Session_Start()
 		{
 			HttpContext.Current.Session.Add("SortAscending", true);
+			HttpContext.Current.Session.Add("PlayerSortPreference", "Name");
+			HttpContext.Current.Session.Add("PlayerNameSortAscending", true);
 		}
 	}
 }

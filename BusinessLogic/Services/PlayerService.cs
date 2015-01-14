@@ -30,14 +30,17 @@ namespace BusinessLogic.Services
 			this._addEntityComponent.Execute(this._Repository, player);
 		}
 
-		public List<Player> GetAll(bool? sortAscending = null)
+		public List<Player> GetAll(bool sortAscending, string sortPreference)
 		{
 			List<Player> playerList = this._getEntityListComponent.Execute(this._Repository);
 
-			if (sortAscending == true)
-				playerList = playerList.OrderBy(x => x.Name).ToList();
-			else if (sortAscending == false)
-				playerList = playerList.OrderByDescending(x => x.Name).ToList();
+			if (sortPreference == "Name")
+			{
+				if (sortAscending)
+					playerList = playerList.OrderBy(x => x.Name).ToList();
+				else
+					playerList = playerList.OrderByDescending(x => x.Name).ToList();
+			}
 
 			return playerList;
 		}
