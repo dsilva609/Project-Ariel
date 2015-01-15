@@ -1,9 +1,9 @@
 namespace BusinessLogic.Migrations
 {
-	using System.Data.Entity.Migrations;
 	using BusinessLogic.DAL;
 	using BusinessLogic.Enums;
 	using BusinessLogic.Models;
+	using System.Data.Entity.Migrations;
 
 	internal sealed class Configuration : DbMigrationsConfiguration<ProjectArielContext>
 	{
@@ -14,7 +14,7 @@ namespace BusinessLogic.Migrations
 
 		protected override void Seed(ProjectArielContext context)
 		{
-			context.Players.AddOrUpdate(
+			context.Players.AddOrUpdate(x => x.Name,
 				new Player { Name = "Smitty Werbenjagermanjensen", ID = 1, IsActive = true },
 				new Player { Name = "Liam Neeson", ID = 2, IsActive = true },
 				new Player { Name = "Rachel McAdams", ID = 3, IsActive = true },
@@ -24,7 +24,7 @@ namespace BusinessLogic.Migrations
 			#region Cards
 
 			#region Roles
-			context.Cards.AddOrUpdate(
+			context.Cards.AddOrUpdate(x => x.Name,
 				new Card { Name = "Sheriff", ID = 1, Expansion = Expansion.Standard, Cardtype = CardType.Role, IsActive = true },
 				new Card { Name = "Deputy", ID = 2, Expansion = Expansion.Standard, Cardtype = CardType.Role, IsActive = true },
 				new Card { Name = "Outlaw", ID = 3, Expansion = Expansion.Standard, Cardtype = CardType.Role, IsActive = true },
@@ -33,7 +33,7 @@ namespace BusinessLogic.Migrations
 			#endregion
 
 			#region Characters
-			context.Cards.AddOrUpdate(
+			context.Cards.AddOrUpdate(x => x.Name,
 				//--Standard Expansion
 				new Card { Name = "Bart Cassidy", Expansion = Expansion.Standard, Cardtype = CardType.Character, IsActive = true },
 				new Card { Name = "Black Jack", Expansion = Expansion.Standard, Cardtype = CardType.Character, IsActive = true },
@@ -110,7 +110,7 @@ namespace BusinessLogic.Migrations
 			#region Playable Cards
 
 			#region Basic
-			context.Cards.AddOrUpdate(
+			context.Cards.AddOrUpdate(x => x.Name,
 				new Card { Name = "Bang!", Expansion = Expansion.Standard, Cardtype = CardType.Basic, IsActive = true },
 				new Card { Name = "Missed!", Expansion = Expansion.Standard, Cardtype = CardType.Basic, IsActive = true },
 				new Card { Name = "Beer", Expansion = Expansion.Standard, Cardtype = CardType.Alcohol, IsActive = true },
@@ -132,7 +132,7 @@ namespace BusinessLogic.Migrations
 			#endregion
 
 			#region Weapons
-			context.Cards.AddOrUpdate(
+			context.Cards.AddOrUpdate(x => x.Name,
 				new Card { Name = "Volcanic", Expansion = Expansion.Standard, Cardtype = CardType.Weapon, Range = 1, IsActive = true },
 				new Card { Name = "Schofield", Expansion = Expansion.Standard, Cardtype = CardType.Weapon, Range = 2, IsActive = true },
 				new Card { Name = "Remington", Expansion = Expansion.Standard, Cardtype = CardType.Weapon, Range = 3, IsActive = true },

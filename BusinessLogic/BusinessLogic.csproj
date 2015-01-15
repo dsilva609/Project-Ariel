@@ -114,6 +114,10 @@
     <Compile Include="Migrations\201409070114069_makeCardExpansionRequired.Designer.cs">
       <DependentUpon>201409070114069_makeCardExpansionRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501151836460_update.cs" />
+    <Compile Include="Migrations\201501151836460_update.Designer.cs">
+      <DependentUpon>201501151836460_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Player.cs" />
@@ -155,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409070114069_makeCardExpansionRequired.resx">
       <DependentUpon>201409070114069_makeCardExpansionRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501151836460_update.resx">
+      <DependentUpon>201501151836460_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
