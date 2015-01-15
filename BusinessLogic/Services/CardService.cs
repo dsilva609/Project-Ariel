@@ -3,6 +3,7 @@ using BusinessLogic.Enums;
 using BusinessLogic.Models;
 using BusinessLogic.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessLogic.Services
 {
@@ -30,9 +31,33 @@ namespace BusinessLogic.Services
 			this._addEntityComponent.Execute(this._Repository, card);
 		}
 
-		public IEnumerable<Card> GetAll()
+		public List<Card> GetAll(bool sortAscending, string sortPreference)
 		{
-			return this._getEntityListComponent.Execute(this._Repository);
+			List<Card> cardList = this._getEntityListComponent.Execute(this._Repository);
+
+			if (sortPreference == "Name")
+			{
+				if (sortAscending)
+					cardList = cardList.OrderBy(x => x.Name).ToList();
+				else
+					cardList = cardList.OrderByDescending(x => x.Name).ToList();
+			}
+			else if (sortPreference == "CardType")
+			{
+				if (sortAscending)
+					cardList = cardList.OrderBy(x => x.CardTypeString).ToList();
+				else
+					cardList = cardList.OrderByDescending(x => x.CardTypeString).ToList();
+			}
+			else if (sortPreference == "Expansion")
+			{
+				if (sortAscending)
+					cardList = cardList.OrderBy(x => x.ExpansionString).ToList();
+				else
+					cardList.OrderByDescending(x => x.ExpansionString).ToList();
+			}
+
+			return cardList;
 		}
 
 		public Card GetByID(int? ID)

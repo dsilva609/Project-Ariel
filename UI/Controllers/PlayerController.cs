@@ -8,6 +8,8 @@ namespace UI.Controllers
 {
 	public partial class PlayerController : Controller
 	{
+		private readonly string PLAYER_SORT_ASCENDING_STRING = "PlayerSortAscending";
+		private readonly string PLAYER_SORT_PREFERENCE_STRING = "PlayerSortPreference";
 		private readonly IUnitOfWork _Uow;
 		private readonly PlayerService _Service;
 
@@ -21,7 +23,7 @@ namespace UI.Controllers
 		[HttpGet]
 		public virtual ActionResult Index()
 		{
-			return View(this._Service.GetAll((bool)Session["SortAscending"], Session["PlayerSortPreference"].ToString()));
+			return View(this._Service.GetAll((bool)Session[this.PLAYER_SORT_ASCENDING_STRING], Session[this.PLAYER_SORT_PREFERENCE_STRING].ToString()));
 		}
 
 		[HttpGet]
@@ -82,15 +84,12 @@ namespace UI.Controllers
 		[HttpGet]
 		public virtual ActionResult SortPlayers(string sortPreference)
 		{
-			if (sortPreference == "Name")
-			{
-				if ((bool)Session["PlayerNameSortAscending"])
-					Session["PlayerNameSortAscending"] = false;
-				else
-					Session["PlayerNameSortAscending"] = true;
+			if ((bool)Session[this.PLAYER_SORT_ASCENDING_STRING])
+				Session[this.PLAYER_SORT_ASCENDING_STRING] = false;
+			else
+				Session[this.PLAYER_SORT_ASCENDING_STRING] = true;
 
-				Session["SortAscending"] = (bool)Session["PlayerNameSortAscending"];
-			}
+			Session[this.PLAYER_SORT_PREFERENCE_STRING] = sortPreference;
 
 			return RedirectToAction(MVC.Player.Index());
 		}
