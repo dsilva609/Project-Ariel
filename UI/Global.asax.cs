@@ -21,7 +21,6 @@ namespace UI
 			HttpContext.Current.Session.Add("CardSortPreference", "Name");
 			HttpContext.Current.Session.Add("PlayerSortAscending", true);
 			HttpContext.Current.Session.Add("PlayerSortPreference", "Name");
-			//HttpContext.Current.Session.Add("PlayerNameSortAscending", true);
 		}
 	}
 }
