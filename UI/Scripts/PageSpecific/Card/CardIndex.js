@@ -7,6 +7,27 @@
     function Index() {}
 
     Index.prototype.init = function() {
+      $('#cardNameHeader').on("click", function() {
+        return $.get("/Card/SortPlayers", {
+          sortPreference: "Name"
+        }, function() {
+          return location.reload();
+        });
+      });
+      $('#cardTypeHeader').on("click", function() {
+        return $.get("/Card/SortPlayers", {
+          sortPreference: "CardType"
+        }, function() {
+          return location.reload();
+        });
+      });
+      $('#cardExpansionHeader').on("click", function() {
+        return $.get("/Card/SortPlayers", {
+          sortPreference: "Expansion"
+        }, function() {
+          return location.reload();
+        });
+      });
       $('[id=card]').on("click", function() {
         return window.location.href = redirectURL + "/" + $(this).data("id");
       });

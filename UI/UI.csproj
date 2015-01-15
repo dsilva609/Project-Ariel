@@ -288,7 +288,9 @@
     <Content Include="Scripts\modernizr-2.7.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Namespace.js" />
-    <Content Include="Scripts\PageSpecific\Card\CardIndex.js" />
+    <Content Include="Scripts\PageSpecific\Card\CardIndex.js">
+      <DependentUpon>CardIndex.coffee</DependentUpon>
+    </Content>
     <Content Include="Scripts\PageSpecific\Card\CardIndex.min.js" />
     <Content Include="Scripts\PageSpecific\Card\EditCard.js">
       <DependentUpon>EditCard.coffee</DependentUpon>

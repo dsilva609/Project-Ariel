@@ -1,4 +1,4 @@
-﻿(function() {
+(function() {
   Namespace("Views.Player");
 
   Views.Player.Index = function() {};
@@ -7,7 +7,7 @@
     function Index() {}
 
     Index.prototype.init = function() {
-      $('#nameHeader').on("click", function() {
+      $('#playerNameHeader').on("click", function() {
         return $.get("/Player/SortPlayers", {
           sortPreference: "Name"
         }, function() {
@@ -50,5 +50,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=PlayerIndex.js.map
