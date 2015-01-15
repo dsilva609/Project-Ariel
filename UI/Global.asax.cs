@@ -17,9 +17,11 @@ namespace UI
 
 		protected void Session_Start()
 		{
-			HttpContext.Current.Session.Add("SortAscending", true);
+			HttpContext.Current.Session.Add("CardSortAscending", true);
+			HttpContext.Current.Session.Add("CardSortPreference", "Name");
+			HttpContext.Current.Session.Add("PlayerSortAscending", true);
 			HttpContext.Current.Session.Add("PlayerSortPreference", "Name");
-			HttpContext.Current.Session.Add("PlayerNameSortAscending", true);
+			//HttpContext.Current.Session.Add("PlayerNameSortAscending", true);
 		}
 	}
 }

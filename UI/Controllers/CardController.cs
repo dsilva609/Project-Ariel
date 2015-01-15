@@ -8,6 +8,8 @@ namespace UI.Controllers
 {
 	public partial class CardController : Controller
 	{
+		private readonly string CARD_SORT_ASCENDING_STRING = "CardSortAscending";
+		private readonly string CARD_SORT_PREFERENCE_STRING = "CardSortPreference";
 		private readonly IUnitOfWork _Uow;
 		private readonly CardService _Service;
 
@@ -21,7 +23,7 @@ namespace UI.Controllers
 		[HttpGet]
 		public virtual ActionResult Index()
 		{
-			return View(this._Service.GetAll());
+			return View(this._Service.GetAll((bool)Session[this.CARD_SORT_ASCENDING_STRING], Session[this.CARD_SORT_PREFERENCE_STRING].ToString()));
 		}
 
 		[HttpGet]
@@ -80,6 +82,25 @@ namespace UI.Controllers
 
 			return RedirectToAction(MVC.Card.Index());
 		}
+
+		[HttpGet]
+		public virtual ActionResult SortPlayers(string sortPreference)
+		{
+			if (sortPreference == "Name")
+			{
+				if ((bool)Session[this.CARD_SORT_ASCENDING_STRING])
+					Session[this.CARD_SORT_ASCENDING_STRING] = false;
+				else
+					Session[this.CARD_SORT_ASCENDING_STRING] = true;
+
+				Session[this.CARD_SORT_ASCENDING_STRING] = (bool)Session[this.CARD_SORT_ASCENDING_STRING];
+			}
+
+			Session[this.CARD_SORT_PREFERENCE_STRING] = sortPreference;
+
+			return RedirectToAction(MVC.Player.Index());
+		}
+
 		#endregion
 
 		[Authorize(Roles = "Admin")]

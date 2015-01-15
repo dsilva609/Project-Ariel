@@ -20,7 +20,7 @@ namespace UI.Controllers
 		[HttpGet]
 		public virtual ActionResult Index()
 		{
-			var cards = this._CardService.GetAll();
+			var cards = this._CardService.GetAll(false, "None");
 
 			return View(cards);
 		}

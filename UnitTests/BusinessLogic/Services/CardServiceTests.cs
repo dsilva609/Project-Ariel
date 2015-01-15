@@ -55,7 +55,8 @@ namespace UnitTests.BusinessLogic.Services
 			this._cardRepositoryMock.Setup(x => x.GetAll()).Returns(this._cardList);
 
 			//--Act
-			var results = this._Service.Object.GetAll();//true, "Name");
+			var results = this._Service.Object.GetAll(true, "Name");
+
 			//--Assert
 			Assert.AreEqual("Arruga", results[0].Name);
 		}
@@ -68,7 +69,7 @@ namespace UnitTests.BusinessLogic.Services
 			this._cardRepositoryMock.Setup(x => x.GetAll()).Returns(this._cardList);
 
 			//--Act
-			var results = this._Service.Object.GetAll();//false, "Name");
+			var results = this._Service.Object.GetAll(false, "Name");
 
 			//--Assert
 			Assert.AreEqual("Thud", results[0].Name);
