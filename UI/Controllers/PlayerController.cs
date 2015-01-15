@@ -84,15 +84,10 @@ namespace UI.Controllers
 		[HttpGet]
 		public virtual ActionResult SortPlayers(string sortPreference)
 		{
-			if (sortPreference == "Name")
-			{
-				if ((bool)Session[this.PLAYER_SORT_ASCENDING_STRING])
-					Session[this.PLAYER_SORT_ASCENDING_STRING] = false;
-				else
-					Session[this.PLAYER_SORT_ASCENDING_STRING] = true;
-
-				Session[this.PLAYER_SORT_ASCENDING_STRING] = (bool)Session[this.PLAYER_SORT_ASCENDING_STRING];
-			}
+			if ((bool)Session[this.PLAYER_SORT_ASCENDING_STRING])
+				Session[this.PLAYER_SORT_ASCENDING_STRING] = false;
+			else
+				Session[this.PLAYER_SORT_ASCENDING_STRING] = true;
 
 			Session[this.PLAYER_SORT_PREFERENCE_STRING] = sortPreference;
 
