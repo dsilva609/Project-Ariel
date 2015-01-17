@@ -149,9 +149,6 @@ namespace BusinessLogic.Migrations
 
 			#endregion
 
-			//context.Cards.AddOrUpdate(
-			//		   new Card { Name = "Bang!", ID = 1, Cardtype = CardType.Basic, Description = "Kill 'Em All", Rank = Rank.Ace, Suit = Suit.Spade, ImageLocation = null, IsActive = true }
-			//						   );
 			//  This method will be called after migrating to the latest version.
 
 			//  You can use the DbSet<T>.AddOrUpdate() helper extension method 

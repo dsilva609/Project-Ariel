@@ -5,29 +5,28 @@ namespace BusinessLogic.Enums
 	public enum Expansion
 	{
 		[Display(Name = "-Select Expansion-")]
-		Default,
-		Standard,
+		Default,									//0
+		Standard,									//1
 		[Display(Name = "High Noon")]
-		HighNoon,
+		HighNoon,									//2
 		[Display(Name = "Dodge City")]
-		DodgeCity,
+		DodgeCity,									//3
 		[Display(Name = "A Fistful Of Cards")]
-		AFistfulOfCards,
+		AFistfulOfCards,							//4
 		[Display(Name = "Wild West Show")]
-		WildWestShow,
+		WildWestShow,								//5
 		[Display(Name = "Gold Rush")]
-		GoldRush,
+		GoldRush,									//6
 		[Display(Name = "Valley Of Shadows")]
-		ValleyOfShadows,
+		ValleyOfShadows,							//7
 		[Display(Name = "El Dorado")]
-		ElDorado,
+		ElDorado,									//8
 		[Display(Name = "Death Mesa")]
-		DeathMesa,
+		DeathMesa,									//9
 		[Display(Name = "Robber's Roost")]
-		RobbersRoost,
+		RobbersRoost,								//10
 		[Display(Name = "Bang! The Bullet")]
-		BangTheBullet,
-		[Display(Name = "Anniversary")]
-		Anniversary
+		BangTheBullet,								//11	
+		Anniversary									//12
 	}
 }
