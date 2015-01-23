@@ -21,7 +21,7 @@
         }
       });
       $("div#droppable").droppable({
-        tolerance: "touch",
+        tolerance: "intersect",
         accept: "#card",
         stack: "#card",
         snap: true,

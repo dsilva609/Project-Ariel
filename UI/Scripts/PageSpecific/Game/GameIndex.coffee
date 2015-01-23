@@ -26,9 +26,10 @@ class Views.Game.Index
 			stack: "#card"
 			drop: (event, ui) ->
 				ui.draggable.appendTo this
+				#$(this).droppable "option", "droppable", false
 						
 		$("div#droppable").droppable 
-			tolerance: "touch"
+			tolerance: "intersect"
 			accept: "#card"
 			stack: "#card"
 			snap: true
