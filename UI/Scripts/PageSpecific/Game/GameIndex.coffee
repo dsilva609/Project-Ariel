@@ -13,6 +13,7 @@ class Views.Game.Index
 			snap: true
 			snapMode: "inner"
 			stack: "#card"
+			#css: "z-index= 9999"
 	
 #		$("div#droppable").draggable
 #			revert: true
@@ -25,7 +26,7 @@ class Views.Game.Index
 		$("div#card").droppable
 			stack: "#card"
 			drop: (event, ui) ->
-				ui.draggable.appendTo this
+				ui.draggable.insertAfter this
 				#$(this).droppable "option", "droppable", false
 						
 		$("div#droppable").droppable 
@@ -36,7 +37,7 @@ class Views.Game.Index
 			snapMode: "inner"
 			drop: (event, ui) ->
 				alert "qwefghj"
-				ui.draggable.appendTo this	
+				ui.draggable.insertAfter this	
 		
 		$(".deck").on "click", ->
 			alert "new card"

@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
   Namespace("Views.Game");
 
   Views.Game.Index = function() {};
@@ -17,7 +17,7 @@
       $("div#card").droppable({
         stack: "#card",
         drop: function(event, ui) {
-          return ui.draggable.appendTo(this);
+          return ui.draggable.insertAfter(this);
         }
       });
       $("div#droppable").droppable({
@@ -28,7 +28,7 @@
         snapMode: "inner",
         drop: function(event, ui) {
           alert("qwefghj");
-          return ui.draggable.appendTo(this);
+          return ui.draggable.insertAfter(this);
         }
       });
       $(".deck").on("click", function() {
@@ -50,3 +50,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=GameIndex.js.map
