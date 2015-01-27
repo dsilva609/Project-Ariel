@@ -1,9 +1,8 @@
 namespace BusinessLogic.Migrations
 {
-	using System;
 	using System.Data.Entity.Migrations;
 
-	public partial class InitialCreate : DbMigration
+	public partial class Initial : DbMigration
 	{
 		public override void Up()
 		{
@@ -14,7 +13,16 @@ namespace BusinessLogic.Migrations
 						ID = c.Int(nullable: false, identity: true),
 						Name = c.String(nullable: false),
 						Description = c.String(),
-						Type = c.String(),
+						Action = c.String(nullable: true, defaultValue: null),
+						Expansion = c.Int(nullable: false),
+						ExpansionString = c.String(nullable: true, defaultValue: null),
+						Cardtype = c.Int(nullable: false),
+						CardTypeString = c.String(nullable: true, defaultValue: null),
+						Suit = c.Int(nullable: true),
+						SuitString = c.String(nullable: true, defaultValue: null),
+						Rank = c.Int(nullable: true),
+						RankString = c.String(nullable: true, defaultValue: null),
+						Range = c.Int(nullable: true, defaultValue: null),
 						ImageLocation = c.String(),
 						IsActive = c.Boolean(nullable: false),
 					})
@@ -97,6 +105,7 @@ namespace BusinessLogic.Migrations
 				.PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
 				.ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
 				.Index(t => t.UserId);
+
 		}
 
 		public override void Down()

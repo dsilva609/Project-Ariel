@@ -78,45 +78,9 @@
     <Compile Include="Enums\Expansion.cs" />
     <Compile Include="Enums\Rank.cs" />
     <Compile Include="Enums\Suit.cs" />
-    <Compile Include="Migrations\201408281603202_InitialCreate.cs" />
-    <Compile Include="Migrations\201408281603202_InitialCreate.Designer.cs">
-      <DependentUpon>201408281603202_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408302320351_addEnumsToCardModel.cs" />
-    <Compile Include="Migrations\201408302320351_addEnumsToCardModel.Designer.cs">
-      <DependentUpon>201408302320351_addEnumsToCardModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408302345268_updateCardModel.cs" />
-    <Compile Include="Migrations\201408302345268_updateCardModel.Designer.cs">
-      <DependentUpon>201408302345268_updateCardModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408310337446_addCardTypeStringToCardModel.cs" />
-    <Compile Include="Migrations\201408310337446_addCardTypeStringToCardModel.Designer.cs">
-      <DependentUpon>201408310337446_addCardTypeStringToCardModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408310349470_addSuitStringAndRankStringToCardModel.cs" />
-    <Compile Include="Migrations\201408310349470_addSuitStringAndRankStringToCardModel.Designer.cs">
-      <DependentUpon>201408310349470_addSuitStringAndRankStringToCardModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409070014172_addPropertiesToCardModel.cs" />
-    <Compile Include="Migrations\201409070014172_addPropertiesToCardModel.Designer.cs">
-      <DependentUpon>201409070014172_addPropertiesToCardModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409070018182_makeCardRangeNullable.cs" />
-    <Compile Include="Migrations\201409070018182_makeCardRangeNullable.Designer.cs">
-      <DependentUpon>201409070018182_makeCardRangeNullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409070040559_addCardExpansionStringProperty.cs" />
-    <Compile Include="Migrations\201409070040559_addCardExpansionStringProperty.Designer.cs">
-      <DependentUpon>201409070040559_addCardExpansionStringProperty.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409070114069_makeCardExpansionRequired.cs" />
-    <Compile Include="Migrations\201409070114069_makeCardExpansionRequired.Designer.cs">
-      <DependentUpon>201409070114069_makeCardExpansionRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501151836460_update.cs" />
-    <Compile Include="Migrations\201501151836460_update.Designer.cs">
-      <DependentUpon>201501151836460_update.cs</DependentUpon>
+    <Compile Include="Migrations\201501271806278_Initial.cs" />
+    <Compile Include="Migrations\201501271806278_Initial.Designer.cs">
+      <DependentUpon>201501271806278_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Card.cs" />
@@ -133,44 +97,17 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408281603202_InitialCreate.resx">
-      <DependentUpon>201408281603202_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408302320351_addEnumsToCardModel.resx">
-      <DependentUpon>201408302320351_addEnumsToCardModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408302345268_updateCardModel.resx">
-      <DependentUpon>201408302345268_updateCardModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408310337446_addCardTypeStringToCardModel.resx">
-      <DependentUpon>201408310337446_addCardTypeStringToCardModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408310349470_addSuitStringAndRankStringToCardModel.resx">
-      <DependentUpon>201408310349470_addSuitStringAndRankStringToCardModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409070014172_addPropertiesToCardModel.resx">
-      <DependentUpon>201409070014172_addPropertiesToCardModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409070018182_makeCardRangeNullable.resx">
-      <DependentUpon>201409070018182_makeCardRangeNullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409070040559_addCardExpansionStringProperty.resx">
-      <DependentUpon>201409070040559_addCardExpansionStringProperty.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409070114069_makeCardExpansionRequired.resx">
-      <DependentUpon>201409070114069_makeCardExpansionRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501151836460_update.resx">
-      <DependentUpon>201501151836460_update.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201501271806278_Initial.resx">
+      <DependentUpon>201501271806278_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

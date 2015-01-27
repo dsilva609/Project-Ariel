@@ -1,25 +1,27 @@
 namespace BusinessLogic.Migrations
 {
-	using BusinessLogic.DAL;
 	using BusinessLogic.Enums;
 	using BusinessLogic.Models;
+	using System;
+	using System.Data.Entity;
 	using System.Data.Entity.Migrations;
+	using System.Linq;
 
-	internal sealed class Configuration : DbMigrationsConfiguration<ProjectArielContext>
+	internal sealed class Configuration : DbMigrationsConfiguration<BusinessLogic.DAL.ProjectArielContext>
 	{
 		public Configuration()
 		{
 			AutomaticMigrationsEnabled = false;
 		}
 
-		protected override void Seed(ProjectArielContext context)
+		protected override void Seed(BusinessLogic.DAL.ProjectArielContext context)
 		{
 			context.Players.AddOrUpdate(x => x.Name,
-				new Player { Name = "Smitty Werbenjagermanjensen", ID = 1, IsActive = true },
-				new Player { Name = "Liam Neeson", ID = 2, IsActive = true },
-				new Player { Name = "Rachel McAdams", ID = 3, IsActive = true },
-				new Player { Name = "Marky Mark and the Funky Bunch", ID = 4, IsActive = true }
-			);
+				 new Player { Name = "Smitty Werbenjagermanjensen", ID = 1, IsActive = true },
+				 new Player { Name = "Liam Neeson", ID = 2, IsActive = true },
+				 new Player { Name = "Rachel McAdams", ID = 3, IsActive = true },
+				 new Player { Name = "Marky Mark and the Funky Bunch", ID = 4, IsActive = true }
+			 );
 
 			#region Cards
 
