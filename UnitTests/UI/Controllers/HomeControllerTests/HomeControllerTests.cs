@@ -7,42 +7,45 @@ namespace UnitTests.UI.Controllers.HomeControllerTests
 	public class HomeControllerTests : HomeControllerTestBase
 	{
 		[TestMethod]
-		public void Index()
+		public void ThatIndexActionReturnsAView()
 		{
 			//--Arrange
 			base.Setup();
+			base.homeControllerMock.Setup(mock => mock.Index()).Returns(new ViewResult { ViewName = MVC.Home.Views.Index });
 
 			//--Act
-			var result = base.homeControllerMock.Index() as ViewResult;
+			var result = base.homeControllerMock.Object.Index() as ViewResult;
 
 			// Assert
-			Assert.IsNotNull(result);
+			Assert.AreEqual(MVC.Home.Views.Index, result.ViewName);
 		}
 
 		[TestMethod]
-		public void About()
+		public void ThatAboutActionReturnsAView()
 		{
 			//--Arrange
 			base.Setup();
+			base.homeControllerMock.Setup(mock => mock.About()).Returns(new ViewResult { ViewName = MVC.Home.Views.About });
 
 			//--Act
-			var result = base.homeControllerMock.About() as ViewResult;
+			var result = base.homeControllerMock.Object.About() as ViewResult;
 
 			//--Assert
-			Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+			Assert.AreEqual(MVC.Home.Views.About, result.ViewName);
 		}
 
 		[TestMethod]
-		public void Contact()
+		public void ThatContactActionReturnsAView()
 		{
 			// Arrange
 			base.Setup();
+			base.homeControllerMock.Setup(mock => mock.Contact()).Returns(new ViewResult { ViewName = MVC.Home.Views.Contact });
 
 			//--Act
-			var result = base.homeControllerMock.Contact() as ViewResult;
+			var result = base.homeControllerMock.Object.Contact() as ViewResult;
 
 			//--Assert
-			Assert.IsNotNull(result);
+			Assert.AreEqual(MVC.Home.Views.Contact, result.ViewName);
 		}
 	}
 }
