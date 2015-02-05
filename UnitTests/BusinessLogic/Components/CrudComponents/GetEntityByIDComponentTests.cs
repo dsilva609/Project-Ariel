@@ -1,29 +1,19 @@
-﻿using BusinessLogic.Components.CrudComponents;
-using BusinessLogic.Enums;
+﻿using BusinessLogic.Enums;
 using BusinessLogic.Models;
-using BusinessLogic.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 namespace UnitTests.BusinessLogic.Components.CrudComponents
 {
 	[TestClass]
-	public class GetEntityByIDComponentTests
+	public class GetEntityByIDComponentTests : GetEntityByIDComponentTestBase
 	{
-		private IRepository<Card> _cardRepo;
-		private IRepository<Player> _playerRepo;
-		private GetEntityByIDComponent _getEntityByIDComponent;
-		private Mock<IRepository<Card>> _cardRepositoryMock;
-		private Mock<IRepository<Player>> _playerRepositoryMock;
 		private Card _card;
 		private Player _player;
 
 		[TestInitialize]
 		public void Setup()
 		{
-			this._getEntityByIDComponent = new GetEntityByIDComponent();
-			this._cardRepositoryMock = new Mock<IRepository<Card>>();
-			this._playerRepositoryMock = new Mock<IRepository<Player>>();
+			base.Setup();
 
 			this._card = new Card
 			{
@@ -48,11 +38,11 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		public void TestThatCardOfMatchingIDIsReturned()
 		{
 			//--Arrange
-			this._cardRepositoryMock.Setup(m => m.GetByID(1)).Returns(this._card);
-			this._cardRepo = this._cardRepositoryMock.Object;
+			base._cardRepositoryMock.Setup(m => m.GetByID(1)).Returns(this._card);
+			base._cardRepo = base._cardRepositoryMock.Object;
 
 			//--Act
-			var result = this._getEntityByIDComponent.Execute(this._cardRepo, 1);
+			var result = base._getEntityByIDComponent.Execute(base._cardRepo, 1);
 
 			//--Assert
 			Assert.AreEqual(1, result.ID);
@@ -62,11 +52,11 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		public void TestThatPlayerOfMatchingIDIsReturned()
 		{
 			//--Arrange
-			this._playerRepositoryMock.Setup(m => m.GetByID(1)).Returns(this._player);
-			this._playerRepo = this._playerRepositoryMock.Object;
+			base._playerRepositoryMock.Setup(m => m.GetByID(1)).Returns(this._player);
+			base._playerRepo = base._playerRepositoryMock.Object;
 
 			//--Act
-			var result = this._getEntityByIDComponent.Execute(this._playerRepo, 1);
+			var result = base._getEntityByIDComponent.Execute(base._playerRepo, 1);
 
 			//--Assert
 			Assert.AreEqual(1, result.ID);

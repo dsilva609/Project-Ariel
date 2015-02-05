@@ -8,8 +8,8 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 	[TestClass]
 	public class AddEntityComponentTests : AddEntityComponentTestBase
 	{
-		protected Card _card;
-		protected Player _player;
+		private Card _card;
+		private Player _player;
 
 		[TestInitialize]
 		public override void Setup()
