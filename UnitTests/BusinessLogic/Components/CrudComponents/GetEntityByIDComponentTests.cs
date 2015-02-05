@@ -11,7 +11,7 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		private Player _player;
 
 		[TestInitialize]
-		public void Setup()
+		public override void Setup()
 		{
 			base.Setup();
 
