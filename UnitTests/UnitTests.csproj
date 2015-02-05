@@ -97,6 +97,7 @@
     <Compile Include="BusinessLogic\Components\CrudComponents\AddEntityComponentTestBase.cs" />
     <Compile Include="BusinessLogic\Components\CrudComponents\DeleteEntityComponentTestBase.cs" />
     <Compile Include="BusinessLogic\Components\CrudComponents\DeleteEntityComponentTests.cs" />
+    <Compile Include="BusinessLogic\Components\CrudComponents\EditEntityComponentTestBase.cs" />
     <Compile Include="BusinessLogic\Components\CrudComponents\EditEntityComponentTests.cs" />
     <Compile Include="BusinessLogic\Components\CrudComponents\GetEntityByIDComponentTests.cs" />
     <Compile Include="BusinessLogic\Components\CrudComponents\GetEntityListComponentTests.cs" />

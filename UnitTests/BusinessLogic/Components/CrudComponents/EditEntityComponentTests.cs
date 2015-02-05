@@ -1,29 +1,20 @@
-﻿using BusinessLogic.Components.CrudComponents;
-using BusinessLogic.Enums;
+﻿using BusinessLogic.Enums;
 using BusinessLogic.Models;
-using BusinessLogic.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
 namespace UnitTests.BusinessLogic.Components.CrudComponents
 {
 	[TestClass]
-	public class EditEntityComponentTests
+	public class EditEntityComponentTests : EditEntityComponentTestBase
 	{
-		private IRepository<Card> _cardRepo;
-		private IRepository<Player> _playerRepo;
-		private EditEntityComponent _editEntityComponent;
-		private Mock<IRepository<Card>> _cardRepositoryMock;
-		private Mock<IRepository<Player>> _playerRepositoryMock;
 		private Card _card;
 		private Player _player;
 
 		[TestInitialize]
-		public void Setup()
+		public override void Setup()
 		{
-			this._editEntityComponent = new EditEntityComponent();
-			this._cardRepositoryMock = new Mock<IRepository<Card>>();
-			this._playerRepositoryMock = new Mock<IRepository<Player>>();
+			base.Setup();
 
 			this._card = new Card
 			{
@@ -45,33 +36,33 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		}
 
 		[TestMethod]
-		public void TestThatCardNameIsChanged()
+		public void ThatCardNameIsChanged()
 		{
 			//--Arrange
-			this._cardRepositoryMock.Setup(m => m.Add(this._card));
-			this._cardRepo = this._cardRepositoryMock.Object;
+			base._cardRepositoryMock.Setup(m => m.Add(this._card));
+			base._cardRepo = this._cardRepositoryMock.Object;
 			this._card.Name = "Indians!";
 
 			//--Act
-			this._editEntityComponent.Execute(this._cardRepo, this._card);
+			base._editEntityComponent.Execute(base._cardRepo, this._card);
 
 			//--Assert
-			this._cardRepositoryMock.Verify(m => m.Edit(It.Is<Card>(c => c.Name == "Indians!")));
+			base._cardRepositoryMock.Verify(m => m.Edit(It.Is<Card>(c => c.Name == "Indians!")));
 		}
 
 		[TestMethod]
 		public void TestThatPlayerNameIsChanged()
 		{
 			//--Arrange
-			this._playerRepositoryMock.Setup(m => m.Add(this._player));
-			this._playerRepo = this._playerRepositoryMock.Object;
+			base._playerRepositoryMock.Setup(m => m.Add(this._player));
+			base._playerRepo = base._playerRepositoryMock.Object;
 			this._player.Name = "Liam Neeson";
 
 			//--Act
-			this._editEntityComponent.Execute(this._playerRepo, this._player);
+			base._editEntityComponent.Execute(base._playerRepo, this._player);
 
 			//--Assert
-			this._playerRepositoryMock.Verify(m => m.Edit(It.Is<Player>(p => p.Name == "Liam Neeson")));
+			base._playerRepositoryMock.Verify(m => m.Edit(It.Is<Player>(p => p.Name == "Liam Neeson")));
 		}
 	}
 }
