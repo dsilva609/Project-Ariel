@@ -7,6 +7,7 @@ namespace BusinessLogic.DAL
 	public class ProjectArielContext : DbContext
 	{
 		public DbSet<Player> Players { get; set; }
+
 		public DbSet<Card> Cards { get; set; }
 
 		public ProjectArielContext()

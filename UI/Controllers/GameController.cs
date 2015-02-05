@@ -17,6 +17,7 @@ namespace UI.Controllers
 		}
 
 		#region HttpGet
+
 		[HttpGet]
 		public virtual ActionResult Index()
 		{
@@ -24,6 +25,7 @@ namespace UI.Controllers
 
 			return View(cards);
 		}
-		#endregion
+
+		#endregion HttpGet
 	}
 }

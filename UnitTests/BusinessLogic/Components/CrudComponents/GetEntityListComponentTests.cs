@@ -31,37 +31,37 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 			//--Arrange
 			this._cardRepositoryMock.Setup(m => m.GetAll()).Returns(new List<Card>
 			{
-				new Card 
-				{ 
-					Name = "Bang!", 
-					ID = 1, 
-					Description = "Kill 'Em All", 
-					Suit = Suit.Spade, 
-					Rank = Rank.Ace, 
-					Cardtype = CardType.Basic, 
-					IsActive = true 
+				new Card
+				{
+					Name = "Bang!",
+					ID = 1,
+					Description = "Kill 'Em All",
+					Suit = Suit.Spade,
+					Rank = Rank.Ace,
+					Cardtype = CardType.Basic,
+					IsActive = true
 				},
 
 				new Card
-				{ 
-					Name = "Missed!", 
-					ID = 2, 
-					Description = "Missed me Fool", 
-					Suit = Suit.Spade, 
-					Rank = Rank.Ace, 
-					Cardtype = CardType.Basic, 
-					IsActive = true 
-				},
-				
-				new Card 
 				{
-					Name = "Beer!", 
-					ID = 3, 
-					Description = "Drink up", 
-					Suit = Suit.Spade, 
-					Rank = Rank.Ace, 
-					Cardtype = CardType.Basic, 
-					IsActive = true 
+					Name = "Missed!",
+					ID = 2,
+					Description = "Missed me Fool",
+					Suit = Suit.Spade,
+					Rank = Rank.Ace,
+					Cardtype = CardType.Basic,
+					IsActive = true
+				},
+
+				new Card
+				{
+					Name = "Beer!",
+					ID = 3,
+					Description = "Drink up",
+					Suit = Suit.Spade,
+					Rank = Rank.Ace,
+					Cardtype = CardType.Basic,
+					IsActive = true
 				}
 			});
 			this._cardRepo = this._cardRepositoryMock.Object;
@@ -77,26 +77,26 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		public void TestThatRepositoryReturnsAllPlayers()
 		{
 			//--Arrange
-			this._playerRepositoryMock.Setup(m => m.GetAll()).Returns(new List<Player> { 
-				new Player 
-				{ 
-					ID = 1, 
-					Name = "Smitty Werbenjagermanjensen", 
-					IsActive = true 
+			this._playerRepositoryMock.Setup(m => m.GetAll()).Returns(new List<Player> {
+				new Player
+				{
+					ID = 1,
+					Name = "Smitty Werbenjagermanjensen",
+					IsActive = true
 				},
- 
-				new Player 
-				{ 
-					Name = "Walter White", 
-					ID = 2, 
-					IsActive = true 
+
+				new Player
+				{
+					Name = "Walter White",
+					ID = 2,
+					IsActive = true
 				},
- 
-				new Player 
-				{ 
-					Name = "Tom Neville", 
-					ID = 3, 
-					IsActive = true 
+
+				new Player
+				{
+					Name = "Tom Neville",
+					ID = 3,
+					IsActive = true
 				}
 			});
 			this._playerRepo = this._playerRepositoryMock.Object;

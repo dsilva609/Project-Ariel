@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace UI.Common
 {
-	class ElmahResult : ActionResult
+	internal class ElmahResult : ActionResult
 	{
 		private string _resouceType;
 

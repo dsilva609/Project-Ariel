@@ -6,6 +6,7 @@ namespace BusinessLogic.Enums
 	{
 		[Display(Name = "-Select Rank-")]
 		Default,
+
 		One,
 		Two,
 		Three,

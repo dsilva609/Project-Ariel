@@ -22,9 +22,9 @@ namespace UnitTests.BusinessLogic.Services
 			this._Service = new Mock<CardService>(this._Uow.Object);
 			this._cardRepositoryMock = new Mock<IRepository<Card>>();
 
-			this._cardList = new List<Card> 
+			this._cardList = new List<Card>
 			{
-				new Card 
+				new Card
 				{
 					ID = 1,
 					Name = "Bam!"
@@ -39,7 +39,7 @@ namespace UnitTests.BusinessLogic.Services
 					ID = 3,
 					Name = "Kapow"
 				},
-				new Card 
+				new Card
 				{
 					ID = 4,
 					Name = "Thud"

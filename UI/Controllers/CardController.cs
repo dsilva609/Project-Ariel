@@ -20,6 +20,7 @@ namespace UI.Controllers
 		}
 
 		#region HttpGet
+
 		[HttpGet]
 		public virtual ActionResult Index()
 		{
@@ -74,6 +75,7 @@ namespace UI.Controllers
 
 			return View(card);
 		}
+
 		[Authorize(Roles = "Admin")]
 		[HttpGet]
 		public virtual ActionResult Delete(int ID)
@@ -96,13 +98,14 @@ namespace UI.Controllers
 			return RedirectToAction(MVC.Player.Index());
 		}
 
-		#endregion
+		#endregion HttpGet
 
 		[Authorize(Roles = "Admin")]
+
 		#region HttpPost
 
 		// POST: Card/Edit/5
-		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for
 		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -123,7 +126,7 @@ namespace UI.Controllers
 			return View(card);
 		}
 
-		#endregion
+		#endregion HttpPost
 
 		[NonAction]
 		protected override void Dispose(bool disposing)

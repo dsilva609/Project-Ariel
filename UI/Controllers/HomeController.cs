@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 
-namespace UI.Controllers {
+namespace UI.Controllers
+{
 	public partial class HomeController : Controller
 	{
 		[HttpGet]

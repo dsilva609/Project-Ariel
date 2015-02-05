@@ -6,7 +6,9 @@ namespace BusinessLogic.Models
 	{
 		[Required]
 		public string Name { get; set; }
+
 		public int ID { get; set; }
+
 		[Display(Name = "Active")]
 		public bool IsActive { get; set; }
 	}

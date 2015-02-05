@@ -59,7 +59,6 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 			this._cardRepositoryMock.Verify(m => m.Edit(It.Is<Card>(c => c.Name == "Indians!")));
 		}
 
-
 		[TestMethod]
 		public void TestThatPlayerNameIsChanged()
 		{

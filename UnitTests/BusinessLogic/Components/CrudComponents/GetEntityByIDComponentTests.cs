@@ -47,7 +47,7 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		[TestMethod]
 		public void TestThatCardOfMatchingIDIsReturned()
 		{
-			//--Arrange	
+			//--Arrange
 			this._cardRepositoryMock.Setup(m => m.GetByID(1)).Returns(this._card);
 			this._cardRepo = this._cardRepositoryMock.Object;
 
@@ -58,11 +58,10 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 			Assert.AreEqual(1, result.ID);
 		}
 
-
 		[TestMethod]
 		public void TestThatPlayerOfMatchingIDIsReturned()
 		{
-			//--Arrange	
+			//--Arrange
 			this._playerRepositoryMock.Setup(m => m.GetByID(1)).Returns(this._player);
 			this._playerRepo = this._playerRepositoryMock.Object;
 

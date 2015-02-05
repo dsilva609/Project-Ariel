@@ -54,7 +54,6 @@
     };
 
     return Index;
-
   })();
 
   $(function() {
@@ -62,7 +61,6 @@
     index = new Views.Card.Index;
     return index.init();
   });
-
 }).call(this);
 
 //# sourceMappingURL=CardIndex.js.map

@@ -33,7 +33,7 @@ namespace UnitTests.BusinessLogic.Services
 				{
 					ID = 2,
 					Name = "Neesons"
-				},		
+				},
 				new Player
 				{
 					ID = 3,

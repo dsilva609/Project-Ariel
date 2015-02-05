@@ -1,4 +1,4 @@
-/* 
+/*
 Script: Namespace.js
 	Namespace utility
 
@@ -7,15 +7,14 @@ Copyright:
 
 License:
 	MIT-style license.
-	
+
 Version:
 	1.1
 */
 var Namespace = (function() {
-
 	var _listeners = {};
 	var _includedIdentifiers = [];
-	
+
 	/**
 	 * Returns an object in an array unless the object is an array
 	 *
@@ -29,7 +28,7 @@ var Namespace = (function() {
 		}
 		return new Array(obj);
 	};
-	
+
 	/**
 	 * Creates an XMLHttpRequest object
 	 *
@@ -50,7 +49,7 @@ var Namespace = (function() {
 		}
 		return xhr;
 	};
-	
+
 	/**
 	 * Checks if an http request is successful based on its status code.
 	 * Borrowed from dojo (http://www.dojotoolkit.org).
@@ -64,7 +63,7 @@ var Namespace = (function() {
 				status == 1223 || 						// get it out of the cache
 				(!status && (location.protocol == "file:" || location.protocol == "chrome:") ); // Internet Explorer mangled the status code
 	};
-	
+
 	/**
 	 * Creates a script tag with the specified data as content
 	 *
@@ -76,7 +75,7 @@ var Namespace = (function() {
 		script.text = data;
 		document.body.appendChild(script);
 	};
-	
+
 	/**
 	 * Dispatches an event
 	 *
@@ -90,7 +89,7 @@ var Namespace = (function() {
 			_listeners[eventName][i](properties);
 		}
 	};
-	
+
 	/**
 	 * Creates an Object following the specified namespace identifier.
 	 *
@@ -102,7 +101,7 @@ var Namespace = (function() {
 	var _namespace = function(identifier) {
 		var klasses = arguments[1] || false;
 		var ns = window;
-		
+
 		if (identifier != '') {
 			var parts = identifier.split(Namespace.separator);
 			for (var i = 0, j = parts.length; i < j; i++) {
@@ -112,17 +111,17 @@ var Namespace = (function() {
 				ns = ns[parts[i]];
 			}
 		}
-		
+
 		if (klasses) {
 			for (var klass in klasses) {
 				ns[klass] = klasses[klass];
 			}
 		}
-		
+
 		_dispatchEvent('create', { 'identifier': identifier });
 		return ns;
 	};
-	
+
 	/**
 	 * Checks if the specified identifier is defined
 	 *
@@ -132,7 +131,7 @@ var Namespace = (function() {
 	 */
 	_namespace.exist = function(identifier) {
 		if (identifier == '') return true;
-		
+
 		var parts = identifier.split(Namespace.separator);
 		var ns = window;
 		for (var i = 0, j = parts.length; i < j; i++) {
@@ -141,10 +140,10 @@ var Namespace = (function() {
 			}
 			ns = ns[parts[i]];
 		}
-		
+
 		return true;
 	};
-	
+
 	/**
 	 * Maps an identifier to a uri. Is public so it can be overriden by custom scripts.
 	 *
@@ -156,7 +155,7 @@ var Namespace = (function() {
 		var regexp = new RegExp('\\' + Namespace.separator, 'g');
 		return Namespace.baseUri + identifier.replace(regexp, '/') + '.js';
 	};
-	
+
 	/**
 	 * Loads a remote script atfer mapping the identifier to an uri
 	 *
@@ -171,7 +170,7 @@ var Namespace = (function() {
 		var async = successCallback != false;
 		var uri = _namespace.mapIdentifierToUri(identifier);
 		var event = { 'identifier': identifier, 'uri': uri, 'async': async, 'callback': successCallback };
-		
+
 		var xhr = _createXmlHttpRequest();
 		xhr.open("GET", uri, async);
 
@@ -190,9 +189,9 @@ var Namespace = (function() {
 				}
 			};
 		}
-		
+
 		xhr.send(null);
-		
+
 		if (!async) {
 			if (_isHttpRequestSuccessful(xhr.status || 0)) {
 				_createScript(xhr.responseText);
@@ -204,7 +203,7 @@ var Namespace = (function() {
 			return false;
 		}
 	};
-	
+
 	/**
 	 * Includes a remote javascript file identified by the specified namespace string. The identifier
 	 * must point to a class. Separators in the string will be converted to slashes and the .js extension will be appended.
@@ -216,13 +215,13 @@ var Namespace = (function() {
 	_namespace.include = function(identifier) {
 		var successCallback = arguments[1] || false;
 		var errorCallback = arguments[2] || false;
-		
+
 		// checks if the identifier is not already included
 		if (_includedIdentifiers[identifier]) {
 			successCallback && successCallback();
 			return true;
 		}
-		
+
 		if (successCallback) {
 			_loadScript(identifier, function() {
 				_includedIdentifiers[identifier] = true;
@@ -236,14 +235,14 @@ var Namespace = (function() {
 			return false;
 		}
 	};
-	
+
 	/**
 	 * Imports properties from the specified namespace to the global space (ie. under window)
 	 *
-	 * The identifier string can contain the * wildcard character as its last segment (eg: com.test.*) 
+	 * The identifier string can contain the * wildcard character as its last segment (eg: com.test.*)
 	 * which will import all properties from the namespace.
-	 * 
-	 * If not, the targeted namespace will be imported (ie. if com.test is imported, the test object 
+	 *
+	 * If not, the targeted namespace will be imported (ie. if com.test is imported, the test object
 	 * will now be global). If the targeted object is not found, it will be included using include().
 	 *
 	 * @public
@@ -256,14 +255,14 @@ var Namespace = (function() {
 		var callback 			= arguments[1] || false;
 		var autoInclude 		= arguments.length > 2 ? arguments[2] : Namespace.autoInclude;
 		var event				= { 'identifier': identifier };
-		
+
 		for (var i = 0, j = identifiers.length; i < j; i++) {
 			identifier = identifiers[i];
-		
+
 			var parts = identifier.split(Namespace.separator);
 			var target = parts.pop();
 			var ns = _namespace(parts.join(Namespace.separator));
-		
+
 			if (target == '*') {
 				// imports all objects from the identifier, can't use include() in that case
 				for (var objectName in ns) {
@@ -281,7 +280,7 @@ var Namespace = (function() {
 						if (callback) {
 							_namespace.include(identifier, function() {
 								window[target] = ns[target];
-							
+
 								if (i + 1 < identifiers.length) {
 									// we continue to unpack the rest from here
 									_namespace.unpack(identifiers.slice(i + 1), callback, autoInclude);
@@ -299,14 +298,13 @@ var Namespace = (function() {
 					}
 				}
 			}
-		
 		}
-		
+
 		// all identifiers have been unpacked
 		_dispatchEvent('use', event);
 		callback && callback();
 	};
-	
+
 	/**
 	 * Binds the include() and unpack() method to a specified identifier
 	 *
@@ -336,7 +334,7 @@ var Namespace = (function() {
 				if (_identifier.charAt(0) == '.') {
 					_identifier = identifier + _identifier;
 				}
-				
+
 				if (callback) {
 					_namespace.include(identifier, function() {
 						_namespace.use(_identifier, callback, false);
@@ -348,7 +346,7 @@ var Namespace = (function() {
 			}
 		};
 	};
-	
+
 	/**
 	 * Registers a namespace so it won't be included
 	 *
@@ -358,7 +356,7 @@ var Namespace = (function() {
 	 */
 	_namespace.provide = function(identifier) {
 		var identifiers = _toArray(identifier);
-		
+
 		for (var i = 0, j = identifiers.length; i < j; i++) {
 			if (!(identifier in _includedIdentifiers)) {
 				_dispatchEvent('provide', { 'identifier': identifier });
@@ -366,7 +364,7 @@ var Namespace = (function() {
 			}
 		}
 	};
-	
+
 	/**
 	 * Registers a function to be called when the specified event is dispatched
 	 *
@@ -377,7 +375,7 @@ var Namespace = (function() {
 		if (!_listeners[eventName]) _listeners[eventName] = [];
 		_listeners[eventName].push(callback);
 	};
-	
+
 	/**
 	 * Unregisters an event listener
 	 *
@@ -393,7 +391,7 @@ var Namespace = (function() {
 			}
 		}
 	};
-	
+
 	/**
 	 * Adds methods to javascript native's object
 	 * Inspired by http://thinkweb2.com/projects/prototype/namespacing-made-easy/
@@ -406,7 +404,7 @@ var Namespace = (function() {
 		 */
 		String.prototype.namespace = function() {
 			var klasses = arguments[0] || {};
-			return _namespace(this.valueOf(), klasses); 
+			return _namespace(this.valueOf(), klasses);
 		};
 		/**
 		 * @see Namespace.include()
@@ -469,10 +467,9 @@ Namespace.separator = '.';
 Namespace.baseUri = './';
 
 /**
- * Whether to automatically call Namespace.include() when Namespace.import() 
+ * Whether to automatically call Namespace.include() when Namespace.import()
  * does not find the targeted object.
  *
  * @var Boolean
  */
 Namespace.autoInclude = true;
-	

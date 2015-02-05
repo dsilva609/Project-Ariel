@@ -40,7 +40,6 @@
     };
 
     return Index;
-
   })();
 
   $(document).ready(function() {
@@ -48,7 +47,6 @@
     index = new Views.Game.Index;
     return index.init();
   });
-
 }).call(this);
 
 //# sourceMappingURL=GameIndex.js.map

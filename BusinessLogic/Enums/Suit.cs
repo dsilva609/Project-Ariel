@@ -6,6 +6,7 @@ namespace BusinessLogic.Enums
 	{
 		[Display(Name = "-Select Suit-")]
 		Default,
+
 		Heart,
 		Diamond,
 		Club,

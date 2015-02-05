@@ -51,7 +51,6 @@
     };
 
     return Edit;
-
   })();
 
   $(function() {
@@ -59,7 +58,6 @@
     edit = new Views.Card.Edit;
     return edit.init();
   });
-
 }).call(this);
 
 //# sourceMappingURL=EditCard.js.map

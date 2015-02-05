@@ -23,7 +23,6 @@ namespace UI.Controllers
 			UserManager = userManager;
 		}
 
-
 		public ApplicationUserManager UserManager
 		{
 			get
@@ -35,7 +34,9 @@ namespace UI.Controllers
 				this._userManager = value;
 			}
 		}
+
 		#region HttpGet
+
 		[HttpGet]
 		public virtual async Task<ActionResult> Index(ManageMessageId? message)
 		{
@@ -142,9 +143,11 @@ namespace UI.Controllers
 			var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
 			return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
 		}
-		#endregion
+
+		#endregion HttpGet
 
 		#region HttpPost
+
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public virtual async Task<ActionResult> RemoveLogin(string loginProvider, string providerKey)
@@ -290,9 +293,11 @@ namespace UI.Controllers
 			// Request a redirect to the external login provider to link a login for the current user
 			return new AccountController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserId());
 		}
-		#endregion
+
+		#endregion HttpPost
 
 		#region Helpers
+
 		// Used for XSRF protection when adding external logins
 		private const string XsrfKey = "XsrfId";
 
@@ -349,6 +354,6 @@ namespace UI.Controllers
 			Error
 		}
 
-		#endregion
+		#endregion Helpers
 	}
 }

@@ -36,7 +36,6 @@
     };
 
     return Logout;
-
   })();
 
   $(function() {
@@ -44,5 +43,4 @@
     logout = new Views.Shared.Logout;
     return logout.init();
   });
-
 }).call(this);

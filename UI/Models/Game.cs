@@ -5,8 +5,8 @@ namespace UI.Models
 {
 	public class Game
 	{
-		int numPlayers;
-		List<Card> Deck;
-		List<Player> Players;
+		private int numPlayers;
+		private List<Card> Deck;
+		private List<Player> Players;
 	}
 }
