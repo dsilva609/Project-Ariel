@@ -35,7 +35,7 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		}
 
 		[TestMethod]
-		public void TestThatCardOfMatchingIDIsReturned()
+		public void ThatCardOfMatchingIDIsReturned()
 		{
 			//--Arrange
 			base._cardRepositoryMock.Setup(m => m.GetByID(1)).Returns(this._card);
@@ -49,7 +49,7 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		}
 
 		[TestMethod]
-		public void TestThatPlayerOfMatchingIDIsReturned()
+		public void ThatPlayerOfMatchingIDIsReturned()
 		{
 			//--Arrange
 			base._playerRepositoryMock.Setup(m => m.GetByID(1)).Returns(this._player);

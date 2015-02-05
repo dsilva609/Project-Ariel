@@ -1,35 +1,18 @@
-﻿using BusinessLogic.Components.CrudComponents;
-using BusinessLogic.Enums;
+﻿using BusinessLogic.Enums;
 using BusinessLogic.Models;
-using BusinessLogic.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using System.Collections.Generic;
 
 namespace UnitTests.BusinessLogic.Components.CrudComponents
 {
 	[TestClass]
-	public class GetEntityListComponentTests
+	public class GetEntityListComponentTests : GetEntityListComponentTestBase
 	{
-		private IRepository<Card> _cardRepo;
-		private IRepository<Player> _playerRepo;
-		private GetEntityListComponent _getEntityListComponent;
-		private Mock<IRepository<Card>> _cardRepositoryMock;
-		private Mock<IRepository<Player>> _playerRepositoryMock;
-
-		[TestInitialize]
-		public void Setup()
-		{
-			this._getEntityListComponent = new GetEntityListComponent();
-			this._cardRepositoryMock = new Mock<IRepository<Card>>();
-			this._playerRepositoryMock = new Mock<IRepository<Player>>();
-		}
-
 		[TestMethod]
-		public void TestThatRepositoryReturnsAllCards()
+		public void ThatRepositoryReturnsAllCards()
 		{
 			//--Arrange
-			this._cardRepositoryMock.Setup(m => m.GetAll()).Returns(new List<Card>
+			base._cardRepositoryMock.Setup(m => m.GetAll()).Returns(new List<Card>
 			{
 				new Card
 				{
@@ -64,20 +47,20 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 					IsActive = true
 				}
 			});
-			this._cardRepo = this._cardRepositoryMock.Object;
+			base._cardRepo = base._cardRepositoryMock.Object;
 
 			//--Act
-			var result = this._getEntityListComponent.Execute(this._cardRepo);
+			var result = base._getEntityListComponent.Execute(base._cardRepo);
 
 			//--Assert
 			Assert.AreEqual(3, result.Count);
 		}
 
 		[TestMethod]
-		public void TestThatRepositoryReturnsAllPlayers()
+		public void ThatRepositoryReturnsAllPlayers()
 		{
 			//--Arrange
-			this._playerRepositoryMock.Setup(m => m.GetAll()).Returns(new List<Player> {
+			base._playerRepositoryMock.Setup(m => m.GetAll()).Returns(new List<Player> {
 				new Player
 				{
 					ID = 1,
@@ -99,10 +82,10 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 					IsActive = true
 				}
 			});
-			this._playerRepo = this._playerRepositoryMock.Object;
+			base._playerRepo = base._playerRepositoryMock.Object;
 
 			//--Act
-			var result = this._getEntityListComponent.Execute(this._playerRepo);
+			var result = base._getEntityListComponent.Execute(base._playerRepo);
 
 			//--Assert
 			Assert.AreEqual(3, result.Count);
