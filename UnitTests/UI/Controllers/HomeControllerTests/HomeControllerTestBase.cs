@@ -1,8 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using NUnit.Framework;
 using UI.Controllers;
-
 
 namespace UnitTests.UI.Controllers.HomeControllerTests
 {
@@ -11,8 +9,8 @@ namespace UnitTests.UI.Controllers.HomeControllerTests
 	{
 		protected Mock<HomeController> homeControllerMock;
 
-		[SetUp]
-		public virtual void Setup()
+		[TestInitialize]
+		public void Setup()
 		{
 			homeControllerMock = new Mock<HomeController>();
 		}

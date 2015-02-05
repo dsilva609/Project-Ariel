@@ -94,6 +94,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BusinessLogic\Components\CrudComponents\AddEntityComponentTests.cs" />
+    <Compile Include="BusinessLogic\Components\CrudComponents\AddEntityComponentTestBase.cs" />
     <Compile Include="BusinessLogic\Components\CrudComponents\DeleteEntityComponentTests.cs" />
     <Compile Include="BusinessLogic\Components\CrudComponents\EditEntityComponentTests.cs" />
     <Compile Include="BusinessLogic\Components\CrudComponents\GetEntityByIDComponentTests.cs" />

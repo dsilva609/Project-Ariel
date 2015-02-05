@@ -1,29 +1,20 @@
-﻿using BusinessLogic.Components.CrudComponents;
-using BusinessLogic.Enums;
+﻿using BusinessLogic.Enums;
 using BusinessLogic.Models;
-using BusinessLogic.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
 namespace UnitTests.BusinessLogic.Components.CrudComponents
 {
 	[TestClass]
-	public class AddEntityComponentTests
+	public class AddEntityComponentTests : AddEntityComponentTestBase
 	{
-		private IRepository<Card> _cardRepo;
-		private IRepository<Player> _playerRepo;
-		private AddEntityComponent _addEntityComponent;
-		private Mock<IRepository<Card>> _cardRepositoryMock;
-		private Mock<IRepository<Player>> _playerRepositoryMock;
-		private Card _card;
-		private Player _player;
+		protected Card _card;
+		protected Player _player;
 
 		[TestInitialize]
-		public void Setup()
+		public override void Setup()
 		{
-			this._addEntityComponent = new AddEntityComponent();
-			this._cardRepositoryMock = new Mock<IRepository<Card>>();
-			this._playerRepositoryMock = new Mock<IRepository<Player>>();
+			base.Setup();
 
 			this._card = new Card
 			{
@@ -45,31 +36,32 @@ namespace UnitTests.BusinessLogic.Components.CrudComponents
 		}
 
 		[TestMethod]
-		public void TestThatANewCardIsAddedToTheRepository()
+		public void ThatANewCardIsAddedToTheRepository()
 		{
 			//--Arrange
-			this._cardRepositoryMock.Setup(m => m.Add(this._card));
-			this._cardRepo = this._cardRepositoryMock.Object;
+			base.Setup();
+			base._cardRepositoryMock.Setup(m => m.Add(this._card));
+			base._cardRepo = base._cardRepositoryMock.Object;
 
 			//--Act
-			this._addEntityComponent.Execute(this._cardRepo, this._card);
+			base._addEntityComponent.Execute(base._cardRepo, this._card);
 
 			//--Assert
-			this._cardRepositoryMock.Verify(m => m.Add(It.Is<Card>(c => c.ID == this._card.ID && c.Name == this._card.Name && c.IsActive == this._card.IsActive)));
+			base._cardRepositoryMock.Verify(m => m.Add(It.Is<Card>(c => c.ID == this._card.ID && c.Name == this._card.Name && c.IsActive == this._card.IsActive)));
 		}
 
 		[TestMethod]
-		public void TestThatNewPlayerIsAddedToTheRepository()
+		public void ThatNewPlayerIsAddedToTheRepository()
 		{
 			//--Arrange
-			this._playerRepositoryMock.Setup(m => m.Add(this._player));
-			this._playerRepo = this._playerRepositoryMock.Object;
+			base._playerRepositoryMock.Setup(m => m.Add(this._player));
+			base._playerRepo = base._playerRepositoryMock.Object;
 
 			//--Act
-			this._addEntityComponent.Execute(this._playerRepo, this._player);
+			base._addEntityComponent.Execute(base._playerRepo, this._player);
 
 			//--Assert
-			this._playerRepositoryMock.Verify(m => m.Add(It.Is<Player>(p => p.ID == this._player.ID && p.Name == this._player.Name && p.IsActive == this._player.IsActive)));
+			base._playerRepositoryMock.Verify(m => m.Add(It.Is<Player>(p => p.ID == this._player.ID && p.Name == this._player.Name && p.IsActive == this._player.IsActive)));
 		}
 	}
 }
