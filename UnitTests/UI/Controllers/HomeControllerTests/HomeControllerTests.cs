@@ -10,7 +10,6 @@ namespace UnitTests.UI.Controllers.HomeControllerTests
 		public void ThatIndexActionReturnsAView()
 		{
 			//--Arrange
-			base.Setup();
 			base.homeControllerMock.Setup(mock => mock.Index()).Returns(new ViewResult { ViewName = MVC.Home.Views.Index });
 
 			//--Act
@@ -24,7 +23,6 @@ namespace UnitTests.UI.Controllers.HomeControllerTests
 		public void ThatAboutActionReturnsAView()
 		{
 			//--Arrange
-			base.Setup();
 			base.homeControllerMock.Setup(mock => mock.About()).Returns(new ViewResult { ViewName = MVC.Home.Views.About });
 
 			//--Act
@@ -38,7 +36,6 @@ namespace UnitTests.UI.Controllers.HomeControllerTests
 		public void ThatContactActionReturnsAView()
 		{
 			// Arrange
-			base.Setup();
 			base.homeControllerMock.Setup(mock => mock.Contact()).Returns(new ViewResult { ViewName = MVC.Home.Views.Contact });
 
 			//--Act

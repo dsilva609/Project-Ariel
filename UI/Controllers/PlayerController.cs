@@ -97,10 +97,9 @@ namespace UI.Controllers
 
 		#endregion HttpGet
 
-		[Authorize(Roles = "Admin")]
-
 		#region HttpPost
 
+		[Authorize(Roles = "Admin")]
 		// To protect from overposting attacks, please enable the specific properties you want to bind to, for
 		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
@@ -124,6 +123,8 @@ namespace UI.Controllers
 
 		#endregion HttpPost
 
+		#region Helpers
+
 		[NonAction]
 		protected override void Dispose(bool disposing)
 		{
@@ -134,4 +135,6 @@ namespace UI.Controllers
 			base.Dispose(disposing);
 		}
 	}
+
+		#endregion Helpers
 }
