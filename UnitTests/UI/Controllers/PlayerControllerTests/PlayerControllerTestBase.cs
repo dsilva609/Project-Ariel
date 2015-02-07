@@ -9,11 +9,13 @@ namespace UnitTests.UI.Controllers.PlayerControllerTests
 	public class PlayerControllerTestBase
 	{
 		protected Mock<PlayerController> _playerController;
+		protected ControllerTestBase _controllerTestBase;
 
 		[TestInitialize]
 		public virtual void Setup()
 		{
 			this._playerController = new Mock<PlayerController>();
+			this._controllerTestBase = new ControllerTestBase();
 		}
 	}
 }

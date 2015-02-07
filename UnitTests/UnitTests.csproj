@@ -112,6 +112,7 @@
     <Compile Include="BusinessLogic\Services\PlayerServiceTestBase.cs" />
     <Compile Include="BusinessLogic\Services\PlayerServiceTests.cs" />
     <Compile Include="BusinessLogic\Services\CardServiceTests.cs" />
+    <Compile Include="UI\Controllers\ControllerTestBase.cs" />
     <Compile Include="UI\Controllers\HomeControllerTests\HomeControllerTestBase.cs" />
     <Compile Include="UI\Controllers\HomeControllerTests\HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
