@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System.Security.Principal;
 using UI.Controllers;
 
 namespace UnitTests.UI.Controllers.PlayerControllerTests
