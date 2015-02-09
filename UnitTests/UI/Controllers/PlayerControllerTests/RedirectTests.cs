@@ -4,7 +4,7 @@ using System.Web.Mvc;
 namespace UnitTests.UI.Controllers.PlayerControllerTests
 {
 	[TestClass]
-	public class PlayerControllerRedirectTests : PlayerControllerTestBase
+	public class RedirectTests : PlayerControllerTestBase
 	{
 		[TestMethod]
 		public void ThatRedirectWhenUserIsAdminRedirectsToEditPage()

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 namespace UnitTests.UI.Controllers.PlayerControllerTests
 {
 	[TestClass]
-	public class PlayerControllerIndexTests : PlayerControllerTestBase
+	public class IndexTests : PlayerControllerTestBase
 	{
 		private readonly List<Player> _expectedIndexViewModel = new List<Player>();
 
