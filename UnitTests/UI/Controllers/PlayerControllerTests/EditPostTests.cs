@@ -18,7 +18,7 @@ namespace UnitTests.UI.Controllers.PlayerControllerTests
 			this._editViewModel = new PlayerViewModel
 			{
 				Name = "Liam Neeson",
-				ID = 1,
+				ID = 0,
 			};
 		}
 
