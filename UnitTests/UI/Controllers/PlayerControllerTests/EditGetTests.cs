@@ -7,7 +7,7 @@ using UI.Models;
 namespace UnitTests.UI.Controllers.PlayerControllerTests
 {
 	[TestClass]
-	public class EditTests : PlayerControllerTestBase
+	public class EditGetTests : PlayerControllerTestBase
 	{
 		private string _PLAYER_CREATE_MESSAGE = "Create Player";
 		private string _PLAYER_EDIT_MESSAGE = "Edit Player: ";
