@@ -120,6 +120,7 @@
     <Compile Include="UI\Controllers\PlayerControllerTests\DeleteTests.cs" />
     <Compile Include="UI\Controllers\PlayerControllerTests\DetailsTests.cs" />
     <Compile Include="UI\Controllers\PlayerControllerTests\EditGetTests.cs" />
+    <Compile Include="UI\Controllers\PlayerControllerTests\EditPostTests.cs" />
     <Compile Include="UI\Controllers\PlayerControllerTests\RedirectTests.cs" />
     <Compile Include="UI\Controllers\PlayerControllerTests\PlayerControllerTestBase.cs" />
     <Compile Include="UI\Controllers\PlayerControllerTests\IndexTests.cs" />
