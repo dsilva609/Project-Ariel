@@ -1,8 +1,10 @@
-﻿using BusinessLogic.DAL;
+﻿using AutoMapper;
+using BusinessLogic.DAL;
 using BusinessLogic.Models;
 using BusinessLogic.Repositories;
 using BusinessLogic.Services;
 using System.Web.Mvc;
+using UI.Models;
 
 namespace UI.Controllers
 {
@@ -59,18 +61,20 @@ namespace UI.Controllers
 		public virtual ActionResult Edit(int? ID)
 		{
 			var player = new Player();
-			ViewBag.Title = "Create Player";
+			var playerViewModel = new PlayerViewModel();
+			playerViewModel.ViewTitle = "Create Player";
 
 			if (ID > 0)
 			{
 				player = this._Service.GetByID(ID);
-				ViewBag.Title = "Edit Player: " + player.Name;
+				Mapper.Map<Player, PlayerViewModel>(player, playerViewModel);
+				playerViewModel.ViewTitle = "Edit Player: " + player.Name;
 			}
 
 			if (player == null)
 				return HttpNotFound();
 
-			return View(player);
+			return View(playerViewModel);
 		}
 
 		[Authorize(Roles = "Admin")]
@@ -104,10 +108,14 @@ namespace UI.Controllers
 		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public virtual ActionResult Edit([Bind(Include = "ID,Name,IsActive")] Player player, int ID)
+		public virtual ActionResult Edit([Bind(Include = "ID,Name,IsActive")] PlayerViewModel playerViewModel, int ID)
 		{
 			if (ModelState.IsValid)
 			{
+				var player = new Player();
+
+				Mapper.Map<PlayerViewModel, Player>(playerViewModel, player);
+
 				if (ID == 0)
 				{
 					player.IsActive = true;
@@ -118,7 +126,7 @@ namespace UI.Controllers
 
 				return RedirectToAction(MVC.Player.Index());
 			}
-			return View(player);
+			return View(playerViewModel);
 		}
 
 		#endregion HttpPost

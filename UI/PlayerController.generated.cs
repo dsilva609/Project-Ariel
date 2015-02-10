@@ -145,7 +145,7 @@ namespace UI.Controllers
         public class ActionParamsClass_Edit
         {
             public readonly string ID = "ID";
-            public readonly string player = "player";
+            public readonly string playerViewModel = "playerViewModel";
         }
         static readonly ActionParamsClass_Delete s_params_Delete = new ActionParamsClass_Delete();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -271,15 +271,15 @@ namespace UI.Controllers
         }
 
         [NonAction]
-        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, BusinessLogic.Models.Player player, int ID);
+        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.PlayerViewModel playerViewModel, int ID);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Edit(BusinessLogic.Models.Player player, int ID)
+        public override System.Web.Mvc.ActionResult Edit(UI.Models.PlayerViewModel playerViewModel, int ID)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Edit);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "player", player);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "playerViewModel", playerViewModel);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
-            EditOverride(callInfo, player, ID);
+            EditOverride(callInfo, playerViewModel, ID);
             return callInfo;
         }
 

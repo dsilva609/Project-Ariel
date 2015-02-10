@@ -1,28 +1,33 @@
-﻿using BusinessLogic.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Web.Mvc;
+using UI.Models;
 
 namespace UnitTests.UI.Controllers.PlayerControllerTests
 {
 	[TestClass]
 	public class EditTests : PlayerControllerTestBase
 	{
-		private Player _expectedEditPlayerModel;
-		private Player _expectedDefaultPlayerModel;
+		private string _PLAYER_CREATE_MESSAGE = "Create Player";
+		private string _PLAYER_EDIT_MESSAGE = "Edit Player: ";
+		private PlayerViewModel _expectedEditPlayerModel;
+		private PlayerViewModel _expectedDefaultPlayerModel;
 
 		[TestInitialize]
 		public override void Setup()
 		{
 			base.Setup();
 
-			this._expectedEditPlayerModel = new Player
+			this._expectedEditPlayerModel = new PlayerViewModel
 			{
 				ID = 1,
-				Name = "Smitty Werbenjagermanjensen"
+				Name = "Smitty Werbenjagermanjensen",
+				ViewTitle = this._PLAYER_EDIT_MESSAGE
 			};
 
-			this._expectedDefaultPlayerModel = new Player();
+			this._PLAYER_EDIT_MESSAGE += this._expectedEditPlayerModel.Name;
+
+			this._expectedDefaultPlayerModel = new PlayerViewModel { ViewTitle = this._PLAYER_CREATE_MESSAGE };
 		}
 
 		[TestMethod]
@@ -55,13 +60,27 @@ namespace UnitTests.UI.Controllers.PlayerControllerTests
 		public void ThatSpecifiedPopulatedViewModelIsSentToView()
 		{
 			//--Arrange
-			base._playerController.Setup(mock => mock.Edit(It.IsAny<int>())).Returns(new ViewResult { ViewData = new ViewDataDictionary(this._expectedEditPlayerModel) });
+			base._playerController.Setup(mock => mock.Edit(It.IsAny<int>())).Returns(new ViewResult { ViewData = new ViewDataDictionary(this._expectedDefaultPlayerModel) });
 
 			//--Act
 			var result = base._playerController.Object.Edit(1) as ViewResult;
 
 			//--Assert
 			Assert.AreEqual(this._expectedEditPlayerModel, result.ViewData.Model);
+		}
+
+		[TestMethod]
+		public void ThatWhenIDIsLessThanOrEqualToZeroViewBagTitleIsCreate()
+		{
+			//--Arrange
+			base._playerController.Setup(mock => mock.Edit(0)).Returns(new ViewResult { ViewData = new ViewDataDictionary(this._expectedDefaultPlayerModel) });
+
+			//--Act
+			var result = base._playerController.Object.Edit(0) as ViewResult;
+			var viewModel = result.ViewData.Model as PlayerViewModel;
+
+			//--Assert
+			Assert.AreEqual(this._PLAYER_CREATE_MESSAGE, viewModel.ViewTitle);
 		}
 	}
 }
