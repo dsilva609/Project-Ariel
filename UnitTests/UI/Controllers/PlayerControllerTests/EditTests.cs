@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System.Net;
 using System.Web.Mvc;
 using UI.Models;
 
@@ -60,27 +61,55 @@ namespace UnitTests.UI.Controllers.PlayerControllerTests
 		public void ThatSpecifiedPopulatedViewModelIsSentToView()
 		{
 			//--Arrange
-			base._playerController.Setup(mock => mock.Edit(It.IsAny<int>())).Returns(new ViewResult { ViewData = new ViewDataDictionary(this._expectedDefaultPlayerModel) });
+			base._playerController.Setup(mock => mock.Edit(It.IsAny<int>())).Returns(new ViewResult { ViewData = new ViewDataDictionary(this._expectedEditPlayerModel) });
 
 			//--Act
 			var result = base._playerController.Object.Edit(1) as ViewResult;
+			var viewResultModel = result.ViewData.Model as PlayerViewModel;
 
 			//--Assert
-			Assert.AreEqual(this._expectedEditPlayerModel, result.ViewData.Model);
+			Assert.AreEqual(this._expectedEditPlayerModel, viewResultModel);
 		}
 
 		[TestMethod]
-		public void ThatWhenIDIsLessThanOrEqualToZeroViewBagTitleIsCreate()
+		public void ThatWhenIDIsLessThanOrEqualToZeroViewModelTitleIsCreate()
 		{
 			//--Arrange
 			base._playerController.Setup(mock => mock.Edit(0)).Returns(new ViewResult { ViewData = new ViewDataDictionary(this._expectedDefaultPlayerModel) });
 
 			//--Act
 			var result = base._playerController.Object.Edit(0) as ViewResult;
-			var viewModel = result.ViewData.Model as PlayerViewModel;
+			var viewResultModel = result.ViewData.Model as PlayerViewModel;
 
 			//--Assert
-			Assert.AreEqual(this._PLAYER_CREATE_MESSAGE, viewModel.ViewTitle);
+			Assert.AreEqual(this._PLAYER_CREATE_MESSAGE, viewResultModel.ViewTitle);
+		}
+
+		[TestMethod]
+		public void ThatWhenIDIsGreaterThanZeroViewModelTitleIsEdit()
+		{
+			//--Arrange
+			base._playerController.Setup(mock => mock.Edit(It.IsAny<int>())).Returns(new ViewResult { ViewData = new ViewDataDictionary(this._expectedEditPlayerModel) });
+
+			//--Act
+			var result = base._playerController.Object.Edit(1) as ViewResult;
+			var viewResultModel = result.ViewData.Model as PlayerViewModel;
+
+			//--Assert
+			Assert.AreEqual(this._expectedEditPlayerModel.ViewTitle, viewResultModel.ViewTitle);
+		}
+
+		[TestMethod]
+		public void ThatWhenParameterIsNullItReturnsHttpNotFoundError()
+		{
+			//--Arrange
+			base._playerController.Setup(mock => mock.Edit(null)).Returns(new HttpNotFoundResult());
+
+			//--Act
+			var result = base._playerController.Object.Edit(null) as HttpNotFoundResult;
+
+			//--Assert
+			Assert.AreEqual((int)HttpStatusCode.NotFound, result.StatusCode);
 		}
 	}
 }
