@@ -123,6 +123,7 @@
     <Compile Include="UI\Controllers\PlayerControllerTests\RedirectTests.cs" />
     <Compile Include="UI\Controllers\PlayerControllerTests\PlayerControllerTestBase.cs" />
     <Compile Include="UI\Controllers\PlayerControllerTests\IndexTests.cs" />
+    <Compile Include="UI\Controllers\PlayerControllerTests\SortPlayerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
