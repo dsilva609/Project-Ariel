@@ -9,6 +9,7 @@ namespace UnitTests.UI.Controllers.PlayerControllerTests
 	public class EditPostTests : PlayerControllerTestBase
 	{
 		private PlayerViewModel _editViewModel;
+		private Mock<ModelStateDictionary> _modelState;
 
 		[TestInitialize]
 		public override void Setup()
@@ -23,7 +24,22 @@ namespace UnitTests.UI.Controllers.PlayerControllerTests
 		}
 
 		[TestMethod]
-		public void ThatWhenIDIsZeroItRedirectsToIndexView()
+		public void ThatWhenModelStateIsNotValidItRedirectsBackToEditView()
+		{
+			//--Arrange
+			base._playerController.Setup(mock => mock.Edit(It.IsNotNull<PlayerViewModel>(), It.IsAny<int>())).Returns(new ViewResult { ViewName = MVC.Player.Views.Edit });
+			base._playerController.Object.ModelState.AddModelError("", "");
+
+			//--Act
+			var result = base._playerController.Object.Edit(this._editViewModel, this._editViewModel.ID) as ViewResult;
+
+			//--Assert
+			Assert.IsTrue(!base._playerController.Object.ModelState.IsValid);
+			Assert.AreEqual(MVC.Player.Views.Edit, result.ViewName);
+		}
+
+		[TestMethod]
+		public void ThatWhenModelStateIsValidItRedirectsToIndexView()
 		{
 			//--Arrange
 			base._playerController.Setup(mock => mock.Edit(It.IsNotNull<PlayerViewModel>(), It.IsAny<int>())).Returns(new ViewResult { ViewName = MVC.Player.Views.Index });
@@ -32,6 +48,7 @@ namespace UnitTests.UI.Controllers.PlayerControllerTests
 			var result = base._playerController.Object.Edit(this._editViewModel, this._editViewModel.ID) as ViewResult;
 
 			//--Assert
+			Assert.IsTrue(base._playerController.Object.ModelState.IsValid);
 			Assert.AreEqual(MVC.Player.Views.Index, result.ViewName);
 		}
 	}
