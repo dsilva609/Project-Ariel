@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System.Web.Mvc;
 using UI.Controllers;
 
 namespace UnitTests.UI.Controllers.PlayerControllerTests
@@ -9,12 +10,16 @@ namespace UnitTests.UI.Controllers.PlayerControllerTests
 	{
 		protected Mock<PlayerController> _playerController;
 		protected ControllerTestBase _controllerTestBase;
+		protected Mock<ControllerContext> context;
+		protected MockHttpSession session;
 
 		[TestInitialize]
 		public virtual void Setup()
 		{
 			this._playerController = new Mock<PlayerController>();
 			this._controllerTestBase = new ControllerTestBase();
+
+			this._playerController.Object.ControllerContext = this._controllerTestBase.SetupSession().Object;
 		}
 	}
 }
