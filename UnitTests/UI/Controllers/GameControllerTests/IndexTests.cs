@@ -15,7 +15,7 @@ namespace UnitTests.UI.Controllers.GameControllerTests
 		{
 			base.Setup();
 
-			base._gameController.Setup(x => x.Index()).Returns(new ViewResult { ViewName = MVC.Game.Views.Index, ViewData = new ViewDataDictionary(this._expectedViewModel) });
+			base._gameController.Setup(mock => mock.Index()).Returns(new ViewResult { ViewName = MVC.Game.Views.Index, ViewData = new ViewDataDictionary(this._expectedViewModel) });
 		}
 
 		[TestMethod]
