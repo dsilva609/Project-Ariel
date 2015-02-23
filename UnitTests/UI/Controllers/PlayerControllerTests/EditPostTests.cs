@@ -9,7 +9,6 @@ namespace UnitTests.UI.Controllers.PlayerControllerTests
 	public class EditPostTests : PlayerControllerTestBase
 	{
 		private PlayerViewModel _editViewModel;
-		private Mock<ModelStateDictionary> _modelState;
 
 		[TestInitialize]
 		public override void Setup()
