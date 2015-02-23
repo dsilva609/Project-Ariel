@@ -10,8 +10,8 @@ namespace UnitTests.UI.Controllers.PlayerControllerTests
 	{
 		protected Mock<PlayerController> _playerController;
 		protected ControllerTestBase _controllerTestBase;
-		protected Mock<ControllerContext> context;
-		protected MockHttpSession session;
+		//protected Mock<ControllerContext> _context;
+		//protected MockHttpSession _session;
 
 		[TestInitialize]
 		public virtual void Setup()
