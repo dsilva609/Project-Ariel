@@ -79,7 +79,7 @@ namespace UI.Controllers
 				return HttpNotFound();
 			}
 
-			return View(card);
+			return View(cardViewModel);
 		}
 
 		[Authorize(Roles = "Admin")]
