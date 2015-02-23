@@ -9,8 +9,6 @@ namespace UnitTests.UI.Controllers.CardControllerTests
 	{
 		protected Mock<CardController> _cardController;
 		protected ControllerTestBase _controllerTestBase;
-		//protected Mock<ControllerContext> _context;
-		//protected MockHttpSession _session;
 
 		[TestInitialize]
 		public virtual void Setup()
