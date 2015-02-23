@@ -145,7 +145,7 @@ namespace UI.Controllers
         public class ActionParamsClass_Edit
         {
             public readonly string ID = "ID";
-            public readonly string card = "card";
+            public readonly string cardViewModel = "cardViewModel";
         }
         static readonly ActionParamsClass_Delete s_params_Delete = new ActionParamsClass_Delete();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -271,15 +271,15 @@ namespace UI.Controllers
         }
 
         [NonAction]
-        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, BusinessLogic.Models.Card card, int ID);
+        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, UI.Models.CardViewModel cardViewModel, int ID);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Edit(BusinessLogic.Models.Card card, int ID)
+        public override System.Web.Mvc.ActionResult Edit(UI.Models.CardViewModel cardViewModel, int ID)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Edit);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "card", card);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "cardViewModel", cardViewModel);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "ID", ID);
-            EditOverride(callInfo, card, ID);
+            EditOverride(callInfo, cardViewModel, ID);
             return callInfo;
         }
 

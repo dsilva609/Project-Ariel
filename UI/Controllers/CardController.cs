@@ -1,8 +1,10 @@
-﻿using BusinessLogic.DAL;
+﻿using AutoMapper;
+using BusinessLogic.DAL;
 using BusinessLogic.Models;
 using BusinessLogic.Repositories;
 using BusinessLogic.Services;
 using System.Web.Mvc;
+using UI.Models;
 
 namespace UI.Controllers
 {
@@ -60,12 +62,16 @@ namespace UI.Controllers
 		public virtual ActionResult Edit(int? ID)
 		{
 			var card = new Card();
-			ViewBag.Title = "Create New Card";
+			var cardViewModel = new CardViewModel();
+			cardViewModel.ViewTitle = "Create New Card";
+			//ViewBag.Title = "Create New Card";
 
 			if (ID > 0)
 			{
 				card = this._Service.GetByID(ID);
-				ViewBag.Title = "Edit Card: " + card.Name;
+				Mapper.Map<Card, CardViewModel>(card, cardViewModel);
+				cardViewModel.ViewTitle = "Edit Card: " + card.Name;
+				//ViewBag.Title = "Edit Card: " + card.Name;
 			}
 
 			if (card == null)
@@ -109,13 +115,16 @@ namespace UI.Controllers
 		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public virtual ActionResult Edit([Bind(Include = "ID,Name,Description,Expansion,Action,Range,Cardtype,Suit,Rank,ImageLocation,IsActive")] Card card, int ID)
+		public virtual ActionResult Edit([Bind(Include = "ID,Name,Description,Expansion,Action,Range,Cardtype,Suit,Rank,ImageLocation,IsActive")] CardViewModel cardViewModel, int ID)
 		{
 			if (ModelState.IsValid)
 			{
+				var card = new Card();
+
+				Mapper.Map<CardViewModel, Card>(cardViewModel, card);
 				if (ID == 0)
 				{
-					card.IsActive = true;
+					cardViewModel.IsActive = true;
 					this._Service.Add(card);
 				}
 				this._Service.ConvertEnums(card);
@@ -123,7 +132,7 @@ namespace UI.Controllers
 
 				return RedirectToAction(MVC.Card.Index());
 			}
-			return View(card);
+			return View(cardViewModel);
 		}
 
 		#endregion HttpPost

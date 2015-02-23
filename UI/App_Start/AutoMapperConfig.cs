@@ -1,4 +1,5 @@
-﻿using BusinessLogic.Models;
+﻿using AutoMapper;
+using BusinessLogic.Models;
 using UI.Models;
 
 namespace UI.App_Start
@@ -7,8 +8,11 @@ namespace UI.App_Start
 	{
 		public static void RegisterMappings()
 		{
-			AutoMapper.Mapper.CreateMap<PlayerViewModel, Player>();
-			AutoMapper.Mapper.CreateMap<Player, PlayerViewModel>();
+			Mapper.CreateMap<PlayerViewModel, Player>();
+			Mapper.CreateMap<Player, PlayerViewModel>();
+
+			Mapper.CreateMap<CardViewModel, Card>();
+			Mapper.CreateMap<Card, CardViewModel>();
 		}
 	}
 }
