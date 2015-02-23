@@ -117,6 +117,7 @@
     <Compile Include="UI\Controllers\CardControllerTests\DeleteTests.cs" />
     <Compile Include="UI\Controllers\CardControllerTests\DetailsTests.cs" />
     <Compile Include="UI\Controllers\CardControllerTests\IndexTests.cs" />
+    <Compile Include="UI\Controllers\CardControllerTests\SortCardTests.cs" />
     <Compile Include="UI\Controllers\ControllerTestBase.cs" />
     <Compile Include="UI\Controllers\GameControllerTests\GameControllerTestBase.cs" />
     <Compile Include="UI\Controllers\GameControllerTests\IndexTests.cs" />
