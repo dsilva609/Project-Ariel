@@ -7,12 +7,12 @@ namespace UnitTests.UI.Controllers.HomeControllerTests
 	[TestClass]
 	public class HomeControllerTestBase
 	{
-		protected Mock<HomeController> homeControllerMock;
+		protected Mock<HomeController> _homeControllerMock;
 
 		[TestInitialize]
 		public void Setup()
 		{
-			homeControllerMock = new Mock<HomeController>();
+			this._homeControllerMock = new Mock<HomeController>();
 		}
 	}
 }

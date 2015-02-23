@@ -10,10 +10,10 @@ namespace UnitTests.UI.Controllers.HomeControllerTests
 		public void ThatIndexActionReturnsAView()
 		{
 			//--Arrange
-			base.homeControllerMock.Setup(mock => mock.Index()).Returns(new ViewResult { ViewName = MVC.Home.Views.Index });
+			base._homeControllerMock.Setup(mock => mock.Index()).Returns(new ViewResult { ViewName = MVC.Home.Views.Index });
 
 			//--Act
-			var result = base.homeControllerMock.Object.Index() as ViewResult;
+			var result = base._homeControllerMock.Object.Index() as ViewResult;
 
 			// Assert
 			Assert.AreEqual(MVC.Home.Views.Index, result.ViewName);
@@ -23,10 +23,10 @@ namespace UnitTests.UI.Controllers.HomeControllerTests
 		public void ThatAboutActionReturnsAView()
 		{
 			//--Arrange
-			base.homeControllerMock.Setup(mock => mock.About()).Returns(new ViewResult { ViewName = MVC.Home.Views.About });
+			base._homeControllerMock.Setup(mock => mock.About()).Returns(new ViewResult { ViewName = MVC.Home.Views.About });
 
 			//--Act
-			var result = base.homeControllerMock.Object.About() as ViewResult;
+			var result = base._homeControllerMock.Object.About() as ViewResult;
 
 			//--Assert
 			Assert.AreEqual(MVC.Home.Views.About, result.ViewName);
@@ -36,10 +36,10 @@ namespace UnitTests.UI.Controllers.HomeControllerTests
 		public void ThatContactActionReturnsAView()
 		{
 			// Arrange
-			base.homeControllerMock.Setup(mock => mock.Contact()).Returns(new ViewResult { ViewName = MVC.Home.Views.Contact });
+			base._homeControllerMock.Setup(mock => mock.Contact()).Returns(new ViewResult { ViewName = MVC.Home.Views.Contact });
 
 			//--Act
-			var result = base.homeControllerMock.Object.Contact() as ViewResult;
+			var result = base._homeControllerMock.Object.Contact() as ViewResult;
 
 			//--Assert
 			Assert.AreEqual(MVC.Home.Views.Contact, result.ViewName);
